@@ -69,4 +69,13 @@ Control+Shift+Print = select what to screenshot to clipboard
 
 ## Background (feh)
 
-choose random image in `{{XDG_WALLPAPER_HOME}}`
+choose random image in `$HOME/.local/share/wallpaper/`
+
+# INSTALL
+
+- use [yadm](https://yadm.io/)
+
+- run
+```bash
+yadm clone https://github.com/Saverio976/dotfiles.git
+```
