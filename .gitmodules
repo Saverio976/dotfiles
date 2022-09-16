@@ -13,3 +13,6 @@
 [submodule ".config/ohmyzsh-custom/plugins/zsh-history-substring-search"]
 	path = .config/ohmyzsh-custom/plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule ".config/asdf"]
+	path = .config/asdf
+	url = https://github.com/asdf-vm/asdf.git

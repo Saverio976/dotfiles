@@ -54,6 +54,9 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 # ----------------------------------------------------------------------------
 # LANGUAGES
 # ----------------------------------------------------------------------------
+# ASDF
+export ASDF_DIR="$XDG_CONFIG_HOME/asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf-conf/asdfrc"
 # RUST
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # NODEJS

@@ -79,3 +79,9 @@ choose random image in `$HOME/.local/share/wallpaper/`
 ```bash
 yadm clone https://github.com/Saverio976/dotfiles.git
 ```
+
+# Language install
+
+- use asdf
+
+[plugins availible](https://github.com/asdf-vm/asdf-plugins)
