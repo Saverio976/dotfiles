@@ -22,20 +22,21 @@ fi
 
 export LANG="en_US.UTF-8"
 export LC_LANG="en_US.UTF-8"
-export LC_MONETARY="fr_FR.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
-export LC_TIME="fr_FR.UTF-8"
-export LC_ADDRESS="fr_FR.UTF-8"
-export LC_TELEPHONE="fr_FR.UTF-8"
-export LC_MEASUREMENT="fr_FR.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_ADDRESS="en_US.UTF-8"
+export LC_TELEPHONE="en_US.UTF-8"
+export LC_MEASUREMENT="en_US.UTF-8"
 
 # ----------------------------------------------------------------------------
 # SHELL
 # ----------------------------------------------------------------------------
 # ZSH
-export ZDOTDIR="$XDG_CONFIG_HOME""/zsh"
-export HISTFILE="$XDG_STATE_HOME""/zsh/history"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export PATH="$XDG_LOCAL_BIN_HOME:$PATH"
+export ZSH_CUSTOM="$XDG_CONFIG_HOME/ohmyzsh-custom"
 # LESS
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 # WGET
