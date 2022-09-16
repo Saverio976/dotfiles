@@ -24,9 +24,17 @@ set viewdir=$XDG_STATE_HOME/vim/view     | call mkdir(&viewdir,   'p')
 
 if !has('nvim') | set viminfofile=$XDG_STATE_HOME/vim/viminfo | endif
 
+let config_dir = $XDG_CONFIG_HOME == "" ? $HOME."/.vim" : $XDG_CONFIG_HOME."/vim"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim plug
-call plug#begin('~/.vim/plugged')
+let data_dir = has('nvim') ? stdpath('data') . '/site' : config_dir
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin(data_dir . '/plugged')
 
 " folder explorer
 Plug 'preservim/nerdtree'

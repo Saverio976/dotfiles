@@ -57,40 +57,17 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 # RUST
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # NODEJS
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 if [[ $(which node) != "" ]]; then
-    if [[ $(grep "prefix" "${HOME}.npmrc" 2>/dev/null) == "" ]]; then
-	echo "prefix=${XDG_DATA_HOME}/npm" >> "$HOME/.npmrc"
-	echo "cache=${XDG_CACHE_HOME}/npm" >> "$HOME/.npmrc"
-	echo "tmp=${XDG_RUNTIME_DIR}/npm" >> "$HOME/.npmrc"
-	echo "init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js" >> "$HOME/.npmrc"
+    if [[ $(grep "prefix" "${NPM_CONFIG_USERCONFIG}" 2>/dev/null) == "" ]]; then
+    echo "prefix=${XDG_DATA_HOME}/npm" >> "${NPM_CONFIG_USERCONFIG}"
+    echo "cache=${XDG_CACHE_HOME}/npm" >> "${NPM_CONFIG_USERCONFIG}"
+    echo "tmp=${XDG_RUNTIME_DIR}/npm" >> "${NPM_CONFIG_USERCONFIG}"
+    echo "init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js" >> "${NPM_CONFIG_USERCONFIG}"
     fi
 fi
 # PYTHON
 export PYTHONSTARTUP="$(realpath $XDG_CONFIG_HOME)/python/pythonrc"
-if [[ $(which python3) != "" ]] || [[ $(python -v | grep "3.") != "" ]]; then
-    if [[ ! -f "$PYTHONSTARTUP" ]]; then
-	mkdir -p $(dirname "$PYTHONSTARTUP")
-	cat << EOF > "${PYTHONSTARTUP}"
-import os
-import atexit
-import readline
-
-history = os.path.join(os.environ['XDG_CACHE_HOME'], 'python_history')
-try:
-    readline.read_history_file(history)
-except OSError:
-    pass
-
-def write_history():
-    try:
-        readline.write_history_file(history)
-    except OSError:
-        pass
-
-atexit.register(write_history)
-EOF
-    fi
-fi
 
 # ----------------------------------------------------------------------------
 # CUDA
