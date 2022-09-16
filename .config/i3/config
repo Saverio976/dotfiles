@@ -238,10 +238,10 @@ exec --no-startup-id volumeicon
 exec_always --no-startup-id numlockx on
 
 # Conky
-exec --no-startup-id conky -c $XDG_WALLPAPER_HOME/i3/system-overview
+exec --no-startup-id conky -c $XDG_CONFIG_HOME/i3/system-overview
 
 # feh wallpaper
-exec --no-startup-id feh --bg-scale --no-fehbg --randomize $XDG_
+exec --no-startup-id feh --bg-scale --no-fehbg --randomize $XDG_WALLPAPER_HOME
 
 ################# applications keyboard shortcuts
 

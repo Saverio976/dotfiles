@@ -6,3 +6,6 @@ cd "$HOME"
 
 echo "Init submodules"
 yadm submodule update --recursive --init
+. "$HOME/.zshenv"
+envsubst '$XDG_CONFIG_HOME,$XDG_WALLPAPER_HOME' < "$XDG_CONFIG_HOME/i3/config" > /tmp/tmpi3conf
+cp /tmp/tmpi3conf "$XDG_CONFIG_HOME/i3/config"
