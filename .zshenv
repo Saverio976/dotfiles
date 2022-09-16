@@ -6,6 +6,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.local/cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_LOCAL_BIN_HOME="$HOME/.local/bin"
+export XDG_WALLPAPER_HOME="$XDG_DATA_HOME/wallpaper"
 
 if [[ ! -d "$XDG_DATA_HOME" ]]; then
     mkdir -p "$XDG_DATA_HOME"
