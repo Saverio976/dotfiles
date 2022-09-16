@@ -77,7 +77,7 @@ bindsym $mod+Shift+0 move container to workspace 10;
 ################# menu
 
 # rofi dmenu
-bindsym $mod+d exec --no-startup-id rofi -show combi -modes combi -combi-modes "window,drun,run"
+bindsym $mod+d exec --no-startup-id "rofi -show combi -modes combi -combi-modes 'window,drun,run'"
 
 ################# reload changed configuration / exit i3
 
