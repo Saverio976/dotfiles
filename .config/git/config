@@ -3,7 +3,7 @@
 	name = Xavier Mitault
 	signingkey = Xavier Mitault (Errare humanum est) <xavier.mitault@epitech.eu>
 [core]
-	editor = nvim
+	editor = vim
 [init]
 	defaultBranch = main
 #	templateDir = ~/source/SAMPLE_C_PROJECT

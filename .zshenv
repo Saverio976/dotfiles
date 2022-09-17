@@ -57,20 +57,14 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 # ASDF
 export ASDF_DIR="$XDG_CONFIG_HOME/asdf"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf-conf/asdfrc"
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 # RUST
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # NODEJS
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-if [[ $(which node) != "" ]]; then
-    if [[ $(grep "prefix" "${NPM_CONFIG_USERCONFIG}" 2>/dev/null) == "" ]]; then
-    echo "prefix=${XDG_DATA_HOME}/npm" >> "${NPM_CONFIG_USERCONFIG}"
-    echo "cache=${XDG_CACHE_HOME}/npm" >> "${NPM_CONFIG_USERCONFIG}"
-    echo "tmp=${XDG_RUNTIME_DIR}/npm" >> "${NPM_CONFIG_USERCONFIG}"
-    echo "init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js" >> "${NPM_CONFIG_USERCONFIG}"
-    fi
-fi
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 # PYTHON
-export PYTHONSTARTUP="$(realpath $XDG_CONFIG_HOME)/python/pythonrc"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 
 # ----------------------------------------------------------------------------
 # CUDA

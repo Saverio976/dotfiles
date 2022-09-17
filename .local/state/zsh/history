@@ -1,8 +1,0 @@
-: 1663354501:0;history
-: 1663354504:0;ls
-: 1663354505:0;history
-: 1663354515:175;vim .zshenv
-: 1663354707:0;echo $HISTFILE
-: 1663354731:0;mkdir .local/state/zsh/ -p
-: 1663354741:0;touch .local/state/zsh/history
-: 1663354751:0;yadm add .local/state/zsh/history

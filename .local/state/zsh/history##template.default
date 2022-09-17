@@ -1,0 +1,30 @@
+: 1663354505:0;history
+: 1663354515:175;vim .zshenv
+: 1663354751:0;yadm add .local/state/zsh/history
+: 1663354780:0;yadm status
+: 1663354793:0;yadm add .zshenv
+: 1663354842:0;yadm push
+: 1663361751:0;git clone https://github.com/asdf-vm/asdf.git ~/.config/asdf/
+: 1663361854:0;yadm submodule add https://github.com/asdf-vm/asdf.git .config/asdf
+: 1663361934:0;asdf plugin-add nodejs git@github.com:asdf-vm/asdf-nodejs.git
+: 1663361951:0;asdf install nodejs latest
+: 1663362989:0;envsubst < .config/i3/config > test.i3conf
+: 1663363224:0;./.config/yadm/bootstrap
+: 1663363406:0;systemctl restart lightdm.service
+: 1663364208:0;poweroff
+: 1663402336:0;xrandr --auto
+: 1663402374:0;xrandr --listmonitors
+: 1663402950:0;systemctl enable --now bluetooth.service
+: 1663403257:0;reboot
+: 1663403376:0;bluetoothctl scan on
+: 1663403418:0;blueman-manager
+: 1663403439:0;systemctl disable --now bluetooth-mesh.service
+: 1663404859:0;unzip sujets_sprint\ 1.zip
+: 1663418691:0;python install.py --help
+: 1663418741:0;python install.py --clangd-completer --rust-completer
+: 1663418866:0;asdf local python system
+: 1663418872:0;ls
+: 1663418882:0;python install.py --clangd-completer --rust-completer
+: 1663419438:0;git clone git@github.com:X-R-G-B/Launcher.git
+: 1663419445:0;cd Launcher
+: 1663430649:0;xdg-ninja

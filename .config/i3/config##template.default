@@ -37,7 +37,7 @@ set $keyboardmap fr
 #set $keyboardmap us
 
 # Lock
-set $locker "i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/Pictures/wallpaper.png"
+set $locker "i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i '{{ env.HOME }}/Pictures/wallpaper.png'"
 
 # TouchPad
 set $touchpadprop "ELAN0504:01 04F3:3091 Touchpad"
@@ -238,10 +238,10 @@ exec --no-startup-id volumeicon
 exec_always --no-startup-id numlockx on
 
 # Conky
-exec --no-startup-id conky -c $XDG_CONFIG_HOME/i3/system-overview
+exec --no-startup-id conky -c "{{ env.HOME }}/.config/i3/system-overview"
 
 # feh wallpaper
-exec --no-startup-id feh --bg-scale --no-fehbg --randomize $XDG_WALLPAPER_HOME
+exec --no-startup-id feh --bg-scale --no-fehbg --randomize "{{ env.HOME }}/.local/share/wallpaper"
 
 ################# applications keyboard shortcuts
 
@@ -257,9 +257,9 @@ bindsym $mod+t nop kitti3
 # thanks to https://gist.github.com/dianjuar/ee774561a8bc02b077989bc17424a19f
 
 # Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date).png"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).png"
+bindsym Print exec --no-startup-id maim "{{ env.HOME }}/Pictures/$(date).png"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "{{ env.HOME }}/Pictures/$(date).png"
+bindsym Shift+Print exec --no-startup-id maim --select "{{ env.HOME }}/Pictures/$(date).png"
 
 ## Clipboard Screenshots
 bindsym Control+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
@@ -298,7 +298,7 @@ bar {
     # mode hide
     position top
     workspace_buttons yes
-    status_command i3status -c $XDG_CONFIG_HOME/i3/i3status.conf
+    status_command i3status -c "{{ env.HOME }}/.config/i3/i3status.conf"
     i3bar_command i3bar --transparency
     font pango:FiraCode Nerd Font Mono 12
     #font pango:DejaVu Sans Mono 12
