@@ -31,3 +31,11 @@ if [[ "$CHOICE" == "Y" ]] || [[ "$CHOICE" == "y" ]] || [[ "$CHOICE" == "" ]]; th
     curl -L https://github.com/neovim/neovim/releases/download/$NVIM_VERSION/nvim.appimage -o $XDG_LOCAL_BIN_HOME/nvim
     chmod +x $XDG_LOCAL_BIN_HOME/nvim
 fi
+
+echo "Do you want zoxide (smart cd)"
+echo "downloader link: https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh"
+echo "[Y/n]"
+read CHOICE
+if [[ "$CHOICE" == "Y" ]] || [[ "$CHOICE" == "y" ]] || [[ "$CHOICE" == "" ]]; then
+    curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+fi
