@@ -106,7 +106,7 @@ Plug '907th/vim-auto-save'
 Plug 'Shougo/echodoc.vim'
 
 " auto completion general purpose
-Plug 'tabnine/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 " auto completion for dart
 Plug 'natebosch/vim-lsc', { 'for': ['dart'] }
 Plug 'natebosch/vim-lsc-dart', { 'for': ['dart'] }

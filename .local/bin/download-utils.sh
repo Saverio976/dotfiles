@@ -17,3 +17,17 @@ if [[ "$CHOICE" == "Y" ]] || [[ "$CHOICE" == "y" ]] || [[ "$CHOICE" == "" ]]; th
     curl https://raw.githubusercontent.com/AustralEpitech/.dotfiles/work/bin/dkpurge > $XDG_LOCAL_BIN_HOME/dkpurge
     chmod +x $XDG_LOCAL_BIN_HOME/dkpurge
 fi
+
+echo "Do you want neovim appimage ("'$VERSION' by default is v0.7.2 but you cant set it")"
+echo "downloader link: https://github.com/neovim/neovim/releases/download/"'$VERSION'"/nvim.appimage"
+echo "[Y/n]"
+read CHOICE
+if [[ "$CHOICE" == "Y" ]] || [[ "$CHOICE" == "y" ]] || [[ "$CHOICE" == "" ]]; then
+    echo "Which version (tag release): [v0.7.2] "
+    read NVIM_VERSION
+    if [[ "$NVIM_VERSION" == "" ]]; then
+        NVIM_VERSION="v0.7.2"
+    fi
+    curl -L https://github.com/neovim/neovim/releases/download/$NVIM_VERSION/nvim.appimage -o $XDG_LOCAL_BIN_HOME/nvim
+    chmod +x $XDG_LOCAL_BIN_HOME/nvim
+fi
