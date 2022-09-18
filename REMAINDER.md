@@ -21,3 +21,8 @@ gpg --export-secret-key KEY_ID > file
 
 ## import gpg
 gpg --import file
+
+# Fonts
+
+# re cache all fonts
+fc-cache -f -v
