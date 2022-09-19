@@ -295,7 +295,9 @@ popup_during_fullscreen smart
 ################# bar appearance
 
 bar {
-    # mode hide
+    mode hide
+    hidden_state hide
+    modifier $mod
     position top
     workspace_buttons yes
     status_command i3status -c "{{ env.HOME }}/.config/i3/i3status.conf"

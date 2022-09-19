@@ -28,3 +28,5 @@
 : 1663419438:0;git clone git@github.com:X-R-G-B/Launcher.git
 : 1663419445:0;cd Launcher
 : 1663430649:0;xdg-ninja
+yadm add ~/.config/i3/config\#\#template.default
+yadm add ~/.local/state/zsh/history\#\#template.default

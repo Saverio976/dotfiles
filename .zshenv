@@ -63,6 +63,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # NODEJS
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
 # PYTHON
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 
