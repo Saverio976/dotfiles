@@ -283,8 +283,8 @@ bindsym $mod+b bar mode toggle
 # border control
 for_window [all] title_window_icon padding 2px
 title_align center
-default_border pixel 10
-hide_edge_borders both
+default_border pixel 5
+hide_edge_borders none
 bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 
 ################# Popups  control
