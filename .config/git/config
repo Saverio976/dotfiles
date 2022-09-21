@@ -15,3 +15,4 @@
 	program = gpg2
 [alias]
 	history = log --cherry --boundary --decorate --color --oneline --graph --all
+	pretty = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all
