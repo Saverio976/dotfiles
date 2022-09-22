@@ -12,24 +12,34 @@ plugins=(
     zsh-history-substring-search
 )
 
-# Completion.
-autoload -Uz compinit
-compinit
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
-zstyle ':completion:*' rehash true                              # automatically find new executables in path
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' completer _expand _complete _ignored _approximate
-zstyle ':completion:*' menu select
-zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
-zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
+# The following lines were added by compinstall
 
-# Speed up completions
-zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _ignored
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' format 'completing ... (%d)'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' ignore-parents parent pwd
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' list-suffixes true
+zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'l:|=* r:|=*'
+zstyle ':completion:*' preserve-prefix '//[^/]##/'
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*' use-compctl true
+zstyle ':completion:*' verbose true
+zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.cache/zcache
+zstyle ':completion:*' cache-path ${XDG_CACHE_HOME:-~/.cache/zscache}
+zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
+zstyle :compinstall filename "/home/saverio/${XDG_CONFIG_HOME:-~/.config}/zsh/.zshrc"
 
-# automatically load bash completion functions
-autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
+
+# End of lines added by compinstall
 
 source $ZSH/oh-my-zsh.sh
 
