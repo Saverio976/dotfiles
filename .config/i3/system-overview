@@ -1,3 +1,4 @@
+-- vi: ft=lua
 --[[
 # inspired from arcolinux config
 ]]
@@ -121,18 +122,18 @@ ${else}${cpu cpu0}${endif}${endif}%${alignr}${freq_g}${color}
 ${color1}${alignc}-----------------${color}
 ${color1}${alignc}K E Y B I N D   R E M A I N D E R${color}
 ${color1}${hr}${color}
-${color1}\$mod+shift+f${alignr}toggle full screen${color}
-${color1}\$mod+shift+space${alignr}toggle tilling/floating window${color}
-${color1}\$mod+space${alignr}toggle focus tilling/floating${color}
-${color1}\$mod+b${alignr}toggle bar mode${color}
-${color1}\$mod+shift+b${alignr}toggle border mode${color}
-${color1}\$mod+r${alignr}resize mode${color}
-${color1}\$mod+enter${alignr}terminal${color}
-${color1}Print${alignr}screenshot${color}
-${color1}\$mod+Print${alignr}screenshot of current window${color}
-${color1}shift+Print${alignr}screenshot selection${color}
-${color1}add Control key to put screenshot to buffer${color}
-${color1}control+Alt+l${alignr}lock${color}
-${color1}control+Alt+shift+l${alignr}lock & suspend${color}
+${color1}\$mod+shift+f${alignr}${color2}toggle full screen${color}
+${color1}\$mod+shift+space${alignr}${color2}toggle tilling/floating window${color}
+${color1}\$mod+space${alignr}${color2}toggle focus tilling/floating${color}
+${color1}\$mod+b${alignr${color2}}toggle bar mode${color}
+${color1}\$mod+shift+b${alignr}${color2}toggle border mode${color}
+${color1}\$mod+r${alignr}${color2}resize mode${color}
+${color1}\$mod+enter${alignr}${color2}terminal${color}
+${color1}Print${alignr}${color2}screenshot${color}
+${color1}\$mod+Print${alignr}${color2}screenshot of current window${color}
+${color1}shift+Print${alignr}${color2}screenshot selection${color}
+${color1}${color2}add Control key to put screenshot to buffer${color}
+${color1}control+Alt+l${alignr}${color2}lock${color}
+${color1}control+Alt+shift+l${alignr}${color2}lock & suspend${color}
 
 ]];
