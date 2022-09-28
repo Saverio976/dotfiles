@@ -1,6 +1,7 @@
 ---------------------------------------------------
 -- LSPCONFIG
 -- https://github.com/neovim/nvim-lspconfig
+-- see https://langserver.org/ full list of language server
 -- lspconfig
 local ok, lspconfig = pcall(require, 'lspconfig')
 if not ok then
@@ -41,12 +42,10 @@ local function try_setup_server(server, _lspconfig, _on_attach, _capabilities)
     })
 end
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-try_setup_server('clangd', lspconfig, on_attach, capabilities)
-try_setup_server('pyright', lspconfig, on_attach, capabilities)
-try_setup_server('jsonls', lspconfig, on_attach, capabilities)
-try_setup_server('bashls', lspconfig, on_attach, capabilities)
-try_setup_server('tsserver', lspconfig, on_attach, capabilities)
-try_setup_server('clangd', lspconfig, on_attach, capabilities)
+names = {'clangd', 'pyright', 'jsonls', 'bashls', 'tsserver'}
+for i, lang in ipairs(names) do
+    try_setup_server(lang, lspconfig, on_attach, capacilities)
+end
 
 ---------------------------------------------------
 -- LSPKIND
