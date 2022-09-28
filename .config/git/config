@@ -1,18 +1,18 @@
 [user]
-	email = xavier.mitault@epitech.eu
-	name = Xavier Mitault
-	signingkey = Xavier Mitault (Errare humanum est) <xavier.mitault@epitech.eu>
+    email = xavier.mitault@epitech.eu
+    name = Xavier Mitault
+    signingkey = Xavier Mitault (Errare humanum est) <xavier.mitault@epitech.eu>
 [core]
-	editor = vim
+    editor = vim
 [init]
-	defaultBranch = main
-#	templateDir = ~/source/SAMPLE_C_PROJECT
+    defaultBranch = main
+#   templateDir = ~/source/SAMPLE_C_PROJECT
 [pull]
-	rebase = false
+    rebase = false
 [commit]
-	gpgsign = true
+    gpgsign = true
 [gpg]
-	program = gpg2
+    program = gpg
 [alias]
-	history = log --cherry --boundary --decorate --color --oneline --graph --all
-	pretty = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all
+    history = log --cherry --boundary --decorate --color --oneline --graph --all
+    pretty = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all

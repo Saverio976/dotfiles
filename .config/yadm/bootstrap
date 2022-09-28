@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 
 # Because Git submodule commands cannot operate without a work tree, they must
 # be run from within $HOME (assuming this is the root of your dotfiles)
@@ -6,6 +7,32 @@ cd "$HOME"
 
 echo "Init submodules"
 yadm submodule update --recursive --init
-. "$HOME/.zshenv"
-envsubst '$XDG_CONFIG_HOME,$XDG_WALLPAPER_HOME' < "$XDG_CONFIG_HOME/i3/config" > /tmp/tmpi3conf
-cp /tmp/tmpi3conf "$XDG_CONFIG_HOME/i3/config"
+
+. ./.zshenv
+
+echo "info for git config"
+echo "What is your name: (can be empty)"
+read NAME
+if [[ "$NAME" != "" ]]; then
+    NAME_LINE=$(grep "name =" "$XDG_CONFIG_HOME")
+    [ -z "$NAME_LINE" ] && sed -i "s/$NAME_LINE/    name = $NAME/g" "$XDG_CONFIG_HOME/git/config"
+fi
+echo "What is your email: (can be empty)"
+read EMAIL
+if [[ "$EMAIL" != "" ]]; then
+    EMAIL_LINE=$(grep "email =" "$XDG_CONFIG_HOME")
+    [ -z "$EMAIL_LINE" ] && sed -i "s/$EMAIL_LINE/    name = $EMAIL/g" "$XDG_CONFIG_HOME/git/config"
+fi
+echo "Do you want to sign your commit with gpg key ? (y/N)(/empty = n) : "
+read CHOICE
+if [[ "$CHOICE" == "y" ]] || [[ "$CHOICE" == "Y" ]]; then
+    echo "What is your signingKey : "
+    read SINGINGKEY
+    SIGNINGKEY_LINE=$(grep "signingkey =")
+    [ -z "$SIGNINGKEY_LINE" ] && sed -i "s/$SIGNINGKEY_LINE/    signingkey = $SINGINGKEY" "$XDG_CONFIG_HOME/git/config"
+else
+    SIGNINGKEY_LINE=$(grep "signingkey =")
+    [ -z "$SIGNINGKEY_LINE" ] && sed -i "/$SIGNINGKEY_LINE/d" "$XDG_CONFIG_HOME/git/config"
+    GPGSIGN_LINE=$(grep )
+    [ -z "$GPGSIGN_LINE" ] && sed -i "s/$GPGSIGN_LINE/    gpgsign = false/g" "$XDG_CONFIG_HOME/git/config"
+fi
