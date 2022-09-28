@@ -36,3 +36,6 @@ else
     GPGSIGN_LINE=$(grep )
     [ -n "$GPGSIGN_LINE" ] && sed -i "s/$GPGSIGN_LINE/    gpgsign = false/g" "$XDG_CONFIG_HOME/git/config"
 fi
+
+echo "Re cache all fonts"
+fc-cache -f -v
