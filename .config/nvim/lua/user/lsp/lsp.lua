@@ -46,6 +46,7 @@ try_setup_server('pyright', lspconfig, on_attach, capabilities)
 try_setup_server('jsonls', lspconfig, on_attach, capabilities)
 try_setup_server('bashls', lspconfig, on_attach, capabilities)
 try_setup_server('tsserver', lspconfig, on_attach, capabilities)
+try_setup_server('clangd', lspconfig, on_attach, capabilities)
 
 ---------------------------------------------------
 -- LSPKIND
