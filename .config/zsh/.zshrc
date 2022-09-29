@@ -17,7 +17,7 @@ plugins=(
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' expand prefix suffix
-zstyle ':completion:*' format 'completing ... (%d)'
+zstyle ':completion:*' format '%F{red}%B completing ...%b%f %F{yellow}%B%d%b%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' ignore-parents parent pwd
 zstyle ':completion:*' list-colors ''
