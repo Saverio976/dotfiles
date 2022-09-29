@@ -16,3 +16,6 @@
 [submodule ".config/asdf"]
 	path = .config/asdf
 	url = https://github.com/asdf-vm/asdf.git
+[submodule ".local/share/yadm-project"]
+	path = .local/share/yadm-project
+	url = https://github.com/TheLocehiliosan/yadm.git

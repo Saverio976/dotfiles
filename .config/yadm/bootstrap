@@ -10,6 +10,8 @@ yadm submodule update --recursive --init
 
 . ./.zshenv
 
+ln -sf "$XDG_DATA_HOME/yadm-project/yadm" "$XDG_LOCAL_BIN_HOME/yadm"
+
 echo "info for git config"
 echo "What is your name: (can be empty)"
 read NAME
