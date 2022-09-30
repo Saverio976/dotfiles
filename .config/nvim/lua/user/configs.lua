@@ -12,6 +12,8 @@ vim.g.maplocalleader = '\\'
 
 vim.opt.termguicolors = true
 
+vim.cmd([[syntax enable]])
+
 -- show invisble char
 vim.opt.list = true
 
@@ -47,9 +49,10 @@ vim.opt.sidescrolloff = 10
 vim.opt.backspace = 'indent,start,eol'
 
 vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
 -- tab round to multiple of shiftwidth
 vim.opt.shiftround = true
-vim.opt.expandtab = true
 
 -- only one status line
 vim.opt.laststatus = 3
