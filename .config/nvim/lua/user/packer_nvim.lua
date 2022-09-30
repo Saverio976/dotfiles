@@ -94,8 +94,8 @@ packer.startup(function (use)
     use { 'booperlv/nvim-gomove' }
     use { 'vim-scripts/DoxygenToolkit.vim' }
     use {
-	'jiaoshijie/undotree',
-	requires = { 'nvim-lua/plenary.nvim' },
+        'jiaoshijie/undotree',
+        requires = { 'nvim-lua/plenary.nvim' },
     }
     -- interract on cwd
     use { 'airblade/vim-rooter' }

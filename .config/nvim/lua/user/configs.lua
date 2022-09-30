@@ -41,14 +41,15 @@ vim.opt.clipboard = vim.opt.clipboard + 'unnamedplus'
 
 -- dont break line on multiple line
 vim.opt.wrap = false
-vim.opt.scrolloff = 2
-vim.opt.sidescrolloff = 2
+vim.opt.scrolloff = 3
+vim.opt.sidescrolloff = 10
 
 vim.opt.backspace = 'indent,start,eol'
 
 vim.opt.shiftwidth = 4
 -- tab round to multiple of shiftwidth
 vim.opt.shiftround = true
+vim.opt.expandtab = true
 
 -- only one status line
 vim.opt.laststatus = 3
