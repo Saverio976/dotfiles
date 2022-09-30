@@ -42,7 +42,7 @@ local function try_setup_server(server, _lspconfig, _on_attach, _capabilities)
     })
 end
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-names = {'clangd', 'pyright', 'jsonls', 'bashls', 'tsserver'}
+names = {'clangd', 'pylsp', 'jsonls', 'bashls', 'tsserver'}
 for i, lang in ipairs(names) do
     try_setup_server(lang, lspconfig, on_attach, capacilities)
 end

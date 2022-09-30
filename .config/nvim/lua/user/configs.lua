@@ -1,8 +1,14 @@
 --
 
-local backup_dir = vim.fn.stdpath('cache')
+local backup_dir = nil
+if os.getenv("XDG_CACHE_HOME") then
+    backup_dir = os.getenv("XDG_CACHE_HOME")
+else
+    backup_dir = vim.fn.stdpath('cache')
+end
+print(backup_dir)
 
-vim.g.mapleader = ' '
+vim.g.mapleader = '<space>'
 vim.g.maplocalleader = '\\'
 
 vim.opt.termguicolors = true

@@ -1,5 +1,5 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -64,11 +64,11 @@ alias restartx="sudo systemctl restart lightdm.service"
 ##############################################################################
 # REPLACE COMMAND
 local function replace_command() {
-    command_replace=$(echo $2 | awk '{print $1;}')
-    if command -v $command_replace &> /dev/null
-    then
-        alias $1="$2"
-    fi
+command_replace=$(echo $2 | awk '{print $1;}')
+if command -v $command_replace &> /dev/null
+then
+    alias $1="$2"
+fi
 }
 
 replace_command "ls" "exa -la"
@@ -79,10 +79,10 @@ replace_command "kill" "fkill"
 # replace cd command
 if command -v zoxide &> /dev/null
 then
-	if [[ "$INSTALL_ZOXIDE_I" != "ok" ]]; then
-		eval "$(zoxide init zsh --cmd z)"
-		export INSTALL_ZOXIDE_I="ok"
-	fi
+    if [[ "$INSTALL_ZOXIDE_I" != "ok" ]]; then
+	eval "$(zoxide init zsh --cmd z)"
+	export INSTALL_ZOXIDE_I="ok"
+    fi
 fi
 if command -v direnv &> /dev/null
 then
@@ -91,24 +91,24 @@ fi
 
 if command -v gpg &> /dev/null && command -v git &> /dev/null
 then
-	OLD_GIT=$(which git)
-	function git () {
-		if [[ "$1" == "commit" ]]
-		then
-			export GPG_TTY=$(tty)
-		fi
-		$OLD_GIT $@
-	}
+    OLD_GIT=$(which git)
+    function git () {
+	if [[ "$1" == "commit" ]]
+	then
+	    export GPG_TTY=$(tty)
+	fi
+	$OLD_GIT $@
+    }
 fi
 
 ##############################################################################
 # ALIAS
 local function alias_if_exists() {
-    command_exists=$(echo $2 | awk '{print $1;}')
-    if command -v $command_exists &> /dev/null
-    then
-        alias $1="$2"
-    fi
+command_exists=$(echo $2 | awk '{print $1;}')
+if command -v $command_exists &> /dev/null
+then
+    alias $1="$2"
+fi
 }
 
 alias_if_exists "audio-input-toggle" "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
@@ -141,24 +141,24 @@ alias_if_exists "starshipconf" "nvim $HOME/.config/starship.toml"
 
 # search directory name
 function s-d () {
-    if [[ "$2" == "" ]]
-    then
-        CHECK="."
-    else
-        CHECK=$2
-    fi
-    find $CHECK -type d -name "*$1*"
+if [[ "$2" == "" ]]
+then
+    CHECK="."
+else
+    CHECK=$2
+fi
+find $CHECK -type d -name "*$1*"
 }
 
 # search file name
 function s-f () {
-    if [[ "$2" == "" ]]
-    then
-        CHECK="."
-    else
-        CHECK=$2
-    fi
-    find $CHECK -type f -name "*$1*"
+if [[ "$2" == "" ]]
+then
+    CHECK="."
+else
+    CHECK=$2
+fi
+find $CHECK -type f -name "*$1*"
 }
 
 # clean pacman cache
@@ -166,13 +166,13 @@ function cleanpacman () {
     OLDPKG=$(pacman -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
-        sudo pacman -Rns $OLDPKG
+	sudo pacman -Rns $OLDPKG
     fi
     if [[ "$1" == "y" ]]
     then
-        yes | sudo pacman -Scc
+	yes | sudo pacman -Scc
     else
-        sudo pacman -Scc
+	sudo pacman -Scc
     fi
 }
 
@@ -181,13 +181,13 @@ function cleanparu () {
     OLDPKG=$(paru -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
-        sudo paru -Rns $OLDPKG
+	sudo paru -Rns $OLDPKG
     fi
     if [[ "$1" == "y" ]]
     then
-        yes | sudo paru -Scc
+	yes | sudo paru -Scc
     else
-        sudo paru -Scc
+	sudo paru -Scc
     fi
 }
 
@@ -196,22 +196,26 @@ function cleanyay () {
     OLDPKG=$(yay -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
-        sudo yay -Rns $OLDPKG
+	sudo yay -Rns $OLDPKG
     fi
     if [[ "$1" == "y" ]]
     then
-        yes | sudo yay -Scc
+	yes | sudo yay -Scc
     else
-        sudo yay -Scc
+	sudo yay -Scc
     fi
 }
 
 true_man_intern=$(which man)
 function man () {
     if [[ "$1" == "google" ]]; then
-        xdg-open 'https://duckduckgo.com/?q='$2
+	xdg-open "https://duckduckgo.com/?q=${@:1}"
+    elif [[ "$1" == "howto" ]]; then
+	curl "https://cheat.sh/$(echo ${@:2} | tr ' ' '+')"
+    elif [[ "$1" == "how" ]] && [[ "$2" == "to" ]]; then
+	curl "https://cheat.sh/$(echo ${@:3} | tr ' ' '+')"
     else
-        $true_man_intern "$@"
+	$true_man_intern "$@"
     fi
 }
 
