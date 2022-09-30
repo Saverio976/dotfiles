@@ -6,32 +6,24 @@ if os.getenv("XDG_CACHE_HOME") then
 else
     backup_dir = vim.fn.stdpath('cache')
 end
-print(backup_dir)
 
-vim.g.mapleader = '<space>'
+vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
 vim.opt.termguicolors = true
 
 -- show invisble char
 vim.opt.list = true
-local listchars = vim.opt.listchars
-listchars['nbsp'] = '⦸'
-listchars['extends'] = '»'
-listchars['precedes'] = '«'
-listchars['tab'] = '▷'
-listchars['trail'] = '•'
-listchars['space'] = '•'
-listchars['eol'] = '↴'
-vim.opt.listchars = listchars
--- vim.opt.listchars = {
---   nbsp = '⦸',
---   extends = '»',
---   precedes = '«',
---   tab = '───▷',
---   trail = '•',
---   space = ' ',
--- }
+
+vim.opt.listchars = {
+    eol = '↴',
+    trail = '•',
+    extends = '»',
+    precedes = '«',
+    nbsp = '⦸',
+    space = ' ',
+    tab = ' ▷',
+}
 
 vim.opt.fillchars = {
   eob = ' ',

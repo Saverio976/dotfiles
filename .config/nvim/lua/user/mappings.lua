@@ -10,3 +10,4 @@ local ok, undotree = pcall(require, 'undotree')
 if ok then
     vim.keymap.set('n', '<leader>u', undotree.toggle, { noremap= true, silent= true })
 end
+	
