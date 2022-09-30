@@ -93,6 +93,10 @@ packer.startup(function (use)
     use { 'mg979/vim-visual-multi' }
     use { 'booperlv/nvim-gomove' }
     use { 'vim-scripts/DoxygenToolkit.vim' }
+    use {
+	'jiaoshijie/undotree',
+	requires = { 'nvim-lua/plenary.nvim' },
+    }
     -- interract on cwd
     use { 'airblade/vim-rooter' }
     -- terminal
