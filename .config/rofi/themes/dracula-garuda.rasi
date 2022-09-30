@@ -5,12 +5,17 @@
  */
 
 configuration {
-  display-run: " ";
-  display-drun: "  ";
-  display-window: "  ";
+  display-run: "r:";
+  display-drun: "dr:";
+  display-window: "w:";
+  display-ssh: "ssh:";
+  display-combi: "combi:";
+  display-keys: "keys:";
+  display-filebrowser: "file:";
   drun-display-format: "{icon} {name}";
-  font: "Fira Code Nerd Font";
+  font: "Monocraft 16";
   modi: "window,run,drun";
+  combi-modi: "window,drun,run";
   show-icons: true;
 }
 
@@ -67,7 +72,7 @@ mainbox {
 prompt {
   background-color: @blue;
   enabled: true;
-  font: "FontAwesome 12";
+  font: "Monocraft 12";
   padding: 12 0 0 12;
   text-color: @fg;
 }
