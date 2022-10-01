@@ -120,6 +120,7 @@ packer.startup(function (use)
     -- music
     use {
         'Saverio976/music.nvim',
+        run = ':MusicInstall',
         requires = { 'voldikss/vim-floaterm' }
     }
 
