@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "Do you want omyzsh"
 echo "bash script: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 echo "[y/N] "
