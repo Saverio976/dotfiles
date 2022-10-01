@@ -3,6 +3,24 @@
 # inspired from arcolinux config
 ]]
 
+--- Check if a file or directory exists in this path
+local function exists(file)
+   local ok, err, code = os.rename(file, file)
+   if not ok then
+      if code == 13 then
+         -- Permission denied, but it exists
+         return true
+      end
+   end
+   return ok, err
+end
+
+--- Check if a directory exists in this path
+local function isdir(path)
+   -- "/" works on both Unix and Windows
+   return exists(path.."/")
+end
+
 conky.config = {
 
     --Various settings
@@ -97,15 +115,32 @@ conky.config = {
 
     --Lua
 
-};
-conky.text = [[
+}
+
+local conky_cache = os.getenv("XDG_CACHE_HOME")
+
+if not isdir(conky_cache .. "/conky") then
+    os.execute("mkdir $XDG_CACHE_HOME/conky/")
+end
+
+local weather = [[
+${texeci 1800 curl wttr.in/Toulouse_0pq_lang=uk.png.png | convert - -transparent black "]] .. conky_cache .. [[/wheather.png"}
+${image ]] .. conky_cache .. [[/wheather.png -p 0,0}
+
+
+
+
+]]
+
+conky.text = weather .. [[
+
 ${color1}${alignc}S Y S T E M    I N F O${color}
 ${color1}${hr}${color}
 ${color1}Host:${alignr}${color2}${nodename}${color}
 #${color1}Kernel:${color2}${alignr}$kernel${color}
 #${color1}Uptime:${color2}${alignr}${uptime}${color}
 #${color1}UTC:${color2}${alignr}${utime %H:%M}${color}
-${color1}${execi 6000 lsb_release -d | grep 'Descr'|awk {'print $2 " " $3" " $4" " $5'}}${alignr}${execi 6000 lsb_release -a | grep 'Release'|awk {'print $2""$3""$4""$5'}}${color}
+${color1}${execi 6000 lsb_release -d | grep 'Descr' | awk {'print $2 " " $3" " $4" " $5'}}${alignr}${execi 6000 lsb_release -a | grep 'Release'|awk {'print $2""$3""$4""$5'}}${color}
 ${color1}${alignc}-----------------${color}
 ${color1}${goto 60}Used${alignr}Size${color}
 ${color1}Root${goto 60}${color2}${fs_used /}${alignr}${fs_size /}${color}
