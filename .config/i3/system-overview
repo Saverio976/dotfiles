@@ -30,7 +30,7 @@ conky.config = {
     gap_y = 10,                                    -- pixels between bottom or left border
     minimum_height = 200,                        -- minimum height of window
     minimum_width = 280,                        -- minimum height of window
-    maximum_width = 280,                        -- maximum height of window
+    maximum_width = 300,                        -- maximum height of window
 
     --Graphical
 
@@ -55,7 +55,7 @@ conky.config = {
 
     extra_newline = false,                        -- extra newline at the end - for asesome's wiboxes
     format_human_readable = true,                -- KiB, MiB rather then number of bytes
-    font = 'Noto Mono:size=11:regular',              -- font for complete conky unless in code defined
+    font = 'Fira Code Nerd Font:size=11:regular',              -- font for complete conky unless in code defined
     max_text_width = 0,                            -- 0 will make sure line does not get broken if width too smal
     max_user_text = 16384,                        -- max text in conky default 16384
     override_utf8_locale = true,                -- force UTF8 requires xft
@@ -122,15 +122,15 @@ ${else}${cpu cpu0}${endif}${endif}%${alignr}${freq_g}${color}
 ${color1}${alignc}-----------------${color}
 ${color1}${alignc}K E Y B I N D   R E M A I N D E R${color}
 ${color1}${hr}${color}
-${color1}\$mod+shift+f${alignr}${color2}toggle full screen${color}
-${color1}\$mod+shift+space${alignr}${color2}toggle tilling/floating window${color}
-${color1}\$mod+space${alignr}${color2}toggle focus tilling/floating${color}
-${color1}\$mod+b${alignr${color2}}toggle bar mode${color}
-${color1}\$mod+shift+b${alignr}${color2}toggle border mode${color}
-${color1}\$mod+r${alignr}${color2}resize mode${color}
-${color1}\$mod+enter${alignr}${color2}terminal${color}
+${color1}$mod+shift+f${alignr}${color2}toggle full screen${color}
+${color1}$mod+shift+space${alignr}${color2}toggle tilling/floating window${color}
+${color1}$mod+space${alignr}${color2}toggle focus tilling/floating${color}
+${color1}$mod+b${alignr${color2}}toggle bar mode${color}
+${color1}$mod+shift+b${alignr}${color2}toggle border mode${color}
+${color1}$mod+r${alignr}${color2}resize mode${color}
+${color1}$mod+enter${alignr}${color2}terminal${color}
 ${color1}Print${alignr}${color2}screenshot${color}
-${color1}\$mod+Print${alignr}${color2}screenshot of current window${color}
+${color1}$mod+Print${alignr}${color2}screenshot of current window${color}
 ${color1}shift+Print${alignr}${color2}screenshot selection${color}
 ${color1}${color2}add Control key to put screenshot to buffer${color}
 ${color1}control+Alt+l${alignr}${color2}lock${color}
