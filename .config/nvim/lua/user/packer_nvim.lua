@@ -97,6 +97,7 @@ packer.startup(function (use)
         'jiaoshijie/undotree',
         requires = { 'nvim-lua/plenary.nvim' },
     }
+    use { 'Darazaki/indent-o-matic' }
     -- interract on cwd
     use { 'airblade/vim-rooter' }
     -- terminal

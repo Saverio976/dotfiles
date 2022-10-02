@@ -1,8 +1,12 @@
 -- https://github.com/editorconfig/editorconfig-vim
 vim.cmd([[au FileType gitcommit let b:EditorConfig_disable = 1]])
 
-local ok, undotree = pcall(require, 'undotree')
-if not ok then
-    return
+local okundotree, undotree = pcall(require, 'undotree')
+if okundotree then
+    undotree.setup()
 end
-undotree.setup()
+
+local okindentomatic, indentomatic = pcall(require, 'indent-o-matic')
+if okindentomatic then
+    indentomatic.setup()
+end
