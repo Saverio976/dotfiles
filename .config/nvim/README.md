@@ -1,6 +1,73 @@
 # NeoVim config
 
-[[TOC]]
+## Completion
+
+### require
+
+#### [clangd](https://clangd.llvm.org/) (only for c, cpp)
+
+Install:
+
+- https://clangd.llvm.org/installation#installing-clangd
+
+#### [pylsp](https://github.com/python-lsp/python-lsp-server) (only for python)
+
+Install:
+
+- [pip](https://pypi.org/)
+
+https://pip.pypa.io/en/stable/installation/#installation
+
+- pylsp
+
+```bash
+pip install python-lsp-server
+```
+
+#### [jsonls](https://github.com/hrsh7th/vscode-langservers-extracted)
+
+Install:
+
+- [npm](https://www.npmjs.com/)
+
+https://docs.npmjs.com/cli/v7/configuring-npm/install
+
+- jsonls
+```bash
+npm i -g vscode-langservers-extracted
+```
+
+#### [bashls](https://github.com/bash-lsp/bash-language-server)
+
+Install:
+
+- [npm](https://www.npmjs.com/)
+
+https://docs.npmjs.com/cli/v7/configuring-npm/install
+
+- bashls
+```bash
+npm i -g bash-language-server
+```
+
+#### [tsserver](https://github.com/typescript-language-server/typescript-language-server)
+
+Install:
+
+- [npm](https://www.npmjs.com/)
+
+https://docs.npmjs.com/cli/v7/configuring-npm/install
+
+- bashls
+```bash
+npm i -g typescript-language-server typescript
+```
+
+#### [rust-analyzer](https://rust-analyzer.github.io/) (only for rust)
+
+Install:
+
+- https://rust-analyzer.github.io/manual.html#installation
 
 ## null-ls
 

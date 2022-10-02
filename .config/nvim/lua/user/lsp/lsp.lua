@@ -7,8 +7,7 @@ local ok, lspconfig = pcall(require, 'lspconfig')
 if not ok then
     return
 end
-local opts = { noremap=true, silent=true }
-local on_attach = function (_, bufnr)
+local on_attach_ = function (_, bufnr)
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -26,20 +25,20 @@ local on_attach = function (_, bufnr)
     vim.keymap.set('n', '<space>lf', vim.lsp.buf.formatting, bufopts)
 end
 local okcmplsp, cmplsp = pcall(require, 'cmp_nvim_lsp')
-local capabilities = nil
+local cap = nil
 if not okcmplsp then
-    capabilities = cmplsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    cap = cmplsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
-local function try_setup_server(server, _lspconfig, _on_attach, _capabilities)
-    _lspconfig[server].setup({
-        on_attach = _on_attach,
-        capabilities = _capabilities,
+local function try_setup_server(server, lspconf, on_attach, capabilities)
+    lspconf[server].setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
     })
 end
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-names = {'clangd', 'pylsp', 'jsonls', 'bashls', 'tsserver'}
-for i, lang in ipairs(names) do
-    try_setup_server(lang, lspconfig, on_attach, capacilities)
+local names = {'clangd', 'pylsp', 'jsonls', 'bashls', 'tsserver', 'rust_analyzer'}
+for _, lang in ipairs(names) do
+    try_setup_server(lang, lspconfig, on_attach_, cap)
 end
 
 ---------------------------------------------------
@@ -85,29 +84,29 @@ local oktroubl, trouble = pcall(require, 'trouble')
 if not oktroubl then
     return
 end
-opts = { noremap=true, silent=true }
+local opts = { noremap=true, silent=true }
 vim.keymap.set('n', 'gt', '<CMD>TroubleToggle<CR>', opts)
 trouble.setup({
     position = "bottom",
-	height = 7,
-	width = 50,
-	icons = true,
-	mode = "workspace_diagnostics",
-	fold_open = "",
-	fold_closed = "",
-	indent_lines = true,
-	auto_open = false,
-	auto_close = true,
-	auto_preview = false,
-	auto_fold = false,
-	signs = {
-		error = "",
-		warning = "",
-		hint = "",
-		information = "",
-		other = "﫠",
-	},
-	use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
+    height = 7,
+    width = 50,
+    icons = true,
+    mode = "workspace_diagnostics",
+    fold_open = "",
+    fold_closed = "",
+    indent_lines = true,
+    auto_open = false,
+    auto_close = true,
+    auto_preview = false,
+    auto_fold = false,
+    signs = {
+        error = "",
+        warning = "",
+        hint = "",
+        information = "",
+        other = "﫠",
+    },
+    use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
     action_keys = {
         close = 'q',
         cancel = '<ESC>',

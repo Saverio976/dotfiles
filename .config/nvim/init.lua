@@ -19,6 +19,7 @@ require('user.text-interract.comment')
 require('user.text-interract.text-interract')
 require('user.text-interract.nvim-gomove')
 require('user.text-interract.vim-rooter')
+require('user.beauty.beauty')
 
 require('user.mappings')
 require('user.autocmd')
