@@ -1,3 +1,4 @@
+# vi: ft=bash
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -111,23 +112,15 @@ then
 fi
 }
 
-alias_if_exists "audio-input-toggle" "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-# alias audio-input-toggle="pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-alias_if_exists "audio-output-toggle" "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-# alias audio-output-toggle="pactl set-sink-mute @DEFAULT_SINK@ toggle"
-alias_if_exists "scrcpy" "scrcpy -S -w --power-off-on-close --disable-screensaver"
-# alias scrcpy="scrcpy -S -w --power-off-on-close --disable-screensaver"
-alias_if_exists "normatrix" "$HOME/source/NorMatrix/main.py"
-# alias normatrix="$HOME/source/NorMatrix/main.py"
-
-alias_if_exists "termtosvg" "python3 -m termtosvg"
-
-alias_if_exists "i3conf" "nvim $HOME/.config/i3/config"
-# alias i3conf="nvim $HOME/.config/i3/config"
-alias_if_exists "zshconf" "nvim $HOME/.zshrc"
-# alias zshconf="nvim $HOME/.zshrc"
-alias_if_exists "starshipconf" "nvim $HOME/.config/starship.toml"
-# alias starshipconf="nvim $HOME/.config/starship.toml"
+alias_if_exists "audio-input-toggle"    "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+alias_if_exists "audio-output-toggle"   "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+alias_if_exists "scrcpy"                "scrcpy -S -w --power-off-on-close --disable-screensaver"
+alias_if_exists "normatrix"             "$HOME/source/NorMatrix/main.py"
+alias_if_exists "termtosvg"             "python3 -m termtosvg"
+alias_if_exists "i3conf"                "nvim $HOME/.config/i3/config"
+alias_if_exists "zshconf"               "nvim $HOME/.zshrc"
+alias_if_exists "starshipconf"          "nvim $HOME/.config/starship.toml"
+alias_if_exists "yarn"                  "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 
 ##############################################################################
 # PROMPT
