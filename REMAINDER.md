@@ -24,5 +24,10 @@ gpg --import file
 
 # Fonts
 
-# re cache all fonts
+## re cache all fonts
 fc-cache -f -v
+
+# Bash
+
+## parameter substitution
+[wiki-bash](https://wiki.bash-hackers.org/syntax/pe)
