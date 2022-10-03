@@ -231,6 +231,14 @@ function man () {
 
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 
+# from https://github.com/AustralEpitech/.dotfiles/blob/main/.config/zsh/.zsh_aliases
+function fnalias() {
+    $1 $(echo "${@:2}" | sed 's/--color=.\+/--color=force/')
+}
+alias sudo='sudo '
+alias watch='fnalias watch -c '
+alias xargs='xargs '
+
 if command -v neofetch &>/dev/null; then
     neofetch
 fi
