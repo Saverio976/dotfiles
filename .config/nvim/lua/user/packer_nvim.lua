@@ -116,7 +116,7 @@ packer.startup(function (use)
     use { 'folke/tokyonight.nvim' }
 
     -- discord
-    use { 'andweeb/presence.nvim' }
+    -- use { 'andweeb/presence.nvim' }
 
     -- music
     use {

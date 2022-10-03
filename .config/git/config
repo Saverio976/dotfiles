@@ -8,7 +8,7 @@
 [pull]
     rebase = false
 [commit]
-    gpgsign = true
+    ; gpgsign = true
 [gpg]
     program = gpg
 [alias]

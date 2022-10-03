@@ -11,15 +11,15 @@ configuration {
   kb-clear-line: "Control+w";
   kb-screenshot: "Alt+S";
   kb-cancel: "Escape,Control+g,Control+bracketleft";
-  timeout {
-    action: "kb-cancel";
-    delay:  0;
-  }
-  filebrowser {
-    directories-first: true;
-    sorting-method: "name";
-  }
+  /* timeout: { */
+  /*   action: "kb-cancel"; */
+  /*   delay:  0; */
+  /* } */
+  /* filebrowser: { */
+  /*   directories-first: true; */
+  /*   sorting-method: "name"; */
+  /* } */
 }
 /* @theme "/usr/share/rofi/themes/DarkBlue.rasi" */
 /* @theme "onedark.rasi" */
-@theme "dracula-garuda.rasi"
+@theme "themes/dracula-garuda.rasi"
