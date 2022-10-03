@@ -48,13 +48,15 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
-builtin fc -R -I "$HISTFILE"
-WORK_HISTORY="$XDG_STATE_HOME/zsh/history_work"
-[ -f "$WORK_HISTORY" ] && builtin fc -R -I "$WORK_HISTORY"
-PERSO_HISTORY="$XDG_STATE_HOME/zsh/history_perso"
-[ -f "$PERSO_HISTORY" ] && builtin fc -R -I "$PERSO_HISTORY"
-# write the loaded history to HISTFILE
-builtin fc -W "$HISTFILE"
+function merge_history () {
+    builtin fc -R -I "$HISTFILE"
+    WORK_HISTORY="$XDG_STATE_HOME/zsh/history_work"
+    [ -f "$WORK_HISTORY" ] && builtin fc -R -I "$WORK_HISTORY"
+    PERSO_HISTORY="$XDG_STATE_HOME/zsh/history_perso"
+    [ -f "$PERSO_HISTORY" ] && builtin fc -R -I "$PERSO_HISTORY"
+    # write the loaded history to HISTFILE
+    builtin fc -W "$HISTFILE"
+}
 # END HISTORY
 
 source $ZSH/oh-my-zsh.sh
