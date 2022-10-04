@@ -1,5 +1,5 @@
 [user]
-    email = xavier.mitault@epitech.eu
+    email = xavier.mitault@smobe.fr
     name = Xavier Mitault
     signingkey = Xavier Mitault (Errare humanum est) <xavier.mitault@epitech.eu>
 [init]
@@ -15,4 +15,4 @@
     history = log --cherry --boundary --decorate --color --oneline --graph --all
     pretty = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all
 [credential]
-	helper = store
+    helper = store
