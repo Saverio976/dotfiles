@@ -218,14 +218,28 @@ function cleanyay () {
 
 true_man_intern=$(which man)
 function man () {
-    if [[ "$1" == "google" ]]; then
-	xdg-open "https://duckduckgo.com/?q=${@:1}"
+    if [[ "$1" == "help" ]] || [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
+        echo "custom function that call the internal man if next pattern is not respected:"
+        echo "-> \$1 == goolgle"
+        echo "(open the nexts parameters to browser search)"
+        echo "-> \$1 == howto"
+        echo "(curl cheat.sh with nexts parameters as research)"
+        echo "-> \$1 == how && \$2 == to"
+        echo "(same as howto)"
+        echo "-> \$1 == howdoi"
+        echo "exec howdoi (pip install howdoi)"
+        echo "-> the true man with your parameters"
+        $true_man_intern $@
+    elif [[ "$1" == "google" ]]; then
+        xdg-open "https://duckduckgo.com/?q=$(echo -n ${@:2} | tr ' ' '+')"
     elif [[ "$1" == "howto" ]]; then
-	curl "https://cheat.sh/$(echo ${@:2} | tr ' ' '+')"
+        curl "https://cheat.sh/$(echo ${@:2} | tr ' ' '+')"
     elif [[ "$1" == "how" ]] && [[ "$2" == "to" ]]; then
-	curl "https://cheat.sh/$(echo ${@:3} | tr ' ' '+')"
+        curl "https://cheat.sh/$(echo ${@:3} | tr ' ' '+')"
+    elif [[ "$1" == "howdoi" ]]; then
+        howdoi ${@:3}
     else
-	$true_man_intern "$@"
+        $true_man_intern "$@"
     fi
 }
 
