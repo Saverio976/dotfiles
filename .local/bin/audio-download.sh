@@ -34,6 +34,12 @@ then
     exit 0
 fi
 
+if ! command -v youtube-dl &> /dev/null
+then
+    echo "you need to install 'youtube-dl' package"
+    exit 84
+fi
+
 if [ "$2" == "" ]
 then
     DIR_PATH='.'
@@ -44,16 +50,22 @@ fi
 if [ "$3" == "ogg" ]
 then
     OGG_COMMAND='--recode-video ogg'
+    OUTPUT="$DIR_PATH/%(title)s.ogg"
 else
     OGG_COMMAND=''
+    OUTPUT="$DIR_PATH/%(title)s.%(ext)s"
 fi
 
-if ! command -v youtube-dl &> /dev/null
-then
-    echo "you need to install 'youtube-dl' package"
-    exit 84
-fi
+
 echo "download audio"
-youtube-dl --ignore-config --geo-bypass --yes-playlist --restrict-filenames \
-    --no-cache-dir --format 'bestaudio[ext=mp3]/bestaudio' $1 \
-    -o "$DIR_PATH/%(title)s.%(ext)s" $OGG_COMMAND --ignore-errors
+youtube-dl \
+    --ignore-config \
+    --geo-bypass \
+    --yes-playlist \
+    --restrict-filenames \
+    --no-cache-dir \
+    --format 'bestaudio[ext=mp3]/bestaudio' \
+    $1 \
+    -o "$OUTPUT" \
+    $OGG_COMMAND \
+    --ignore-errors
