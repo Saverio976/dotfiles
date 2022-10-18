@@ -238,11 +238,11 @@ exec --no-startup-id volumeicon
 # num lock activated
 exec_always --no-startup-id numlockx on
 
-# Conky
-exec --no-startup-id conky -c "{{ env.HOME }}/.config/i3/system-overview"
-
 # feh wallpaper
 exec --no-startup-id feh --bg-scale --no-fehbg --randomize "{{ env.HOME }}/.local/share/wallpaper"
+
+# Conky
+exec --no-startup-id conky -c "{{ env.HOME }}/.config/i3/system-overview"
 
 ################# applications keyboard shortcuts
 
