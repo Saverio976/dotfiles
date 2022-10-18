@@ -31,6 +31,8 @@ then
     echo "please provide a path and write ogg after, example:"
     echo "bash youtube_dl.sh https://www.youtube.com/watch?v=f_zpcGKgXgw . ogg"
     echo
+    echo "To pass extra args to youtube-dl:"
+    echo "Set the YTDL_EXTRA_ARGS env variable to the extra args to pass"
     exit 0
 fi
 
@@ -50,12 +52,9 @@ fi
 if [ "$3" == "ogg" ]
 then
     OGG_COMMAND='--recode-video ogg'
-    OUTPUT="$DIR_PATH/%(title)s.ogg"
 else
     OGG_COMMAND=''
-    OUTPUT="$DIR_PATH/%(title)s.%(ext)s"
 fi
-
 
 echo "download audio"
 youtube-dl \
@@ -66,6 +65,7 @@ youtube-dl \
     --no-cache-dir \
     --format 'bestaudio[ext=mp3]/bestaudio' \
     $1 \
-    -o "$OUTPUT" \
+    -o "$DIR_PATH/%(title)s.%(ext)s" \
     $OGG_COMMAND \
-    --ignore-errors
+    --ignore-errors \
+    $YTDL_EXTRA_ARGS
