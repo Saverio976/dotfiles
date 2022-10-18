@@ -138,6 +138,7 @@ alias_if_exists "i3conf"                "nvim $HOME/.config/i3/config"
 alias_if_exists "zshconf"               "nvim $HOME/.zshrc"
 alias_if_exists "starshipconf"          "nvim $HOME/.config/starship.toml"
 alias_if_exists "yarn"                  "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
+alias_if_exists "wget"                  "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
 
 ##############################################################################
 # PROMPT
@@ -151,24 +152,24 @@ alias_if_exists "yarn"                  "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn
 
 # search directory name
 function s-d () {
-if [[ "$2" == "" ]]
-then
-    CHECK="."
-else
-    CHECK=$2
-fi
-find $CHECK -type d -name "*$1*"
+    if [[ "$2" == "" ]]
+    then
+        CHECK="."
+    else
+        CHECK=$2
+    fi
+    find $CHECK -type d -name "*$1*"
 }
 
 # search file name
 function s-f () {
-if [[ "$2" == "" ]]
-then
-    CHECK="."
-else
-    CHECK=$2
-fi
-find $CHECK -type f -name "*$1*"
+    if [[ "$2" == "" ]]
+    then
+        CHECK="."
+    else
+        CHECK=$2
+    fi
+    find $CHECK -type f -name "*$1*"
 }
 
 # clean pacman cache
@@ -176,13 +177,13 @@ function cleanpacman () {
     OLDPKG=$(pacman -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
-	sudo pacman -Rns $OLDPKG
+        sudo pacman -Rns $OLDPKG
     fi
     if [[ "$1" == "y" ]]
     then
-	yes | sudo pacman -Scc
+        yes | sudo pacman -Scc
     else
-	sudo pacman -Scc
+        sudo pacman -Scc
     fi
 }
 
@@ -191,13 +192,13 @@ function cleanparu () {
     OLDPKG=$(paru -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
-	sudo paru -Rns $OLDPKG
+        sudo paru -Rns $OLDPKG
     fi
     if [[ "$1" == "y" ]]
     then
-	yes | sudo paru -Scc
+        yes | sudo paru -Scc
     else
-	sudo paru -Scc
+        sudo paru -Scc
     fi
 }
 
@@ -206,13 +207,13 @@ function cleanyay () {
     OLDPKG=$(yay -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
-	sudo yay -Rns $OLDPKG
+        sudo yay -Rns $OLDPKG
     fi
     if [[ "$1" == "y" ]]
     then
-	yes | sudo yay -Scc
+        yes | sudo yay -Scc
     else
-	sudo yay -Scc
+        sudo yay -Scc
     fi
 }
 
@@ -254,5 +255,7 @@ alias watch='fnalias watch -c '
 alias xargs='xargs '
 
 if command -v neofetch &>/dev/null; then
-    neofetch
+    if [[ "$NO_NEOFETCH" == "" ]]; then
+        neofetch
+    fi
 fi
