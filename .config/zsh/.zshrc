@@ -12,6 +12,8 @@ plugins=(
     zsh-autosuggestions
     zsh-history-substring-search
     kubectl
+    docker
+    colored-man-pages
 )
 
 # The following lines were added by compinstall
@@ -218,31 +220,38 @@ function cleanyay () {
 }
 
 true_man_intern=$(which man)
-function man () {
-    if [[ "$1" == "help" ]] || [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
-        echo "custom function that call the internal man if next pattern is not respected:"
-        echo "-> \$1 == goolgle"
-        echo "(open the nexts parameters to browser search)"
-        echo "-> \$1 == howto"
-        echo "(curl cheat.sh with nexts parameters as research)"
-        echo "-> \$1 == how && \$2 == to"
-        echo "(same as howto)"
-        echo "-> \$1 == howdoi"
-        echo "exec howdoi (pip install howdoi)"
-        echo "-> the true man with your parameters"
-        $true_man_intern $@
-    elif [[ "$1" == "google" ]]; then
-        xdg-open "https://duckduckgo.com/?q=$(echo -n ${@:2} | tr ' ' '+')"
-    elif [[ "$1" == "howto" ]]; then
-        curl "https://cheat.sh/$(echo ${@:2} | tr ' ' '+')"
-    elif [[ "$1" == "how" ]] && [[ "$2" == "to" ]]; then
-        curl "https://cheat.sh/$(echo ${@:3} | tr ' ' '+')"
-    elif [[ "$1" == "howdoi" ]]; then
-        howdoi ${@:3}
-    else
-        $true_man_intern "$@"
-    fi
-}
+if [[ " ${plugins[*]} " == *" colored-man-pages "* ]]; then
+    true_man_intern="colored"
+elif [[ -z "$(echo $true_man_intern | grep '/bin')" ]]; then
+    true_man_intern=""
+fi
+if [[ -n "$true_man_intern" ]]; then
+    function man () {
+        if [[ "$1" == "help" ]] || [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
+            echo "custom function that call the internal man if next pattern is not respected:"
+            echo "-> \$1 == goolgle"
+            echo "(open the nexts parameters to browser search)"
+            echo "-> \$1 == howto"
+            echo "(curl cheat.sh with nexts parameters as research)"
+            echo "-> \$1 == how && \$2 == to"
+            echo "(same as howto)"
+            echo "-> \$1 == howdoi"
+            echo "exec howdoi (pip install howdoi)"
+            echo "-> the true man with your parameters"
+            $true_man_intern $@
+        elif [[ "$1" == "google" ]]; then
+            xdg-open "https://duckduckgo.com/?q=$(echo -n ${@:2} | tr ' ' '+')"
+        elif [[ "$1" == "howto" ]]; then
+            curl "https://cheat.sh/$(echo ${@:2} | tr ' ' '+')"
+        elif [[ "$1" == "how" ]] && [[ "$2" == "to" ]]; then
+            curl "https://cheat.sh/$(echo ${@:3} | tr ' ' '+')"
+        elif [[ "$1" == "howdoi" ]]; then
+            howdoi ${@:3}
+        else
+            $true_man_intern man "$@"
+        fi
+    }
+fi
 
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 
