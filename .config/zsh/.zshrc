@@ -268,7 +268,9 @@ alias watch='fnalias watch -c '
 alias xargs='xargs '
 
 if command -v neofetch &>/dev/null; then
-    if [[ "$NO_NEOFETCH" == "" ]]; then
+    LOCKFILE="/tmp/neofetchalreadyexecuted"
+    if [[ "$NO_NEOFETCH" == "" ]] && [[ ! -f "$LOCKFILE" ]]; then
+        touch "$LOCKFILE"
         neofetch
     fi
 fi
