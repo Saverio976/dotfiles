@@ -14,6 +14,10 @@ plugins=(
     kubectl
     docker
     colored-man-pages
+    copypath
+    copyfile
+    docker-compose
+    gitignore
 )
 
 # The following lines were added by compinstall
