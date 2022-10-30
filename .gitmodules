@@ -19,3 +19,6 @@
 [submodule ".local/share/yadm-project"]
 	path = .local/share/yadm-project
 	url = https://github.com/TheLocehiliosan/yadm.git
+[submodule ".local/share/git-crypt"]
+	path = .local/share/git-crypt
+	url = https://github.com/AGWA/git-crypt.git
