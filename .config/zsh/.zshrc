@@ -274,3 +274,7 @@ if command -v neofetch &>/dev/null; then
         neofetch
     fi
 fi
+
+if command -v "change-background.sh" &>/dev/null; then
+    change-background.sh
+fi
