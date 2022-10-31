@@ -12,6 +12,12 @@ plugins=(
     zsh-autosuggestions
     zsh-history-substring-search
     kubectl
+    docker
+    colored-man-pages
+    copypath
+    copyfile
+    docker-compose
+    gitignore
 )
 
 # The following lines were added by compinstall
@@ -138,6 +144,7 @@ alias_if_exists "i3conf"                "nvim $HOME/.config/i3/config"
 alias_if_exists "zshconf"               "nvim $HOME/.zshrc"
 alias_if_exists "starshipconf"          "nvim $HOME/.config/starship.toml"
 alias_if_exists "yarn"                  "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
+alias_if_exists "wget"                  "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
 
 ##############################################################################
 # PROMPT
@@ -151,24 +158,24 @@ alias_if_exists "yarn"                  "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn
 
 # search directory name
 function s-d () {
-if [[ "$2" == "" ]]
-then
-    CHECK="."
-else
-    CHECK=$2
-fi
-find $CHECK -type d -name "*$1*"
+    if [[ "$2" == "" ]]
+    then
+        CHECK="."
+    else
+        CHECK=$2
+    fi
+    find $CHECK -type d -name "*$1*"
 }
 
 # search file name
 function s-f () {
-if [[ "$2" == "" ]]
-then
-    CHECK="."
-else
-    CHECK=$2
-fi
-find $CHECK -type f -name "*$1*"
+    if [[ "$2" == "" ]]
+    then
+        CHECK="."
+    else
+        CHECK=$2
+    fi
+    find $CHECK -type f -name "*$1*"
 }
 
 # clean pacman cache
@@ -176,13 +183,13 @@ function cleanpacman () {
     OLDPKG=$(pacman -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
-	sudo pacman -Rns $OLDPKG
+        sudo pacman -Rns $OLDPKG
     fi
     if [[ "$1" == "y" ]]
     then
-	yes | sudo pacman -Scc
+        yes | sudo pacman -Scc
     else
-	sudo pacman -Scc
+        sudo pacman -Scc
     fi
 }
 
@@ -191,13 +198,13 @@ function cleanparu () {
     OLDPKG=$(paru -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
-	sudo paru -Rns $OLDPKG
+        sudo paru -Rns $OLDPKG
     fi
     if [[ "$1" == "y" ]]
     then
-	yes | sudo paru -Scc
+        yes | sudo paru -Scc
     else
-	sudo paru -Scc
+        sudo paru -Scc
     fi
 }
 
@@ -206,28 +213,49 @@ function cleanyay () {
     OLDPKG=$(yay -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
-	sudo yay -Rns $OLDPKG
+        sudo yay -Rns $OLDPKG
     fi
     if [[ "$1" == "y" ]]
     then
-	yes | sudo yay -Scc
+        yes | sudo yay -Scc
     else
-	sudo yay -Scc
+        sudo yay -Scc
     fi
 }
 
 true_man_intern=$(which man)
-function man () {
-    if [[ "$1" == "google" ]]; then
-	xdg-open "https://duckduckgo.com/?q=${@:1}"
-    elif [[ "$1" == "howto" ]]; then
-	curl "https://cheat.sh/$(echo ${@:2} | tr ' ' '+')"
-    elif [[ "$1" == "how" ]] && [[ "$2" == "to" ]]; then
-	curl "https://cheat.sh/$(echo ${@:3} | tr ' ' '+')"
-    else
-	$true_man_intern "$@"
-    fi
-}
+if [[ " ${plugins[*]} " == *" colored-man-pages "* ]]; then
+    true_man_intern="colored"
+elif [[ -z "$(echo $true_man_intern | grep '/bin')" ]]; then
+    true_man_intern=""
+fi
+if [[ -n "$true_man_intern" ]]; then
+    function man () {
+        if [[ "$1" == "help" ]] || [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
+            echo "custom function that call the internal man if next pattern is not respected:"
+            echo "-> \$1 == goolgle"
+            echo "(open the nexts parameters to browser search)"
+            echo "-> \$1 == howto"
+            echo "(curl cheat.sh with nexts parameters as research)"
+            echo "-> \$1 == how && \$2 == to"
+            echo "(same as howto)"
+            echo "-> \$1 == howdoi"
+            echo "exec howdoi (pip install howdoi)"
+            echo "-> the true man with your parameters"
+            $true_man_intern $@
+        elif [[ "$1" == "google" ]]; then
+            xdg-open "https://duckduckgo.com/?q=$(echo -n ${@:2} | tr ' ' '+')"
+        elif [[ "$1" == "howto" ]]; then
+            curl "https://cheat.sh/$(echo ${@:2} | tr ' ' '+')"
+        elif [[ "$1" == "how" ]] && [[ "$2" == "to" ]]; then
+            curl "https://cheat.sh/$(echo ${@:3} | tr ' ' '+')"
+        elif [[ "$1" == "howdoi" ]]; then
+            howdoi ${@:3}
+        else
+            $true_man_intern man "$@"
+        fi
+    }
+fi
 
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 
@@ -240,5 +268,13 @@ alias watch='fnalias watch -c '
 alias xargs='xargs '
 
 if command -v neofetch &>/dev/null; then
-    neofetch
+    LOCKFILE="/tmp/neofetchalreadyexecuted"
+    if [[ "$NO_NEOFETCH" == "" ]] && [[ ! -f "$LOCKFILE" ]]; then
+        touch "$LOCKFILE"
+        neofetch
+    fi
+fi
+
+if command -v "change-background.sh" &>/dev/null; then
+    change-background.sh
 fi

@@ -70,7 +70,7 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 # ----------------------------------------------------------------------------
 # CUDA
 # ----------------------------------------------------------------------------
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME""/nv"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
 # ----------------------------------------------------------------------------
 # GNUPG
@@ -80,10 +80,7 @@ export GNUPGHOME="$XDG_DATA_HOME""/gnupg"
 # ----------------------------------------------------------------------------
 # X11
 # ----------------------------------------------------------------------------
-#export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
-#if [[ -f "/etc/X11/xinit/xinitrc" ]] && [[ $(grep "ERRFILE" "/etc/X11/xinit/xinitrc") == "" ]]; then
-#    sed -i '/^$/,/^$/s/^$/'"ERRFILE=\"$XDG_CACHE_HOME/X11/xsession-errors\""'/' /etc/hosts
-#fi
+# export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
 # ----------------------------------------------------------------------------
 # Text editor

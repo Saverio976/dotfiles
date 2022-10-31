@@ -38,7 +38,7 @@ set $keyboardmap fr
 #set $keyboardmap us
 
 # Lock
-set $locker "i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i '{{ env.HOME }}/Pictures/wallpaper.png'"
+set $locker i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i '{{ env.HOME }}/Pictures/wallpaper.jpg'
 
 # TouchPad
 set $touchpadprop "ELAN0504:01 04F3:3091 Touchpad"
@@ -238,11 +238,11 @@ exec --no-startup-id volumeicon
 # num lock activated
 exec_always --no-startup-id numlockx on
 
-# Conky
-exec --no-startup-id conky -c "{{ env.HOME }}/.config/i3/system-overview"
-
 # feh wallpaper
 exec --no-startup-id feh --bg-scale --no-fehbg --randomize "{{ env.HOME }}/.local/share/wallpaper"
+
+# Conky
+exec --no-startup-id conky -c "{{ env.HOME }}/.config/i3/system-overview"
 
 ################# applications keyboard shortcuts
 
@@ -335,13 +335,13 @@ exec --no-startup-id setxkbmap $keyboardmap
 ################# Lock / suspend
 
 # lock
-bindsym Control+Mod1+l exec $locker
+bindsym Control+Mod1+l exec "$locker"
 
 # suspend
-bindsym Control+Mod1+Shift+l exec $locker && systemctl suspend
+bindsym Control+Mod1+Shift+l exec "$locker && systemctl suspend"
 
 # auto lock the screen
-exec --no-startup-id xautolock -detectsleep -time 3 -notify 5 -locker $locker
+exec --no-startup-id xautolock -detectsleep -time 3 -notify 5 -locker "$locker"
 exec --no-startup-id xautolock -time 20 -locker \"systemctl suspend\"
 bindsym Control+Shift+e exec "xautolock -enable"
 bindsym Control+Shift+d exec "xautolock -disable"
