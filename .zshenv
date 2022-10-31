@@ -47,9 +47,9 @@ alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 # ANDROID
 # ----------------------------------------------------------------------------
 # ANDROID SDK
-export ANDROID_HOME="$XDG_DATA_HOME/android"
+# export ANDROID_HOME="$XDG_DATA_HOME/android"
 # GRADLE
-export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+# export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 
 # ----------------------------------------------------------------------------
 # LANGUAGES
