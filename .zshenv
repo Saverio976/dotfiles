@@ -68,6 +68,8 @@ export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 # JAVA
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
+# GO
+export GOPATH="$XDG_DATA_HOME/go"
 
 # ----------------------------------------------------------------------------
 # CUDA
