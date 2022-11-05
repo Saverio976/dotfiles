@@ -15,7 +15,7 @@ echo "bash script: https://raw.githubusercontent.com/AustralEpitech/.dotfiles/wo
 echo "[y/N] "
 read CHOICE
 if [[ "$CHOICE" == "Y" ]] || [[ "$CHOICE" == "y" ]]; then
-    curl https://raw.githubusercontent.com/AustralEpitech/.dotfiles/work/bin/dkpurge > $XDG_LOCAL_BIN_HOME/dkpurge
+    curl https://raw.githubusercontent.com/AustralEpitech/.dotfiles/main/bin/dkprune > $XDG_LOCAL_BIN_HOME/dkpurge
     chmod +x $XDG_LOCAL_BIN_HOME/dkpurge
 fi
 
