@@ -31,3 +31,19 @@ fc-cache -f -v
 
 ## parameter substitution
 [wiki-bash](https://wiki.bash-hackers.org/syntax/pe)
+
+# device
+
+## lsblk
+lsblk
+
+## lsscsi
+lsscsi
+
+# Nvidia
+
+## envycontrol
+envycontrol --switch {hybrid,nvidia,integrated}
+
+# Arch Package
+{pacman,paru,yay} -S - < $HOME/.config/paru/pkglist.txt
