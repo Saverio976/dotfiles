@@ -227,7 +227,8 @@ exec --no-startup-id xinput set-prop $touchpadprop "libinput Tapping Enabled" 1
 # TRAY APPLICATIONS
 
 # bluetooth
-exec --no-startup-id blueberry-tray
+# exec --no-startup-id blueberry-tray
+exec --no-startup-id blueman-applet
 
 # network
 exec --no-startup-id nm-applet
@@ -242,7 +243,7 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id feh --bg-scale --no-fehbg --randomize "{{ env.HOME }}/.local/share/wallpaper"
 
 # Conky
-exec --no-startup-id conky -c "{{ env.HOME }}/.config/i3/system-overview"
+exec_always --no-startup-id conky -c "{{ env.HOME }}/.config/i3/system-overview"
 
 ################# applications keyboard shortcuts
 
@@ -252,6 +253,7 @@ bindsym control+mod1+e exec --no-startup-id archlinux-tweak-tool
 # Terminal
 bindsym $mod+Return exec --no-startup-id $terminal;focus
 # drop down terminal
+exec_always kitti3
 bindsym $mod+t nop kitti3
 
 ################# screenshots
