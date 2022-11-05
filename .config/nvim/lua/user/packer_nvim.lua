@@ -43,6 +43,8 @@ packer.startup(function (use)
         requires = { 'nvim-lua/plenary.nvim' }
     }
     use { 'folke/trouble.nvim' }
+    use { 'rmagatti/goto-preview' }
+    use { 'folke/lsp-colors.nvim' }
 
     -- (auto)completion
     use {
