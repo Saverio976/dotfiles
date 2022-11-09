@@ -140,7 +140,6 @@ os-prober
 pacman
 partclone
 partimage
-paru-bin
 patch
 pavucontrol
 pcsclite
