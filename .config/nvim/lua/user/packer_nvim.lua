@@ -55,6 +55,7 @@ packer.startup(function (use)
             'lukas-reineke/cmp-rg',
             'hrsh7th/cmp-path',
             'saadparwaiz1/cmp_luasnip',
+            'lukas-reineke/cmp-under-comparator',
         },
     }
     use { 'L3MON4D3/LuaSnip' }
@@ -115,7 +116,8 @@ packer.startup(function (use)
     use { 'stevearc/dressing.nvim' }
     use { 'rcarriga/nvim-notify' }
     use { 'kyazdani42/nvim-web-devicons' }
-    use { 'folke/tokyonight.nvim' }
+    -- use { 'folke/tokyonight.nvim' }
+    use { 'Yazeed1s/minimal.nvim' }
 
     -- discord
     use { 'andweeb/presence.nvim' }

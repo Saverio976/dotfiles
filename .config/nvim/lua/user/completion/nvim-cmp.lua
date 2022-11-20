@@ -12,6 +12,13 @@ if not oklspkind then
         return nil
     end
 end
+local okcmpunder, cmpunder = pcall(require, 'cmp-under-comparator')
+local func_cmp_under
+if okcmpunder then
+    func_cmp_under = cmpunder.under
+else
+    func_cmp_under = function (_entry1, _entry2) end
+end
 
 cmp.setup({
     snippet = {
@@ -34,6 +41,15 @@ cmp.setup({
     }),
     completion = {
         completopt = 'menuone,preview,noinsert,noselect,'
+    },
+    sorting = {
+        comparators = {
+            cmp.config.compare.score,
+            func_cmp_under,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+        },
     },
     formatting = {
         format = lspkind.cmp_format({

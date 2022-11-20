@@ -34,7 +34,7 @@ nvimtree.setup({
         enable = true,
     },
     diagnostics = {
-	enable = true,
+        enable = true,
     },
 })
 local options = {noremap = true, silent = true}
