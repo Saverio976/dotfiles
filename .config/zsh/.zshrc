@@ -88,17 +88,18 @@ alias restartx="sudo systemctl restart lightdm.service"
 ##############################################################################
 # REPLACE COMMAND
 local function replace_command() {
-command_replace=$(echo $2 | awk '{print $1;}')
-if command -v $command_replace &> /dev/null
-then
-    alias $1="$2"
-fi
+    command_replace=$(echo $2 | awk '{print $1;}')
+    if command -v $command_replace &> /dev/null
+    then
+        alias $1="$2"
+    fi
 }
 
-replace_command "ls" "exa -la"
-replace_command "cat" "bat"
-replace_command "htop" "btm"
-replace_command "kill" "fkill"
+replace_command "ls"    "exa -la"
+replace_command "cat"   "bat"
+replace_command "htop"  "btm"
+replace_command "kill"  "fkill"
+replace_command "vim"   "nvim"
 
 # replace cd command
 if command -v zoxide &> /dev/null
@@ -283,9 +284,4 @@ fi
 
 if command -v "change-background.sh" &>/dev/null; then
     change-background.sh
-fi
-if [[ -f  '$HOME/.config/zsh/.timeplanner.sh' ]]; then
-    source '$HOME/.config/zsh/.timeplanner.sh'
-    preexec_functions+=(_preexec_timeplanner)
-    precmd_functions+=(_precmd_timeplanner)
 fi
