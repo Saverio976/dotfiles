@@ -39,9 +39,9 @@ zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ${XDG_CACHE_HOME:-~/.cache/zscache}
+zstyle ':completion:*' cache-path ${XDG_CACHE_HOME:-$HOME/.cache/zscache}
 zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
-zstyle :compinstall filename "/home/saverio/${XDG_CONFIG_HOME:-~/.config}/zsh/.zshrc"
+zstyle :compinstall filename "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshrc"
 
 autoload -Uz compinit bashcompinit
 compinit
@@ -283,4 +283,9 @@ fi
 
 if command -v "change-background.sh" &>/dev/null; then
     change-background.sh
+fi
+if [[ -f  '$HOME/.config/zsh/.timeplanner.sh' ]]; then
+    source '$HOME/.config/zsh/.timeplanner.sh'
+    preexec_functions+=(_preexec_timeplanner)
+    precmd_functions+=(_precmd_timeplanner)
 fi
