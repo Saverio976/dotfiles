@@ -72,7 +72,14 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
-        { name = 'rg' },
+        {
+            name = 'rg',
+            option = {
+                additional_arguments = "--max-depth 4 --hidden",
+                debounce = 1000
+            },
+            keyword_length = 3
+        },
         { name = 'luasnip' },
     },
 })
