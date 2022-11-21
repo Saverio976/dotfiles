@@ -39,9 +39,9 @@ zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ${XDG_CACHE_HOME:-~/.cache/zscache}
+zstyle ':completion:*' cache-path ${XDG_CACHE_HOME:-$HOME/.cache/zscache}
 zstyle ':completion:*:descriptions' format '%U%F{cyan}%d%f%u'
-zstyle :compinstall filename "/home/saverio/${XDG_CONFIG_HOME:-~/.config}/zsh/.zshrc"
+zstyle :compinstall filename "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshrc"
 
 autoload -Uz compinit bashcompinit
 compinit
@@ -88,17 +88,18 @@ alias restartx="sudo systemctl restart lightdm.service"
 ##############################################################################
 # REPLACE COMMAND
 local function replace_command() {
-command_replace=$(echo $2 | awk '{print $1;}')
-if command -v $command_replace &> /dev/null
-then
-    alias $1="$2"
-fi
+    command_replace=$(echo $2 | awk '{print $1;}')
+    if command -v $command_replace &> /dev/null
+    then
+        alias $1="$2"
+    fi
 }
 
-replace_command "ls" "exa -la"
-replace_command "cat" "bat"
-replace_command "htop" "btm"
-replace_command "kill" "fkill"
+replace_command "ls"    "exa -la"
+replace_command "cat"   "bat"
+replace_command "htop"  "btm"
+replace_command "kill"  "fkill"
+replace_command "vim"   "nvim"
 
 # replace cd command
 if command -v zoxide &> /dev/null
@@ -260,12 +261,18 @@ fi
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 
 # from https://github.com/AustralEpitech/.dotfiles/blob/main/.config/zsh/.zsh_aliases
+alias umnt='sudo umount /mnt -R'
+alias automount='D=$(udisksctl mount -b /dev/sda1 2> /dev/null || udisksctl mount -b /dev/sdb1) && cd ${D/* }'
+
+alias_if_exists 'epitest' 'docker run -it --rm -v $PWD:/usr/app/ epitechcontent/epitest-docker bash'
+
 function fnalias() {
     $1 $(echo "${@:2}" | sed 's/--color=.\+/--color=force/')
 }
 alias sudo='sudo '
 alias watch='fnalias watch -c '
 alias xargs='xargs '
+# end from
 
 if command -v neofetch &>/dev/null; then
     LOCKFILE="/tmp/neofetchalreadyexecuted"
