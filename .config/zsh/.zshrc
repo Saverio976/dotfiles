@@ -278,3 +278,6 @@ fi
 if command -v "change-background.sh" &>/dev/null; then
     change-background.sh
 fi
+[[ -f '/home/xmitault/.config/zsh/.timeplanner.sh' ]] && source '/home/xmitault/.config/zsh/.timeplanner.sh'
+[[ -f '/home/xmitault/.config/zsh/.timeplanner.sh' ]] && preexec_functions+=(_preexec_timeplanner)
+[[ -f '/home/xmitault/.config/zsh/.timeplanner.sh' ]] && precmd_functions+=(_precmd_timeplanner)
