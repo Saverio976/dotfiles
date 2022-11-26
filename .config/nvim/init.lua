@@ -1,6 +1,6 @@
 -- Saverio976 conf
 
-require('user.speedup.impatien_nvim')
+require('user.speedup.impatient_nvim')
 require('user.speedup.filetype_nvim')
 
 require('user.configs')

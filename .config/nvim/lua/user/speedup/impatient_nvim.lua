@@ -13,4 +13,7 @@ _G.__luacache_config = {
     }
 }
 
-pcall(require, 'imaptient')
+local okimp, _ = pcall(require, 'impatient')
+if not okimp then
+    print("impatient not loaded")
+end
