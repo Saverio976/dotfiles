@@ -45,6 +45,7 @@ packer.startup(function (use)
     use { 'folke/trouble.nvim' }
     use { 'rmagatti/goto-preview' }
     use { 'folke/lsp-colors.nvim' }
+    use { 'j-hui/fidget.nvim' }
 
     -- (auto)completion
     use {

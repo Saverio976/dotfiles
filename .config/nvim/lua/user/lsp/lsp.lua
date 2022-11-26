@@ -124,3 +124,8 @@ if oklspcolor then
         Hint = "#10B981"
     })
 end
+
+local oklsprogress, lsprogress = pcall(require, 'fidget')
+if oklsprogress then
+    lsprogress.setup({})
+end
