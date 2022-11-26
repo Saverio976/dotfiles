@@ -24,18 +24,17 @@ telescope.setup({
         },
     },
     extensions = {
-	fzf = {
-	    fuzzy = true,
-	    case_mode = 'smart_case'
-	},
+        fzf = {
+            fuzzy = true,
+            case_mode = 'smart_case'
+        },
     },
 })
 telescope.load_extension('fzf')
 
-local opts = { noremap = true, silent = true }
+local opts = {  }
 -- " Find files using Telescope command-line sugar.
-vim.keymap.set('n', 'tf', '<cmd>Telescope find_files<cr>', opts)
-vim.keymap.set('n', 'tg', '<cmd>Telescope live_grep<cr>', opts)
-vim.keymap.set('n', 'tb', '<cmd>Telescope buffers<cr>', opts)
-vim.keymap.set('n', '<A-z>', '<cmd>Telescope buffers<cr>', opts)
-vim.keymap.set('n', 'th', '<cmd>Telescope help_tags<cr>', opts)
+vim.keymap.set('n', 'tf', '<cmd>Telescope find_files<cr>', { desc = 'Telescope find_files', noremap = true, silent = true })
+vim.keymap.set('n', 'tg', '<cmd>Telescope live_grep<cr>', { desc = 'Telescope live_grep', noremap = true, silent = true })
+vim.keymap.set('n', 'tb', '<cmd>Telescope buffers<cr>', { desc = 'Telescope buffers', noremap = true, silent = true })
+vim.keymap.set('n', 'th', '<cmd>Telescope help_tags<cr>', { desc = 'Telescope help_tags', noremap = true, silent = true })

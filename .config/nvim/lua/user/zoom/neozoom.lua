@@ -11,5 +11,4 @@ neozoom.setup({
     height_ratio = 1,
     border = 'rounded',
 })
-local opts = { silent = true, noremap = true }
-vim.keymap.set('n', '<leader>m', '<cmd>NeoZoomToggle<cr>', opts)
+vim.keymap.set('n', '<leader>m', '<cmd>NeoZoomToggle<cr>', { desc = 'NeoZoomToggle', silent = true, noremap = true })

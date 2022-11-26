@@ -9,22 +9,22 @@ if not ok then
 end
 local on_attach_ = function (_, bufnr)
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', 'gpd', require('goto-preview').goto_preview_definition, bufopts)
-    vim.keymap.set('n', 'gpi', require('goto-preview').goto_preview_implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', '<space>lwa', vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>lwr', vim.lsp.buf.remove_workspace_folder, bufopts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'lsp.buf.declaration', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'lsp.buf.definition', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = 'lsp.buf.implementation', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', 'gpd', require('goto-preview').goto_preview_definition, { desc = 'goto-preview.definition', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', 'gpi', require('goto-preview').goto_preview_implementation, { desc = 'goto-preview.implementation', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'lsp.buf.signature-help', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', '<space>lwa', vim.lsp.buf.add_workspace_folder, { desc = 'lsp.buf.add_workspace_folder', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', '<space>lwr', vim.lsp.buf.remove_workspace_folder, { desc = 'lsp.buf.remove_workspace_folder', noremap=true, silent=true, buffer=bufnr })
     vim.keymap.set('n', '<space>lwl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, bufopts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
+    end, { desc = 'lsp.buf.list_workspace_folders', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, { desc = 'lsp.buf.type_definition', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = 'lsp.buf.rename', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, { desc = 'lsp.buf.code_action', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'lsp.buf.references', noremap=true, silent=true, buffer=bufnr })
+    vim.keymap.set('n', '<space>lf', function() vim.lsp.buf.format { async = true } end, { desc = 'lsp.buf.format', noremap=true, silent=true, buffer=bufnr })
 end
 local okcmplsp, cmplsp = pcall(require, 'cmp_nvim_lsp')
 local cap = nil
@@ -63,13 +63,7 @@ local oknulls, null_ls = pcall(require, 'null-ls')
 if oknulls then
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
     local sources = {
-        null_ls.builtins.completion.spell,
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.rustfmt,
-        null_ls.builtins.diagnostics.cmake_lint,
         null_ls.builtins.diagnostics.luacheck,
-        null_ls.builtins.hover.dictionary,
     }
     null_ls.setup({
         sources = sources,
@@ -82,8 +76,7 @@ end
 -- trouble
 local oktroubl, trouble = pcall(require, 'trouble')
 if oktroubl then
-    local opts = { noremap=true, silent=true }
-    vim.keymap.set('n', 'gt', '<CMD>TroubleToggle<CR>', opts)
+    vim.keymap.set('n', 'gt', '<CMD>TroubleToggle<CR>', { desc = 'TroubleToggle', noremap=true, silent=true })
     trouble.setup({
         position = "bottom",
         height = 7,

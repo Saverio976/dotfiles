@@ -13,7 +13,9 @@ _G.__luacache_config = {
     }
 }
 
-local okimp, _ = pcall(require, 'impatient')
+local okimp, impatient = pcall(require, 'impatient')
 if not okimp then
     print("impatient not loaded")
+    return
 end
+impatient.enable_profile()

@@ -67,7 +67,7 @@ vim.opt.showmatch = true
 local shell = os.getenv('SHELL')
 vim.opt.shell = shell
 
-vim.opt.lazyredraw = true
+-- vim.opt.lazyredraw = true
 vim.opt.ttyfast = true
 
 -- ruler

@@ -113,6 +113,7 @@ packer.startup(function (use)
         'lewis6991/gitsigns.nvim',
         requires = { 'nvim-lua/plenary.nvim' }
     }
+    use { 'MunifTanjim/nui.nvim' }
     use { 'stevearc/dressing.nvim' }
     use { 'rcarriga/nvim-notify' }
     use { 'kyazdani42/nvim-web-devicons' }
