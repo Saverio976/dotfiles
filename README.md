@@ -78,11 +78,15 @@ choose random image in `$HOME/.local/share/wallpaper/`
 
 - run
 ```bash
-yadm clone https://github.com/Saverio976/dotfiles.git
+# yadm clone https://github.com/Saverio976/dotfiles.git
+yadm clone https://git.kreog.com/Saverio976/dotfiles.git
 ```
 ## Via bash
 ```bash
-curl -fLo /tmp/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x /tmp/yadm && /tmp/yadm clone https://github.com/Saverio976/dotfiles.git
+curl -fLo /tmp/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && \
+    chmod a+x /tmp/yadm && \
+    #/tmp/yadm clone https://github.com/Saverio976/dotfiles.git
+    /tmp/yadm clone https://git.kreog.com/Saverio976/dotfiles.git
 ```
 
 # Language install
