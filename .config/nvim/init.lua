@@ -7,6 +7,7 @@ require('user.configs')
 
 require('user.packer_nvim')
 require('user.lsp.lsp')
+require('user.lsp.lightbulb')
 require('user.completion.nvim-cmp')
 require('user.completion.whichkey_nvim')
 require('user.completion.wilder_nvim')

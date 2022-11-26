@@ -46,6 +46,7 @@ packer.startup(function (use)
     use { 'rmagatti/goto-preview' }
     use { 'folke/lsp-colors.nvim' }
     use { 'j-hui/fidget.nvim' }
+    use { 'kosayoda/nvim-lightbulb' }
 
     -- (auto)completion
     use {
