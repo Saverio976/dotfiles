@@ -124,6 +124,14 @@ packer.startup(function (use)
 
     -- discord
     -- use { 'andweeb/presence.nvim' }
+    -- game
+    -- use {
+    --     'seandewar/killersheep.nvim',
+    --     config = function()
+    --         local ok, killersheep = pcall(require, "killersheep")
+    --         if ok then killersheep.setup({}) end
+    --     end
+    -- }
 
     -- music
     use {
