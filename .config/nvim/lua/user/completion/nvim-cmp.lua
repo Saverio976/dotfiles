@@ -44,11 +44,14 @@ cmp.setup({
     },
     sorting = {
         comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
             cmp.config.compare.score,
             func_cmp_under,
             cmp.config.compare.kind,
             cmp.config.compare.sort_text,
             cmp.config.compare.length,
+            cmp.config.compare.order,
         },
     },
     formatting = {
@@ -57,11 +60,8 @@ cmp.setup({
             maxwidth = 50,
             before = function (entry, vim_item)
                 vim_item.menu = ({
-                    buffer = "[Buff]",
                     nvim_lsp = "[LSP]",
                     luasnip = "[LuaSnip]",
-                    nvim_lua = "[Lua]",
-                    latex_symbols = "[Latex]",
                     rg = '[RG]'
                 })[entry.source.name]
                 return vim_item
@@ -76,7 +76,7 @@ cmp.setup({
             name = 'rg',
             option = {
                 additional_arguments = "--max-depth 4 --hidden",
-                debounce = 1000
+                debounce = 100
             },
             keyword_length = 3
         },

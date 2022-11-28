@@ -31,7 +31,12 @@ end
 -- notify
 local oknotif, notify = pcall(require, 'notify')
 if oknotif then
-    notify.setup({ background_color = '#000000' })
+    notify.setup({
+        background_colour = '#000000',
+        stages = 'static',
+        fps = 2,
+        timeout = 4000
+    })
     vim.notify = notify
 end
 -- https://github.com/kyazdani42/nvim-web-devicons

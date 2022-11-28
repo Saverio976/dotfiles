@@ -45,6 +45,8 @@ packer.startup(function (use)
     use { 'folke/trouble.nvim' }
     use { 'rmagatti/goto-preview' }
     use { 'folke/lsp-colors.nvim' }
+    use { 'j-hui/fidget.nvim' }
+    use { 'kosayoda/nvim-lightbulb' }
 
     -- (auto)completion
     use {
@@ -113,6 +115,7 @@ packer.startup(function (use)
         'lewis6991/gitsigns.nvim',
         requires = { 'nvim-lua/plenary.nvim' }
     }
+    use { 'MunifTanjim/nui.nvim' }
     use { 'stevearc/dressing.nvim' }
     use { 'rcarriga/nvim-notify' }
     use { 'kyazdani42/nvim-web-devicons' }
