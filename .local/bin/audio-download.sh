@@ -31,7 +31,15 @@ then
     echo "please provide a path and write ogg after, example:"
     echo "bash youtube_dl.sh https://www.youtube.com/watch?v=f_zpcGKgXgw . ogg"
     echo
+    echo "To pass extra args to youtube-dl:"
+    echo "Set the YTDL_EXTRA_ARGS env variable to the extra args to pass"
     exit 0
+fi
+
+if ! command -v youtube-dl &> /dev/null
+then
+    echo "you need to install 'youtube-dl' package"
+    exit 84
 fi
 
 if [ "$2" == "" ]
@@ -48,12 +56,16 @@ else
     OGG_COMMAND=''
 fi
 
-if ! command -v youtube-dl &> /dev/null
-then
-    echo "you need to install 'youtube-dl' package"
-    exit 84
-fi
 echo "download audio"
-youtube-dl --ignore-config --geo-bypass --yes-playlist --restrict-filenames \
-    --no-cache-dir --format 'bestaudio[ext=mp3]/bestaudio' $1 \
-    -o "$DIR_PATH/%(title)s.%(ext)s" $OGG_COMMAND --ignore-errors
+youtube-dl \
+    --ignore-config \
+    --geo-bypass \
+    --yes-playlist \
+    --restrict-filenames \
+    --no-cache-dir \
+    --format 'bestaudio[ext=mp3]/bestaudio' \
+    $1 \
+    -o "$DIR_PATH/%(title)s.%(ext)s" \
+    $OGG_COMMAND \
+    --ignore-errors \
+    $YTDL_EXTRA_ARGS
