@@ -66,6 +66,9 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
 # PYTHON
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # ----------------------------------------------------------------------------
 # CUDA
