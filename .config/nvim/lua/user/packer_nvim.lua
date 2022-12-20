@@ -64,7 +64,7 @@ packer.startup(function (use)
     use { 'LunarWatcher/auto-pairs' }
     use { 'folke/which-key.nvim' }
     use { 'RishabhRD/nvim-cheat.sh' }
-    use { 'gelguy/wilder.nvim' }
+    -- use { 'gelguy/wilder.nvim' }
 
     -- treesitter
     use { 'nvim-treesitter/nvim-treesitter' }
