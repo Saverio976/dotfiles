@@ -1,4 +1,3 @@
 prefix={{ env.HOME }}/.local/share/npm
 cache={{ env.HOME }}/.local/chache/npm
-tmp=/run/user/1000/npm
 init-module={{ env.HOME }}/.config/npm/config/npm-init.js
