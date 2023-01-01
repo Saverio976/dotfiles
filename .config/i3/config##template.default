@@ -38,7 +38,7 @@ set $keyboardmap fr
 #set $keyboardmap us
 
 # Lock
-set $locker i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i '{{ env.HOME }}/Pictures/wallpaper.jpg'
+set $locker i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i '{{ env.HOME }}/Pictures/wallpaper.png'
 
 # TouchPad
 set $touchpadprop "ELAN0504:01 04F3:3091 Touchpad"
