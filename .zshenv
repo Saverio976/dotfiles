@@ -70,6 +70,8 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 # GO
 export GOPATH="$XDG_DATA_HOME/go"
+# HASKELL
+export STACK_ROOT="$XDG_DATA_HOME/stack"
 
 # ----------------------------------------------------------------------------
 # CUDA
