@@ -132,5 +132,9 @@ packer.startup(function (use)
         requires = { 'voldikss/vim-floaterm' }
     }
 
--- TODO: epitech
+    use {
+        'heavenshell/vim-pydocstring',
+        run = 'make install',
+        ft = 'python',
+    }
 end)

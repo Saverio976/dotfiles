@@ -29,3 +29,5 @@ require('user.autocmd')
 require('user.override_default')
 require('user.configs')
 require('user.theme')
+
+require('user.epitech')

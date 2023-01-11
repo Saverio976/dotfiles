@@ -14,3 +14,5 @@ if okindentomatic then
         skip_multiline = true,
     })
 end
+
+vim.g.pydocstring_formatter = 'numpy'
