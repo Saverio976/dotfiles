@@ -4,9 +4,21 @@ local okteles, telescope = pcall(require, 'telescope')
 if not okteles then
     return
 end
+
+local actions = require("telescope.actions")
+
+local telescopeConfig = require("telescope.config")
+
+-- Clone the default Telescope configuration
+local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+
+-- I want to search in hidden/dot files.
+table.insert(vimgrep_arguments, "--hidden")
+
 telescope.setup({
     defaults = {
         initial_mode = "insert",
+        vimgrep_arguments = vimgrep_arguments,
         file_ignore_patterns = {
             "__pycache__/", "__pycache__/*",
             "node_modules/", "node_modules/*",
@@ -22,6 +34,12 @@ telescope.setup({
                 treesitter = false
             }
         },
+        mappings = {
+            i = {
+                ["<C-u>"] = false,
+                ["<ESC>"] = actions.close,
+            },
+        },
     },
     extensions = {
         fzf = {
@@ -29,10 +47,14 @@ telescope.setup({
             case_mode = 'smart_case'
         },
     },
+    pickers = {
+        find_files = {
+            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+    },
 })
 telescope.load_extension('fzf')
 
-local opts = {  }
 -- " Find files using Telescope command-line sugar.
 vim.keymap.set('n', 'tf', '<cmd>Telescope find_files<cr>', { desc = 'Telescope find_files', noremap = true, silent = true })
 vim.keymap.set('n', 'tg', '<cmd>Telescope live_grep<cr>', { desc = 'Telescope live_grep', noremap = true, silent = true })
