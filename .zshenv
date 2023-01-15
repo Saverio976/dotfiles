@@ -72,6 +72,8 @@ export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 export GOPATH="$XDG_DATA_HOME/go"
 # HASKELL
 export STACK_ROOT="$XDG_DATA_HOME/stack"
+export CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
+export CABAL_DIR="$XDG_DATA_HOME/cabal"
 
 # ----------------------------------------------------------------------------
 # CUDA
