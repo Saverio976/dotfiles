@@ -20,7 +20,7 @@ Comment=Discord application
 Exec=/opt/Discord/Discord
 Icon=/opt/Discord/discord.png
 Terminal=false
-Path=/opt/Discord" >> /share/applications/Discord.desktop
+Path=/opt/Discord" > /usr/share/applications/Discord.desktop
 # prompt a good indicator
 echo "Succesfull installation"
 set +x
