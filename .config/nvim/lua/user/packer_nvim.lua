@@ -60,6 +60,14 @@ packer.startup(function (use)
             'lukas-reineke/cmp-under-comparator',
         },
     }
+    use {
+        'tzachar/cmp-tabnine',
+        after = "nvim-cmp",
+        run = './install.sh',
+        requires = {
+            'hrsh7th/nvim-cmp'
+        }
+    }
     use { 'L3MON4D3/LuaSnip' }
     use { 'LunarWatcher/auto-pairs' }
     use { 'folke/which-key.nvim' }
@@ -119,7 +127,8 @@ packer.startup(function (use)
     use { 'stevearc/dressing.nvim' }
     use { 'rcarriga/nvim-notify' }
     use { 'kyazdani42/nvim-web-devicons' }
-    -- use { 'folke/tokyonight.nvim' }
+
+    use { 'folke/tokyonight.nvim' }
     use { 'Yazeed1s/minimal.nvim' }
 
     -- discord
