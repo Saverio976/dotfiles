@@ -69,7 +69,8 @@ packer.startup(function (use)
         }
     }
     use { 'L3MON4D3/LuaSnip' }
-    use { 'LunarWatcher/auto-pairs' }
+    -- use { 'LunarWatcher/auto-pairs' }
+    use { 'windwp/nvim-autopairs' }
     use { 'folke/which-key.nvim' }
     use { 'RishabhRD/nvim-cheat.sh' }
     -- use { 'gelguy/wilder.nvim' }
@@ -130,6 +131,7 @@ packer.startup(function (use)
 
     use { 'folke/tokyonight.nvim' }
     use { 'Yazeed1s/minimal.nvim' }
+    use { 'mrjones2014/lighthaus.nvim' }
 
     -- discord
     use { 'andweeb/presence.nvim' }
