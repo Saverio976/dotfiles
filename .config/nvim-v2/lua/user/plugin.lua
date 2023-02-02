@@ -166,7 +166,7 @@ lazy.setup({
 
     {
         "voldikss/vim-floaterm",
-        keys = "<A-=>",
+        keys = "<A>=",
         cmd = {
             "FloatermFirst",
             "FloatermHide",
@@ -234,7 +234,12 @@ lazy.setup({
 
     {
         "heavenshell/vim-pydocstring",
+        lazy = true,
         build = "make install",
+        cmd = "Pydocstring",
         ft = "python",
+        config = function()
+            vim.g.pydocstring_formatter = 'numpy'
+        end,
     },
 })
