@@ -132,6 +132,7 @@ packer.startup(function (use)
     use { 'folke/tokyonight.nvim' }
     use { 'Yazeed1s/minimal.nvim' }
     use { 'mrjones2014/lighthaus.nvim' }
+    use { 'mawkler/modicator.nvim' }
 
     -- discord
     use { 'andweeb/presence.nvim' }

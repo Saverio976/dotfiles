@@ -31,7 +31,7 @@ components.active[1] = {
             name = 'file_info',
             opts = { type = 'short-path' }
         },
-        hl = { fg = 'black', bg = 'f_color' },
+        hl = { fg = 'green', bg = 'f_color' },
         left_sep = {
             ' ', 'slant_left_2',
             { str = ' ', hl = { bg = 'f_color', fg = 'NONE' } },
@@ -42,7 +42,7 @@ components.active[1] = {
             local filetype = vim.bo.filetype
             if filetype == "" then return " " else return " [" .. filetype .. "]" end
         end,
-        hl = { fg = 'black', bg = 'f_color', style = 'NONE' },
+        hl = { fg = 'yellow', bg = 'f_color', style = 'NONE' },
         right_sep = { 'slant_left_2', ' ' },
     },
     {

@@ -49,3 +49,8 @@ if okdevicon then
         })
     end
 end
+
+local okmodicator, modicator = pcall(require, 'modicator')
+if okmodicator then
+    modicator.setup()
+end
