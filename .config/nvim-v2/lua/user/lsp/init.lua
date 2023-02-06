@@ -31,8 +31,32 @@ local function try_setup_server(server, lspconf, on_attach, capabilities)
         capabilities = capabilities,
     })
 end
+
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local names = {'clangd', 'pyright', 'jsonls', 'bashls', 'tsserver', 'rust_analyzer', 'hls'} -- 'pylsp'
+local names = {
+    -- 'marksman',              -- md           -- https://github.com/artempyanykh/marksman
+
+    'clangd',                -- c            -- https://clangd.llvm.org/installation.html
+    -- 'cmake',                 -- cmake        -- https://github.com/regen100/cmake-language-server
+
+    'pyright',               -- py           -- https://github.com/microsoft/pyright
+    -- 'pylsp',                 -- py           -- https://github.com/python-lsp/python-lsp-server 
+
+    'bashls',                -- bash         -- https://github.com/mads-hartmann/bash-language-server
+    -- 'dockerls',              -- docker       -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
+
+    'tsserver',              -- js/ts        -- https://github.com/typescript-language-server/typescript-language-server
+    -- 'cssls',                 -- css          -- https://github.com/hrsh7th/vscode-langservers-extracted
+    -- 'html',                  -- html         -- https://github.com/hrsh7th/vscode-langservers-extracted
+    -- 'jsonls',                -- json         -- https://github.com/hrsh7th/vscode-langservers-extracted
+
+    -- 'hls',                   -- haskell      -- https://github.com/haskell/haskell-language-server
+    -- 'asm_lsp',               -- asm GAS/GOS  -- https://github.com/bergercookie/asm-lsp
+    -- 'rust_analyzer',         -- rust         -- https://github.com/rust-analyzer/rust-analyzer
+    -- 'dartls',                -- dart         -- https://github.com/dart-lang/sdk/tree/master/pkg/analysis_server/tool/lsp_spec
+    -- 'jdtls',                 -- java         -- https://projects.eclipse.org/projects/eclipse.jdt.ls
+    'sumneko_lua',           -- lua          -- https://github.com/sumneko/lua-language-server
+}
 for _, lang in ipairs(names) do
     try_setup_server(lang, lspconfig, on_attach_, cap)
 end
