@@ -146,7 +146,7 @@ lazy.setup({
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        config = function() require("undotree") end,
+        config = function() require("undotree").setup() end,
     },
 
     {
