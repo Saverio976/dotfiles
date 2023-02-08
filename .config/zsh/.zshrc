@@ -118,34 +118,33 @@ if command -v gpg &> /dev/null && command -v git &> /dev/null
 then
     OLD_GIT=$(which git)
     function git () {
-	if [[ "$1" == "commit" ]]
-	then
-	    export GPG_TTY=$(tty)
-	fi
-	$OLD_GIT $@
+        if [[ "$1" == "commit" ]]; then
+            export GPG_TTY=$(tty)
+        fi
+            $OLD_GIT $@
     }
 fi
 
 ##############################################################################
 # ALIAS
 local function alias_if_exists() {
-command_exists=$(echo $2 | awk '{print $1;}')
-if command -v $command_exists &> /dev/null
-then
-    alias $1="$2"
-fi
+    command_exists=$(echo $2 | awk '{print $1;}')
+    if command -v $command_exists &> /dev/null; then
+        alias $1="$2"
+    fi
 }
 
-alias_if_exists "audio-input-toggle"    "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-alias_if_exists "audio-output-toggle"   "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-alias_if_exists "scrcpy"                "scrcpy -S -w --power-off-on-close --disable-screensaver"
-alias_if_exists "normatrix"             "$HOME/source/NorMatrix/main.py"
-alias_if_exists "termtosvg"             "python3 -m termtosvg"
-alias_if_exists "i3conf"                "nvim $HOME/.config/i3/config"
-alias_if_exists "zshconf"               "nvim $HOME/.zshrc"
-alias_if_exists "starshipconf"          "nvim $HOME/.config/starship.toml"
-alias_if_exists "yarn"                  "yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
-alias_if_exists "wget"                  "wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
+alias_if_exists "audio-input-toggle"    'pactl set-source-mute @DEFAULT_SOURCE@ toggle'
+alias_if_exists "audio-output-toggle"   'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+alias_if_exists "scrcpy"                'scrcpy -S -w --power-off-on-close --disable-screensaver'
+alias_if_exists "normatrix"             '$HOME/source/NorMatrix/main.py'
+alias_if_exists "termtosvg"             'python3 -m termtosvg'
+alias_if_exists "i3conf"                'nvim $HOME/.config/i3/config'
+alias_if_exists "zshconf"               'nvim $HOME/.zshrc'
+alias_if_exists "starshipconf"          'nvim $HOME/.config/starship.toml'
+alias_if_exists "yarn"                  'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config'
+alias_if_exists "wget"                  'wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\"'
+alias_if_exists "epitest"               'docker run -it --rm -v $PWD:/usr/app/ epitechcontent/epitest-docker bash'
 
 ##############################################################################
 # PROMPT
@@ -159,8 +158,7 @@ alias_if_exists "wget"                  "wget --hsts-file=\"$XDG_DATA_HOME/wget-
 
 # search directory name
 function s-d () {
-    if [[ "$2" == "" ]]
-    then
+    if [[ "$2" == "" ]]; then
         CHECK="."
     else
         CHECK=$2
@@ -170,8 +168,7 @@ function s-d () {
 
 # search file name
 function s-f () {
-    if [[ "$2" == "" ]]
-    then
+    if [[ "$2" == "" ]]; then
         CHECK="."
     else
         CHECK=$2
@@ -182,45 +179,13 @@ function s-f () {
 # clean pacman cache
 function cleanpacman () {
     OLDPKG=$(pacman -Qdtq)
-    if [[ "$OLDPKG" != "" ]]
-    then
+    if [[ "$OLDPKG" != "" ]]; then
         sudo pacman -Rns $OLDPKG
     fi
-    if [[ "$1" == "y" ]]
-    then
+    if [[ "$1" == "y" ]]; then
         yes | sudo pacman -Scc
     else
         sudo pacman -Scc
-    fi
-}
-
-# clean paru cache
-function cleanparu () {
-    OLDPKG=$(paru -Qdtq)
-    if [[ "$OLDPKG" != "" ]]
-    then
-        sudo paru -Rns $OLDPKG
-    fi
-    if [[ "$1" == "y" ]]
-    then
-        yes | sudo paru -Scc
-    else
-        sudo paru -Scc
-    fi
-}
-
-# clean yay cache
-function cleanyay () {
-    OLDPKG=$(yay -Qdtq)
-    if [[ "$OLDPKG" != "" ]]
-    then
-        sudo yay -Rns $OLDPKG
-    fi
-    if [[ "$1" == "y" ]]
-    then
-        yes | sudo yay -Scc
-    else
-        sudo yay -Scc
     fi
 }
 
@@ -264,7 +229,6 @@ alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/p
 alias umnt='sudo umount /mnt -R'
 alias automount='D=$(udisksctl mount -b /dev/sda1 2> /dev/null || udisksctl mount -b /dev/sdb1) && cd ${D/* }'
 
-alias_if_exists 'epitest' 'docker run -it --rm -v $PWD:/usr/app/ epitechcontent/epitest-docker bash'
 
 function fnalias() {
     $1 $(echo "${@:2}" | sed 's/--color=.\+/--color=force/')
