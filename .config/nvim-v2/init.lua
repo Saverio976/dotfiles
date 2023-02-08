@@ -24,7 +24,6 @@ if ok then
                 h = "c",
                 hpp = "cpp",
                 v = "v",
-                hpp = "cpp",
             }
         }
     })

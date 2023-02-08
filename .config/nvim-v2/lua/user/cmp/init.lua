@@ -15,6 +15,7 @@ local source_mapping = {
     buffer = "[Buffer]",
     cmp_tabnine = "[TN]",
     path = "[Path]",
+    codeium = "[CM]"
 }
 
 cmp.setup({
@@ -87,7 +88,8 @@ cmp.setup({
         },
         { name = "buffer" },
         { name = "luasnip" },
-        { name = "cmp_tabnine" }
+        { name = "cmp_tabnine" },
+        { name = "codeium" },
     },
 })
 

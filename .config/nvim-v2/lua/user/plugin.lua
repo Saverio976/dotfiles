@@ -36,9 +36,9 @@ lazy.setup({
         },
         config = function() require("user.lsp") end,
     },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-    },
+    -- {
+    --     "jose-elias-alvarez/null-ls.nvim",
+    -- },
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
@@ -57,10 +57,21 @@ lazy.setup({
             "L3MON4D3/LuaSnip",
             "windwp/nvim-autopairs",
             "onsails/lspkind-nvim",
+            {
+                "jcdickinson/codeium.nvim",
+                dependencies = {
+                    "nvim-lua/plenary.nvim",
+                    "MunifTanjim/nui.nvim",
+                },
+                config = function() require("codeium").setup() end,
+            }
         },
         config = function()
             require("user.cmp")
         end,
+    },
+    {
+        ""
     },
     {
         "folke/which-key.nvim",
