@@ -57,14 +57,14 @@ lazy.setup({
             "L3MON4D3/LuaSnip",
             "windwp/nvim-autopairs",
             "onsails/lspkind-nvim",
-            {
-                "jcdickinson/codeium.nvim",
-                dependencies = {
-                    "nvim-lua/plenary.nvim",
-                    "MunifTanjim/nui.nvim",
-                },
-                config = function() require("codeium").setup() end,
-            }
+            -- {
+            --     "jcdickinson/codeium.nvim",
+            --     dependencies = {
+            --         "nvim-lua/plenary.nvim",
+            --         "MunifTanjim/nui.nvim",
+            --     },
+            --     config = function() require("codeium").setup() end,
+            -- }
         },
         config = function() require("user.cmp") end,
     },
@@ -72,6 +72,10 @@ lazy.setup({
         "folke/which-key.nvim",
         lazy = true,
         config = function() require("which-key").setup({register = true}) end,
+    },
+    {
+        "Exafunction/codeium.vim",
+        lazy = false,
     },
 
     {

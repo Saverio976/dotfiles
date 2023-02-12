@@ -97,6 +97,13 @@ components.active[2] = {
     },
     {
         provider = function ()
+            return vim.fn["codeium#GetStatusString"]()
+        end,
+        hl = { fg = "yellow", bg = "f_color", style = "NONE" },
+        right_sep = { "slant_left_2", " " },
+    },
+    {
+        provider = function ()
             local buff_ft = vim.api.nvim_buf_get_option(0, "filetype")
             local clients = vim.lsp.get_active_clients()
             if next(clients) == nil then return "" end
