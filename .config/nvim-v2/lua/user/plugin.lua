@@ -66,19 +66,12 @@ lazy.setup({
                 config = function() require("codeium").setup() end,
             }
         },
-        config = function()
-            require("user.cmp")
-        end,
-    },
-    {
-        ""
+        config = function() require("user.cmp") end,
     },
     {
         "folke/which-key.nvim",
         lazy = true,
-        config = function()
-            require("which-key").setup({register = true})
-        end,
+        config = function() require("which-key").setup({register = true}) end,
     },
 
     {
@@ -87,9 +80,7 @@ lazy.setup({
         dependencies = {
             "p00f/nvim-ts-rainbow",
         },
-        confif = function()
-            require("user.treesitter")
-        end,
+        confif = function() require("user.treesitter") end,
     },
     {
         "m-demare/hlargs.nvim",
@@ -220,18 +211,16 @@ lazy.setup({
         lazy = false,
         config = function() require("dressing").setup() end,
     },
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     lazy = true,
-    --     cmd = "colorscheme",
-    --     config = function() require("user.themes.tokyonight") end,
-    -- },
-    -- {
-    --     "Yazeed1s/minimal.nvim",
-    --     lazy = true,
-    --     cmd = "colorscheme",
-    --     config = function() require("user.themes.minimal") end,
-    -- },
+    {
+        "folke/tokyonight.nvim",
+        lazy = true,
+        config = function() require("user.themes.tokyonight") end,
+    },
+    {
+        "Yazeed1s/minimal.nvim",
+        lazy = true,
+        config = function() require("user.themes.minimal") end,
+    },
     {
         "mrjones2014/lighthaus.nvim",
         lazy = false,
@@ -249,8 +238,6 @@ lazy.setup({
         build = "make install",
         cmd = "Pydocstring",
         ft = "python",
-        config = function()
-            vim.g.pydocstring_formatter = 'numpy'
-        end,
+        config = function() vim.g.pydocstring_formatter = 'numpy' end,
     },
 })
