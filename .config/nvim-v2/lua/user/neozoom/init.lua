@@ -1,4 +1,4 @@
-local ok = require("neo-zoom")
+local neozoom = require("neo-zoom")
 
 neozoom.setup({
     left_ratio = 0.2,
