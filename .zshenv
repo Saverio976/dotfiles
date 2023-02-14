@@ -66,6 +66,7 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
 # PYTHON
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export KERAS_HOME="${XDG_STATE_HOME}/keras"
 # JAVA
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 # GO

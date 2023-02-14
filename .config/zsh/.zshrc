@@ -143,7 +143,7 @@ alias_if_exists "i3conf"                'nvim $HOME/.config/i3/config'
 alias_if_exists "zshconf"               'nvim $HOME/.zshrc'
 alias_if_exists "starshipconf"          'nvim $HOME/.config/starship.toml'
 alias_if_exists "yarn"                  'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config'
-alias_if_exists "wget"                  'wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\"'
+alias_if_exists "wget"                  'wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 alias_if_exists "epitest"               'docker run -it --rm -v $PWD:/usr/app/ epitechcontent/epitest-docker bash'
 
 ##############################################################################
