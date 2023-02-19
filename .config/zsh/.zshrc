@@ -69,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -f $XDG_CONFIG_HOME/zsh/.p10k.zsh ]] || source $XDG_CONFIG_HOME/zsh/.p10k.zsh
 
-export GPG_TTY=GPG_TTY=$(tty)
+export GPG_TTY=$(tty)
 if command -v nvim &>/dev/null; then
     export EDITOR=nvim
 elif command -v vim &>/dev/null; then
