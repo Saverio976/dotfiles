@@ -17,8 +17,14 @@ if not oklazy then
 end
 
 lazy.setup({
-    "lewis6991/impatient.nvim",
-    "nathom/filetype.nvim",
+    {
+        "lewis6991/impatient.nvim",
+        lazy = false,
+    },
+    {
+        "nathom/filetype.nvim",
+        lazy = false,
+    },
 
     {
         "dstein64/vim-startuptime",
