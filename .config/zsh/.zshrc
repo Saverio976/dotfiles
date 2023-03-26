@@ -249,3 +249,5 @@ fi
 if command -v "change-background.sh" &>/dev/null; then
     change-background.sh
 fi
+
+[ -f "/home/saverio/.ghcup/env" ] && source "/home/saverio/.ghcup/env" # ghcup-env
