@@ -236,6 +236,11 @@ lazy.setup({
         lazy = false,
         config = function() require("user.themes.lighthaus") end,
     },
+    {
+        "nvim-zh/colorful-winsep.nvim",
+        config = true,
+        event = { "WinNew" },
+    },
 
     {
         "andweeb/presence.nvim",
