@@ -20,10 +20,12 @@ lazy.setup({
     {
         "lewis6991/impatient.nvim",
         lazy = false,
+        config = function() require("user.impatient") end,
     },
     {
         "nathom/filetype.nvim",
         lazy = false,
+        config = function() require("user.filetype") end,
     },
 
     {
@@ -75,8 +77,13 @@ lazy.setup({
         config = function() require("user.cmp") end,
     },
     {
+        "gaoDean/autolist.nvim",
+        ft = { "markdown", "text", "tex", "plaintex", },
+        config = function() require("user.autolist") end,
+    },
+    {
         "folke/which-key.nvim",
-        lazy = true,
+        lazy = false,
         config = function() require("which-key").setup({register = true}) end,
     },
     {
@@ -240,6 +247,15 @@ lazy.setup({
         "nvim-zh/colorful-winsep.nvim",
         config = true,
         event = { "WinNew" },
+    },
+    {
+        "samodostal/image.nvim",
+        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "m00qek/baleia.nvim",
+        },
+        config = function() require("user.image") end,
     },
 
     {
