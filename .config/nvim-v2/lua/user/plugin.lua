@@ -58,10 +58,10 @@ lazy.setup({
             "hrsh7th/cmp-path",
             "saadparwaiz1/cmp_luasnip",
             "lukas-reineke/cmp-under-comparator",
-            {
-                "tzachar/cmp-tabnine",
-                build = "./install.sh",
-            },
+            -- {
+            --     "tzachar/cmp-tabnine",
+            --     build = "./install.sh",
+            -- },
             "L3MON4D3/LuaSnip",
             "windwp/nvim-autopairs",
             "onsails/lspkind-nvim",
@@ -136,7 +136,7 @@ lazy.setup({
     },
     {
         "feline-nvim/feline.nvim",
-        lazy = false,
+        event = "WinEnter",
         config = function() require("user.feline") end,
     },
     {
@@ -149,14 +149,20 @@ lazy.setup({
     {
         "numToStr/Comment.nvim",
         keys = {
-            "gcc",
             "gc",
+            {"gcc", mode = "v"},
         },
         config = function() require("user.comment") end,
     },
     {
         "vim-scripts/DoxygenToolkit.vim",
-        event = "BufEnter",
+        cmd = {
+            "Dox",
+            "DoxAuthor",
+            "DoxBlock",
+            "DoxLic",
+            "DoxUndoc",
+        },
     },
 
     {
@@ -178,10 +184,10 @@ lazy.setup({
         },
     },
 
-    {
-        "airblade/vim-rooter",
-        event = "WinEnter",
-    },
+    -- {
+    --     "airblade/vim-rooter",
+    --     event = "WinEnter",
+    -- },
 
     {
         "voldikss/vim-floaterm",
