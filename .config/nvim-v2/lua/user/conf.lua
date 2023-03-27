@@ -26,7 +26,14 @@ vim.opt.listchars = {
 }
 
 vim.opt.fillchars = {
-  eob = ' ',
+    eob = ' ',
+    horiz = '━',
+    horizup = '┻',
+    horizdown = '┳',
+    vert = '┃',
+    vertleft = '┫',
+    vertright = '┣',
+    verthoriz = '╋',
 }
 
 -- persistence undofile

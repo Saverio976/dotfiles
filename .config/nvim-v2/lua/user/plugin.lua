@@ -234,6 +234,7 @@ lazy.setup({
         lazy = false,
         config = function() require("dressing").setup() end,
     },
+    -- colorschemes
     {
         "folke/tokyonight.nvim",
         lazy = true,
@@ -246,9 +247,16 @@ lazy.setup({
     },
     {
         "mrjones2014/lighthaus.nvim",
-        lazy = false,
+        lazy = true,
         config = function() require("user.themes.lighthaus") end,
     },
+    {
+        "bluz71/vim-nightfly-colors",
+        name = "nightfly",
+        lazy = false,
+        config = function() require("user.themes.nightflycolors") end,
+    },
+    -- end of colorschemes
     {
         "nvim-zh/colorful-winsep.nvim",
         config = true,
