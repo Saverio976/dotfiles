@@ -115,7 +115,7 @@ lazy.setup({
         keys = {
             "tf",
             "tb",
-            "tb",
+            "tg",
         },
         dependencies = {
             {

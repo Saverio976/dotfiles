@@ -56,6 +56,7 @@ local names = {
     -- 'dartls',                -- dart         -- https://github.com/dart-lang/sdk/tree/master/pkg/analysis_server/tool/lsp_spec
     -- 'jdtls',                 -- java         -- https://projects.eclipse.org/projects/eclipse.jdt.ls
     'lua_ls',           -- lua          -- https://github.com/sumneko/lua-language-server
+    'ansiblels'         -- ansible      -- https://github.com/ansible/ansible-language-server
 }
 for _, lang in ipairs(names) do
     try_setup_server(lang, lspconfig, on_attach_, cap)
