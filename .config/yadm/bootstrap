@@ -1,14 +1,15 @@
 #!/bin/sh
 set -x
+set -e
 
 # Because Git submodule commands cannot operate without a work tree, they must
 # be run from within $HOME (assuming this is the root of your dotfiles)
 cd "$HOME"
 
 echo "Init submodules"
-yadm submodule update --recursive --init
+yadm submodule update --recursive --init || /tmp/yadm submodule update --recursive --init
 
-. ./.zshenv
+. ./.config/zsh/.zshrc
 
 ln -sf "$XDG_DATA_HOME/yadm-project/yadm" "$XDG_LOCAL_BIN_HOME/yadm"
 
