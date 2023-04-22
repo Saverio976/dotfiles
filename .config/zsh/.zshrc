@@ -245,8 +245,8 @@ if command -v neofetch &>/dev/null; then
     fi
 fi
 
-if command -v "change-background.sh" &>/dev/null; then
-    change-background.sh
-fi
+# if command -v "change-background.sh" &>/dev/null; then
+#     change-background.sh
+# fi
 
 [ -f "/home/saverio/.local/share/ghcup/env" ] && source "/home/saverio/.local/share/ghcup/env" # ghcup-env
