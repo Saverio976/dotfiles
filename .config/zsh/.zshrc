@@ -249,4 +249,4 @@ fi
 #     change-background.sh
 # fi
 
-[ -f "/home/saverio/.local/share/ghcup/env" ] && source "/home/saverio/.local/share/ghcup/env" # ghcup-env
+[ -f "/home/saverio/.local/share/ghcup/env" ] && source "/home/saverio/.local/share/ghcup/env" || true # ghcup-env
