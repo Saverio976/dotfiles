@@ -25,9 +25,7 @@ then
 fi
 
 SDL_VIDEODRIVER=x11 \
-    gource --hide dirnames,filenames \
-        --seconds-per-day 0.1 \
-        --auto-skip-seconds 1 \
+    gource --auto-skip-seconds 1 \
         -1280x720 \
         --title "$1" \
         -o - \
