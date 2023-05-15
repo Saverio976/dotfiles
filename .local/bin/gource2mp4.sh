@@ -25,10 +25,14 @@ then
 fi
 
 SDL_VIDEODRIVER=x11 \
-    gource --auto-skip-seconds 1 \
+    gource \
+        --multi-sampling \
+        --high-dpi \
+        --no-vsync \
         -1280x720 \
         --title "$1" \
         -o - \
+        --colour-images \
         --stop-at-end |
     ffmpeg -y -r 60 \
         -f image2pipe \
