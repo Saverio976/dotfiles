@@ -274,4 +274,11 @@ lazy.setup({
         ft = "python",
         config = function() vim.g.pydocstring_formatter = 'numpy' end,
     },
+
+    {
+        "Eandrju/cellular-automaton.nvim",
+        cmd = "CellularAutomaton",
+        keys = "m",
+        config = function() vim.keymap.set("n", "m", ":CellularAutomaton make_it_rain<cr>", {noremap = true}) end,
+    },
 })
