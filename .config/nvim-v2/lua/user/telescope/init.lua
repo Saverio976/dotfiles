@@ -41,6 +41,18 @@ telescope.setup({
             fuzzy = true,
             case_mode = "smart_case"
         },
+        ["telescope-alternate"] = {
+            mappings = {
+                -- cpp/hpp
+                { pattern = "(.*).cpp", targets = {
+                    { template = "[1].hpp", label = "C++ Header", enable_new = true }
+                }},
+                { pattern = "(.*).hpp", targets = {
+                    { template = "[1].cpp", label = "C++ Source", enable_new = true }
+                }},
+            },
+            open_only_one_with = 'current_pane',
+        }
     },
     pickers = {
         find_files = {
@@ -49,9 +61,11 @@ telescope.setup({
     },
 })
 telescope.load_extension("fzf")
+telescope.load_extension("telescope-alternate")
 
 -- " Find files using Telescope command-line sugar.
 vim.keymap.set("n", "tf", "<cmd>Telescope find_files<cr>", { desc = "Telescope find_files", noremap = true, silent = true })
 vim.keymap.set("n", "tg", "<cmd>Telescope live_grep<cr>", { desc = "Telescope live_grep", noremap = true, silent = true })
 vim.keymap.set("n", "tb", "<cmd>Telescope buffers<cr>", { desc = "Telescope buffers", noremap = true, silent = true })
 vim.keymap.set("n", "th", "<cmd>Telescope help_tags<cr>", { desc = "Telescope help_tags", noremap = true, silent = true })
+vim.keymap.set("n", "ta", "<cmd>Telescope telescope-alternate alternate_file<cr>", { desc = "Telescope alternate_file", noremap = true, silent = true })

@@ -65,14 +65,6 @@ lazy.setup({
             "L3MON4D3/LuaSnip",
             "windwp/nvim-autopairs",
             "onsails/lspkind-nvim",
-            -- {
-            --     "jcdickinson/codeium.nvim",
-            --     dependencies = {
-            --         "nvim-lua/plenary.nvim",
-            --         "MunifTanjim/nui.nvim",
-            --     },
-            --     config = function() require("codeium").setup() end,
-            -- }
         },
         config = function() require("user.cmp") end,
     },
@@ -96,16 +88,12 @@ lazy.setup({
         event = "BufEnter",
         dependencies = {
             "p00f/nvim-ts-rainbow",
+            {
+                "m-demare/hlargs.nvim",
+                config = function() require("hlargs").setup() end,
+            },
         },
         confif = function() require("user.treesitter") end,
-    },
-    {
-        "m-demare/hlargs.nvim",
-        event = "BufEnter",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-        config = function() require("hlargs").setup() end,
     },
 
     {
@@ -118,6 +106,7 @@ lazy.setup({
             "tg",
         },
         dependencies = {
+            "otavioschwanck/telescope-alternate",
             {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = "make",
