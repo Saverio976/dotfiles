@@ -17,6 +17,7 @@ plugins=(
     copyfile
     docker-compose
     gitignore
+    alias-tips
 )
 
 # The following lines were added by compinstall
@@ -80,8 +81,6 @@ fi
 # im in the vim matrix
 alias :q="exit"
 
-alias searchd="s-d"
-alias searchf="s-f"
 alias restartx="sudo systemctl restart lightdm.service"
 
 ##############################################################################
@@ -156,7 +155,7 @@ alias_if_exists "epitest"               'podman run -it --rm -v $PWD:/usr/app/ d
 # CUSTOM FUNCTION
 
 # search directory name
-function s-d () {
+function searchdir () {
     if [[ "$2" == "" ]]; then
         CHECK="."
     else
@@ -166,7 +165,7 @@ function s-d () {
 }
 
 # search file name
-function s-f () {
+function searchfile () {
     if [[ "$2" == "" ]]; then
         CHECK="."
     else
@@ -198,7 +197,7 @@ if [[ -n "$true_man_intern" ]]; then
     function man () {
         if [[ "$1" == "help" ]] || [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
             echo "custom function that call the internal man if next pattern is not respected:"
-            echo "-> \$1 == goolgle"
+            echo "-> \$1 == google"
             echo "(open the nexts parameters to browser search)"
             echo "-> \$1 == howto"
             echo "(curl cheat.sh with nexts parameters as research)"
@@ -207,7 +206,7 @@ if [[ -n "$true_man_intern" ]]; then
             echo "-> \$1 == howdoi"
             echo "exec howdoi (pip install howdoi)"
             echo "-> the true man with your parameters"
-            $true_man_intern $@
+            $true_man_intern man $@ || $true_man_intern "$@"
         elif [[ "$1" == "google" ]]; then
             xdg-open "https://duckduckgo.com/?q=$(echo -n ${@:2} | tr ' ' '+')"
         elif [[ "$1" == "howto" ]]; then
@@ -217,7 +216,7 @@ if [[ -n "$true_man_intern" ]]; then
         elif [[ "$1" == "howdoi" ]]; then
             howdoi ${@:3}
         else
-            $true_man_intern man "$@"
+            $true_man_intern man "$@" || $true_man_intern "$@"
         fi
     }
 fi
