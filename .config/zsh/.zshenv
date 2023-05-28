@@ -76,11 +76,18 @@ export STACK_ROOT="$XDG_DATA_HOME/stack"
 export CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
 export CABAL_DIR="$XDG_DATA_HOME/cabal"
 export GHCUP_USE_XDG_DIRS=true
+# V
+export VMODULES="$XDG_DATA_HOME/vmodules"
 
 # ----------------------------------------------------------------------------
 # CUDA
 # ----------------------------------------------------------------------------
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+
+# ----------------------------------------------------------------------------
+# WINE
+# ----------------------------------------------------------------------------
+export WINEPREFIX="$XDG_DATA_HOME/wine"
 
 # ----------------------------------------------------------------------------
 # GNUPG
