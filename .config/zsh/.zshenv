@@ -64,6 +64,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
+export NVM_DIR="$HOME/.config/nvm"
 # PYTHON
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export KERAS_HOME="${XDG_STATE_HOME}/keras"

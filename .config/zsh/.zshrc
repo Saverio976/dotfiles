@@ -249,3 +249,9 @@ fi
 # fi
 
 [ -f "/home/saverio/.local/share/ghcup/env" ] && source "/home/saverio/.local/share/ghcup/env" || true # ghcup-env
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if command -v thefuck &>/dev/null; then
+    eval $(thefuck --alias f)
+fi
