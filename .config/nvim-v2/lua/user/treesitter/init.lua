@@ -1,7 +1,7 @@
 local treeseiter = require("nvim-treesitter.configs")
 
-treeseiter.setup {
-    ensure_installed = { "c", "bash", "python" },
+treeseiter.setup({
+    ensure_installed = { "c", "bash", "python", "lua", "markdown", "javascript", "typescript", "vim" },
     sync_install = true,
     auto_install = true,
     highlight = {
@@ -14,4 +14,4 @@ treeseiter.setup {
         extended_mode = true,
         max_file_lines = 1000,
     },
-}
+})
