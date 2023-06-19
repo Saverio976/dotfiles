@@ -129,3 +129,8 @@ lspcolor.setup({
 
 local lsprogress = require('fidget')
 lsprogress.setup({})
+
+local lightbulb = require('nvim-lightbulb')
+lightbulb.setup({
+    autocmd = {enabled = true}
+})

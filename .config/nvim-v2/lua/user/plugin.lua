@@ -17,6 +17,8 @@ if not oklazy then
 end
 
 lazy.setup({
+    --------------------------------------------------------------------------
+    -- startup improvement/mesure
     {
         "lewis6991/impatient.nvim",
         lazy = false,
@@ -27,19 +29,26 @@ lazy.setup({
         lazy = false,
         config = function() require("user.filetype") end,
     },
-
     {
         "dstein64/vim-startuptime",
         cmd = "StartupTime",
     },
 
+    --------------------------------------------------------------------------
+    -- language server
     {
         "neovim/nvim-lspconfig",
         event = "BufEnter",
         dependencies = {
             "rmagatti/goto-preview",
-            "j-hui/fidget.nvim",
-            "kosayoda/nvim-lightbulb",
+            {
+                "j-hui/fidget.nvim",
+                branch = "legacy",
+            },
+            {
+                "kosayoda/nvim-lightbulb",
+                dependencies = { "antoinemadec/FixCursorHold.nvim" },
+            },
             "folke/lsp-colors.nvim",
         },
         config = function() require("user.lsp") end,
@@ -47,6 +56,9 @@ lazy.setup({
     -- {
     --     "jose-elias-alvarez/null-ls.nvim",
     -- },
+
+    --------------------------------------------------------------------------
+    -- completions
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
@@ -83,6 +95,8 @@ lazy.setup({
         lazy = false,
     },
 
+    --------------------------------------------------------------------------
+    -- treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         event = "BufEnter",
@@ -96,6 +110,8 @@ lazy.setup({
         confif = function() require("user.treesitter") end,
     },
 
+    --------------------------------------------------------------------------
+    -- floating window app
     {
         "nvim-telescope/telescope.nvim",
         lazy = true,
@@ -114,46 +130,6 @@ lazy.setup({
         },
         config = function() require("user.telescope") end,
     },
-
-    {
-        "nvim-tree/nvim-tree.lua",
-        keys = "<leader>f",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function() require("user.nvim-tree") end,
-    },
-    {
-        "feline-nvim/feline.nvim",
-        event = "WinEnter",
-        config = function() require("user.feline") end,
-    },
-    {
-        "nyngwang/NeoZoom.lua",
-        keys = "<leader>m",
-        cmd = "NeoZoomToggle",
-        config = function() require("user.neozoom") end,
-    },
-
-    {
-        "numToStr/Comment.nvim",
-        keys = {
-            "gc",
-            {"gcc", mode = "v"},
-        },
-        config = function() require("user.comment") end,
-    },
-    {
-        "vim-scripts/DoxygenToolkit.vim",
-        cmd = {
-            "Dox",
-            "DoxAuthor",
-            "DoxBlock",
-            "DoxLic",
-            "DoxUndoc",
-        },
-    },
-
     {
         "jiaoshijie/undotree",
         keys = "<leader>u",
@@ -162,22 +138,6 @@ lazy.setup({
         },
         config = function() require("undotree").setup() end,
     },
-
-    {
-        "Darazaki/indent-o-matic",
-        event = "BufEnter",
-        opts = {
-            max_lines = 2048,
-            standard_widths = {2, 4, 8},
-            skip_multiline = true,
-        },
-    },
-
-    -- {
-    --     "airblade/vim-rooter",
-    --     event = "WinEnter",
-    -- },
-
     {
         "voldikss/vim-floaterm",
         keys = "<A>=",
@@ -199,7 +159,34 @@ lazy.setup({
             vim.g.floaterm_height = 0.9
         end,
     },
+    {
+        "nyngwang/NeoZoom.lua",
+        keys = "<leader>m",
+        cmd = "NeoZoomToggle",
+        config = function() require("user.neozoom") end,
+    },
 
+    --------------------------------------------------------------------------
+    -- folder tree
+    {
+        "nvim-tree/nvim-tree.lua",
+        keys = "<leader>f",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function() require("user.nvim-tree") end,
+    },
+
+    --------------------------------------------------------------------------
+    -- status bar
+    {
+        "feline-nvim/feline.nvim",
+        event = "WinEnter",
+        config = function() require("user.feline") end,
+    },
+
+    --------------------------------------------------------------------------
+    -- buffer enhancer
     {
         "norcalli/nvim-colorizer.lua",
         event = "BufEnter",
@@ -223,6 +210,74 @@ lazy.setup({
         lazy = false,
         config = function() require("dressing").setup() end,
     },
+    {
+        "nvim-zh/colorful-winsep.nvim",
+        config = true,
+        event = { "WinNew" },
+    },
+    {
+        "samodostal/image.nvim",
+        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "m00qek/baleia.nvim",
+        },
+        config = function() require("user.image") end,
+    },
+    -- {
+    --     'FluxxField/bionic-reading.nvim',
+    --     event = "BufEnter",
+    --     config = function() require("user.bionic_reading") end,
+    -- },
+
+    --------------------------------------------------------------------------
+    -- text interraction
+    {
+        "numToStr/Comment.nvim",
+        keys = {
+            "gc",
+            {"gcc", mode = "v"},
+        },
+        config = function() require("user.comment") end,
+    },
+    {
+        "vim-scripts/DoxygenToolkit.vim",
+        cmd = {
+            "Dox",
+            "DoxAuthor",
+            "DoxBlock",
+            "DoxLic",
+            "DoxUndoc",
+        },
+    },
+    {
+        "heavenshell/vim-pydocstring",
+        lazy = true,
+        build = "make install",
+        cmd = "Pydocstring",
+        ft = "python",
+        config = function() vim.g.pydocstring_formatter = 'numpy' end,
+    },
+    {
+        "Eandrju/cellular-automaton.nvim",
+        cmd = "CellularAutomaton",
+        keys = "m",
+        config = function() vim.keymap.set("n", "m", ":CellularAutomaton make_it_rain<cr>", {noremap = true}) end,
+    },
+
+    --------------------------------------------------------------------------
+    -- auto indent
+    {
+        "Darazaki/indent-o-matic",
+        event = "BufEnter",
+        opts = {
+            max_lines = 2048,
+            standard_widths = {2, 4, 8},
+            skip_multiline = true,
+        },
+    },
+
+    --------------------------------------------------------------------------
     -- colorschemes
     {
         "folke/tokyonight.nvim",
@@ -245,40 +300,11 @@ lazy.setup({
         lazy = false,
         config = function() require("user.themes.nightflycolors") end,
     },
-    -- end of colorschemes
-    {
-        "nvim-zh/colorful-winsep.nvim",
-        config = true,
-        event = { "WinNew" },
-    },
-    {
-        "samodostal/image.nvim",
-        lazy = false,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "m00qek/baleia.nvim",
-        },
-        config = function() require("user.image") end,
-    },
 
+    --------------------------------------------------------------------------
+    -- discord rich presence
     {
         "andweeb/presence.nvim",
         lazy = false,
-    },
-
-    {
-        "heavenshell/vim-pydocstring",
-        lazy = true,
-        build = "make install",
-        cmd = "Pydocstring",
-        ft = "python",
-        config = function() vim.g.pydocstring_formatter = 'numpy' end,
-    },
-
-    {
-        "Eandrju/cellular-automaton.nvim",
-        cmd = "CellularAutomaton",
-        keys = "m",
-        config = function() vim.keymap.set("n", "m", ":CellularAutomaton make_it_rain<cr>", {noremap = true}) end,
     },
 })
