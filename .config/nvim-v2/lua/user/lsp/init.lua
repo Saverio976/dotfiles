@@ -134,3 +134,6 @@ local lightbulb = require('nvim-lightbulb')
 lightbulb.setup({
     autocmd = {enabled = true}
 })
+vim.cmd([[
+autocmd BufEnter,BufModifiedSet * lua require('nvim-lightbulb').update_lightbulb()
+]])
