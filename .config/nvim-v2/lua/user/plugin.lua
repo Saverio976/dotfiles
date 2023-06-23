@@ -38,7 +38,8 @@ lazy.setup({
     -- language server
     {
         "neovim/nvim-lspconfig",
-        event = "BufEnter",
+        event = { "BufReadPost", "BufNewFile" },
+        cmd = { "LspInfo", "LspStart", "LspStop" },
         dependencies = {
             "rmagatti/goto-preview",
             {
@@ -85,11 +86,11 @@ lazy.setup({
         ft = { "markdown", "text", "tex", "plaintex", },
         config = function() require("user.autolist") end,
     },
-    {
-        "folke/which-key.nvim",
-        lazy = false,
-        config = function() require("which-key").setup({register = true}) end,
-    },
+    -- {
+    --     "folke/which-key.nvim",
+    --     event = { "<leader>", " ", "~" },
+    --     config = function() require("which-key").setup({register = true}) end,
+    -- },
     {
         "Exafunction/codeium.vim",
         lazy = false,
