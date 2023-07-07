@@ -110,3 +110,8 @@ export VIMINIT='let $MYVIMRC = !has("nvim") ? "$XDG_CONFIG_HOME/vim/vimrc" : "$X
 # GTK
 # ----------------------------------------------------------------------------
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+
+# ----------------------------------------------------------------------------
+# NUGET
+# ----------------------------------------------------------------------------
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
