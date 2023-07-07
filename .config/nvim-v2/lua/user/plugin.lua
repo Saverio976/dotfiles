@@ -265,6 +265,11 @@ lazy.setup({
         keys = "m",
         config = function() vim.keymap.set("n", "m", ":CellularAutomaton make_it_rain<cr>", {noremap = true}) end,
     },
+    {
+        "TobinPalmer/rayso.nvim",
+        cmd = { 'Rayso' },
+        config = function() require("user.rayso") end,
+    },
 
     --------------------------------------------------------------------------
     -- auto indent
