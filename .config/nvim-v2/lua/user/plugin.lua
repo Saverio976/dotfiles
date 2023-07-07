@@ -285,26 +285,32 @@ lazy.setup({
 
     --------------------------------------------------------------------------
     -- colorschemes
+    -- {
+    --     "folke/tokyonight.nvim",
+    --     lazy = true,
+    --     config = function() require("user.themes.tokyonight") end,
+    -- },
+    -- {
+    --     "Yazeed1s/minimal.nvim",
+    --     lazy = true,
+    --     config = function() require("user.themes.minimal") end,
+    -- },
+    -- {
+    --     "mrjones2014/lighthaus.nvim",
+    --     lazy = true,
+    --     config = function() require("user.themes.lighthaus") end,
+    -- },
+    -- {
+    --     "bluz71/vim-nightfly-colors",
+    --     name = "nightfly",
+    --     lazy = true,
+    --     config = function() require("user.themes.nightflycolors") end,
+    -- },
     {
-        "folke/tokyonight.nvim",
-        lazy = true,
-        config = function() require("user.themes.tokyonight") end,
-    },
-    {
-        "Yazeed1s/minimal.nvim",
-        lazy = true,
-        config = function() require("user.themes.minimal") end,
-    },
-    {
-        "mrjones2014/lighthaus.nvim",
-        lazy = true,
-        config = function() require("user.themes.lighthaus") end,
-    },
-    {
-        "bluz71/vim-nightfly-colors",
-        name = "nightfly",
+        "kartikp10/noctis.nvim",
         lazy = false,
-        config = function() require("user.themes.nightflycolors") end,
+        config = function() require("user.themes.noctis") end,
+        dependencies = { "rktjmp/lush.nvim" },
     },
 
     --------------------------------------------------------------------------
