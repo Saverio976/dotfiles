@@ -270,6 +270,11 @@ lazy.setup({
         cmd = { 'Rayso' },
         config = function() require("user.rayso") end,
     },
+    {
+        "tomiis4/hypersonic.nvim",
+        cmd = "Hypersonic",
+        config = function() require("user.hypersonic") end,
+    },
 
     --------------------------------------------------------------------------
     -- auto indent
