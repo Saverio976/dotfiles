@@ -112,6 +112,15 @@ lazy.setup({
     },
 
     --------------------------------------------------------------------------
+    -- language integration
+    {
+        "wookayin/semshi", -- use a maintained fork
+        ft = "python",
+        build = ":UpdateRemotePlugins",
+        init = function() require("user.semshi") end,
+    },
+
+    --------------------------------------------------------------------------
     -- floating window app
     {
         "nvim-telescope/telescope.nvim",
@@ -211,11 +220,11 @@ lazy.setup({
         lazy = false,
         config = function() require("dressing").setup() end,
     },
-    {
-        "nvim-zh/colorful-winsep.nvim",
-        config = true,
-        event = { "WinNew" },
-    },
+    -- {
+    --     "nvim-zh/colorful-winsep.nvim",
+    --     config = true,
+    --     event = { "WinNew" },
+    -- },
     {
         "samodostal/image.nvim",
         lazy = false,
@@ -237,7 +246,7 @@ lazy.setup({
         "numToStr/Comment.nvim",
         keys = {
             "gc",
-            {"gcc", mode = "v"},
+            {"gc", mode = "v"},
         },
         config = function() require("user.comment") end,
     },
@@ -292,31 +301,31 @@ lazy.setup({
     -- colorschemes
     -- {
     --     "folke/tokyonight.nvim",
-    --     lazy = true,
+    --     lazy = false,
     --     config = function() require("user.themes.tokyonight") end,
     -- },
-    -- {
-    --     "Yazeed1s/minimal.nvim",
-    --     lazy = true,
-    --     config = function() require("user.themes.minimal") end,
-    -- },
+    {
+        "Yazeed1s/minimal.nvim",
+        lazy = false,
+        config = function() require("user.themes.minimal") end,
+    },
     -- {
     --     "mrjones2014/lighthaus.nvim",
-    --     lazy = true,
+    --     lazy = false,
     --     config = function() require("user.themes.lighthaus") end,
     -- },
     -- {
     --     "bluz71/vim-nightfly-colors",
     --     name = "nightfly",
-    --     lazy = true,
+    --     lazy = false,
     --     config = function() require("user.themes.nightflycolors") end,
+    -- -- },
+    -- {
+    --     "kartikp10/noctis.nvim",
+    --     lazy = false,
+    --     config = function() require("user.themes.noctis") end,
+    --     dependencies = { "rktjmp/lush.nvim" },
     -- },
-    {
-        "kartikp10/noctis.nvim",
-        lazy = false,
-        config = function() require("user.themes.noctis") end,
-        dependencies = { "rktjmp/lush.nvim" },
-    },
 
     --------------------------------------------------------------------------
     -- discord rich presence
