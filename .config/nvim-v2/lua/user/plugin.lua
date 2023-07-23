@@ -81,11 +81,6 @@ lazy.setup({
         },
         config = function() require("user.cmp") end,
     },
-    {
-        "gaoDean/autolist.nvim",
-        ft = { "markdown", "text", "tex", "plaintex", },
-        config = function() require("user.autolist") end,
-    },
     -- {
     --     "folke/which-key.nvim",
     --     event = { "<leader>", " ", "~" },
