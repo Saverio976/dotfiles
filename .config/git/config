@@ -1,7 +1,7 @@
 [user]
     email = xavier.mitault@epitech.eu
     name = Xavier Mitault
-	signingkey = 8C56C3212DA73C7A635F0C6ED65697BC6225BA21
+    signingkey = 8C56C3212DA73C7A635F0C6ED65697BC6225BA21
 [init]
     defaultBranch = main
     ; templateDir = ~/source/SAMPLE_C_PROJECT
@@ -10,9 +10,10 @@
 [commit]
     gpgsign = true
 [gpg]
-	program = gpg2
+    program = gpg2
 [alias]
     history = log --cherry --boundary --decorate --color --oneline --graph --all
     pretty = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all
+    tree = !git-branch-status
 [core]
-	editor = nvim
+    editor = nvim
