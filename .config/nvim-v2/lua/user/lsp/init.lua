@@ -50,13 +50,14 @@ local names = {
     -- 'html',                  -- html         -- https://github.com/hrsh7th/vscode-langservers-extracted
     -- 'jsonls',                -- json         -- https://github.com/hrsh7th/vscode-langservers-extracted
 
-    'hls',                   -- haskell      -- https://github.com/haskell/haskell-language-server
+    -- 'hls',                   -- haskell      -- https://github.com/haskell/haskell-language-server
     -- 'asm_lsp',               -- asm GAS/GOS  -- https://github.com/bergercookie/asm-lsp
     -- 'rust_analyzer',         -- rust         -- https://github.com/rust-analyzer/rust-analyzer
     -- 'dartls',                -- dart         -- https://github.com/dart-lang/sdk/tree/master/pkg/analysis_server/tool/lsp_spec
     -- 'jdtls',                 -- java         -- https://projects.eclipse.org/projects/eclipse.jdt.ls
-    'lua_ls',           -- lua          -- https://github.com/sumneko/lua-language-server
-    'ansiblels'         -- ansible      -- https://github.com/ansible/ansible-language-server
+    -- 'lua_ls',           -- lua          -- https://github.com/sumneko/lua-language-server
+    -- 'ansiblels',         -- ansible      -- https://github.com/ansible/ansible-language-server
+    'csharp_ls',      -- dotnet       -- https://github.com/razzmatazz/csharp-language-server
 }
 for _, lang in ipairs(names) do
     try_setup_server(lang, lspconfig, on_attach_, cap)
