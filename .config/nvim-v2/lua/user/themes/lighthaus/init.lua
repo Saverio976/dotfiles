@@ -7,4 +7,4 @@ lighthaus.setup({
     italic_comments = true,
     italic_keywords = true,
 })
-vim.cmd([[colorscheme lighthaus]])
+vim.cmd([[colorscheme lighthaus_dark]])

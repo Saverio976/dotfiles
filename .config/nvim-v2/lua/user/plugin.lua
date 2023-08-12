@@ -108,12 +108,12 @@ lazy.setup({
 
     --------------------------------------------------------------------------
     -- language integration
-    {
-        "wookayin/semshi", -- use a maintained fork
-        ft = "python",
-        build = ":UpdateRemotePlugins",
-        init = function() require("user.semshi") end,
-    },
+    -- {
+    --     "wookayin/semshi", -- use a maintained fork
+    --     ft = "python",
+    --     build = ":UpdateRemotePlugins",
+    --     init = function() require("user.semshi") end,
+    -- },
 
     --------------------------------------------------------------------------
     -- floating window app
@@ -299,16 +299,16 @@ lazy.setup({
     --     lazy = false,
     --     config = function() require("user.themes.tokyonight") end,
     -- },
-    {
-        "Yazeed1s/minimal.nvim",
-        lazy = false,
-        config = function() require("user.themes.minimal") end,
-    },
     -- {
-    --     "mrjones2014/lighthaus.nvim",
+    --     "Yazeed1s/minimal.nvim",
     --     lazy = false,
-    --     config = function() require("user.themes.lighthaus") end,
+    --     config = function() require("user.themes.minimal") end,
     -- },
+    {
+        "mrjones2014/lighthaus.nvim",
+        lazy = false,
+        config = function() require("user.themes.lighthaus") end,
+    },
     -- {
     --     "bluz71/vim-nightfly-colors",
     --     name = "nightfly",
