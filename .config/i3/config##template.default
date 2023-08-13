@@ -230,17 +230,8 @@ exec --no-startup-id blueman-applet
 # network
 exec --no-startup-id nm-applet
 
-# volume
-exec --no-startup-id volumeicon
-
-# num lock activated
-exec_always --no-startup-id numlockx on
-
 # feh wallpaper
 exec --no-startup-id feh --bg-scale --no-fehbg --randomize "{{ env.HOME }}/.local/share/wallpaper"
-
-# Conky
-exec_always --no-startup-id conky -c "{{ env.HOME }}/.config/i3/system-overview"
 
 ################# applications keyboard shortcuts
 
