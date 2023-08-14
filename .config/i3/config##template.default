@@ -30,7 +30,7 @@ set $left j
 set $right m
 
 # Apps
-set $terminal MESA_LOADER_DRIVER_OVERRIDE=radeonsi __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json kitty
+set $terminal kitty
 #set $terminal alacritty
 
 # Keyboard
@@ -231,7 +231,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet
 
 # feh wallpaper
-exec --no-startup-id feh --bg-scale --no-fehbg --randomize "{{ env.HOME }}/.local/share/wallpaper"
+exec feh --bg-scale --no-fehbg --randomize "{{ env.HOME }}/.local/share/wallpaper"
 
 ################# applications keyboard shortcuts
 
