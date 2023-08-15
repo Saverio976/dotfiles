@@ -116,19 +116,18 @@ if command -v gpg &> /dev/null && command -v git &> /dev/null
 then
     OLD_GIT=$(which git)
     function git () {
-        if [[ "$1" == "commit" ]]; then
-            export GPG_TTY=$(tty)
-        fi
-            $OLD_GIT $@
+        export GPG_TTY=$(tty)
+        $OLD_GIT $@
     }
 fi
 
-# Ensure gpg is a tty and if not reset the value
-EXPPORT_GPG_TTY='[ "$GPG_TTY" == "not a tty" ] && export GPG_TTY=$(tty)'
-alias git="$EXPORT_GPG_TTY; git "
-if command -v yadm &> /dev/null
+if command -v gpg &> /dev/null && command -v git &> /dev/null
 then
-    alias yadm="$EXPORT_GPG_TTY; yadm "
+    OLD_YADM=$(which yadm)
+    function yadm () {
+        export GPG_TTY=$(tty)
+        $OLD_YADM $@
+    }
 fi
 
 ##############################################################################
