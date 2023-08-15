@@ -211,6 +211,10 @@ assign [instance="Navigator"] → 2
 assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"] → 2
 assign [class="Chromium|Google-chrome"] → 2
 
+# games
+assign [class="heroic"] → 8
+assign [class="rocketleague.exe"] → 9
+
 ################# autostart - execute applications at boot time
 
 # USER APPLICATIONS TO START AT BOOT
