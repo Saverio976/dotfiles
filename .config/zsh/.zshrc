@@ -123,6 +123,14 @@ then
     }
 fi
 
+# Ensure gpg is a tty and if not reset the value
+EXPPORT_GPG_TTY='[ "$GPG_TTY" == "not a tty" ] && export GPG_TTY=$(tty)'
+alias git="$EXPORT_GPG_TTY; git "
+if command -v yadm &> /dev/null
+then
+    alias yadm="$EXPORT_GPG_TTY; yadm "
+fi
+
 ##############################################################################
 # ALIAS
 local function alias_if_exists() {
