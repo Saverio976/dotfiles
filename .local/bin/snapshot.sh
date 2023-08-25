@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DATE=$$(date --rfc-3339=seconds);
+DATE="$(date --rfc-3339=seconds)"
 
 function remove_too_many_prefix() {
     pre="$1"

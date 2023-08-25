@@ -2,5 +2,5 @@
 Description=Create snapshot of the system
 
 [Service]
-ExecStart=/home/saverio/.local/bin/snapshot
+ExecStart=/home/saverio/.local/bin/snapshot.sh
 Type=oneshot
