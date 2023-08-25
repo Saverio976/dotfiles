@@ -1,0 +1,11 @@
+[Unit]
+Description=Create snapshot of the system
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=1h
+Unit=snapshot.service
+
+[Install]
+WantedBy=timers.target

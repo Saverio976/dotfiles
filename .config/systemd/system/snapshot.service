@@ -1,0 +1,6 @@
+[Unit]
+Description=Create snapshot of the system
+
+[Service]
+ExecStart=/home/saverio/.local/bin/snapshot
+Type=oneshot
