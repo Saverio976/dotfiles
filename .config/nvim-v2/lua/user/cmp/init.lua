@@ -86,7 +86,6 @@ cmp.setup({
             },
             keyword_length = 2
         },
-        { name = "buffer" },
         { name = "luasnip" },
         -- { name = "cmp_tabnine" },
         { name = "codeium" },

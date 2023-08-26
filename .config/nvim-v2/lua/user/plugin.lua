@@ -18,17 +18,7 @@ end
 
 lazy.setup({
     --------------------------------------------------------------------------
-    -- startup improvement/mesure
-    {
-        "lewis6991/impatient.nvim",
-        lazy = false,
-        config = function() require("user.impatient") end,
-    },
-    {
-        "nathom/filetype.nvim",
-        lazy = false,
-        config = function() require("user.filetype") end,
-    },
+    -- startup mesure
     {
         "dstein64/vim-startuptime",
         cmd = "StartupTime",
@@ -46,17 +36,9 @@ lazy.setup({
                 "j-hui/fidget.nvim",
                 branch = "legacy",
             },
-            {
-                "kosayoda/nvim-lightbulb",
-                dependencies = { "antoinemadec/FixCursorHold.nvim" },
-            },
-            "folke/lsp-colors.nvim",
         },
         config = function() require("user.lsp") end,
     },
-    -- {
-    --     "jose-elias-alvarez/null-ls.nvim",
-    -- },
 
     --------------------------------------------------------------------------
     -- completions
@@ -67,7 +49,6 @@ lazy.setup({
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-nvim-lsp-signature-help",
             "lukas-reineke/cmp-rg",
-            "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "saadparwaiz1/cmp_luasnip",
             "lukas-reineke/cmp-under-comparator",
@@ -304,11 +285,11 @@ lazy.setup({
     --     lazy = false,
     --     config = function() require("user.themes.minimal") end,
     -- },
-    {
-        "mrjones2014/lighthaus.nvim",
-        lazy = false,
-        config = function() require("user.themes.lighthaus") end,
-    },
+    -- {
+    --     "mrjones2014/lighthaus.nvim",
+    --     lazy = false,
+    --     config = function() require("user.themes.lighthaus") end,
+    -- },
     -- {
     --     "bluz71/vim-nightfly-colors",
     --     name = "nightfly",
@@ -321,11 +302,16 @@ lazy.setup({
     --     config = function() require("user.themes.noctis") end,
     --     dependencies = { "rktjmp/lush.nvim" },
     -- },
+    {
+        'wadackel/vim-dogrun',
+        lazy = false,
+        config = function() require("user.themes.dogrun") end,
+    },
 
     --------------------------------------------------------------------------
     -- discord rich presence
     {
         "andweeb/presence.nvim",
-        lazy = false,
+        event = "BufEnter",
     },
 })
