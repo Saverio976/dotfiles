@@ -120,21 +120,5 @@ lspkind.init({
 local gotopreview = require('goto-preview')
 gotopreview.setup({})
 
-local lspcolor = require('lsp-colors')
-lspcolor.setup({
-    Error = "#db4b4b",
-    Warning = "#e0af68",
-    Information = "#0db9d7",
-    Hint = "#10B981"
-})
-
 local lsprogress = require('fidget')
 lsprogress.setup({})
-
-local lightbulb = require('nvim-lightbulb')
-lightbulb.setup({
-    autocmd = {enabled = true}
-})
-vim.cmd([[
-autocmd BufEnter,BufModifiedSet * lua require('nvim-lightbulb').update_lightbulb()
-]])
