@@ -196,11 +196,6 @@ lazy.setup({
         lazy = false,
         config = function() require("dressing").setup() end,
     },
-    -- {
-    --     "nvim-zh/colorful-winsep.nvim",
-    --     config = true,
-    --     event = { "WinNew" },
-    -- },
     {
         "samodostal/image.nvim",
         lazy = false,

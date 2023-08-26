@@ -141,15 +141,15 @@ local function alias_if_exists() {
 
 alias_if_exists "audio-input-toggle"    'pactl set-source-mute @DEFAULT_SOURCE@ toggle'
 alias_if_exists "audio-output-toggle"   'pactl set-sink-mute @DEFAULT_SINK@ toggle'
-alias_if_exists "scrcpy"                'scrcpy -S -w --power-off-on-close --disable-screensaver'
-alias_if_exists "normatrix"             '$HOME/source/NorMatrix/main.py'
+alias_if_exists "scrcpy"                'scrcpy -S -w --power-off-on-close --disable-screensaver '
 alias_if_exists "termtosvg"             'python3 -m termtosvg'
 alias_if_exists "i3conf"                'nvim $HOME/.config/i3/config'
 alias_if_exists "zshconf"               'nvim $HOME/.zshrc'
 alias_if_exists "starshipconf"          'nvim $HOME/.config/starship.toml'
-alias_if_exists "yarn"                  'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config'
-alias_if_exists "wget"                  'wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
+alias_if_exists "yarn"                  'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config '
+alias_if_exists "wget"                  'wget --hsts-file="$XDG_DATA_HOME/wget-hsts" '
 alias_if_exists "epitest"               'podman run -it --rm -v "$PWD:/code" -w "/code" -u "$UID:$GID" docker.io/epitechcontent/epitest-docker bash'
+alias_if_exists "nvim"                  'floaterm '
 
 ##############################################################################
 # PROMPT
