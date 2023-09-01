@@ -3,6 +3,8 @@ vim.cmd([[au! FocusLost <buffer> if &modified == 1 | write | endif]])
 
 vim.cmd([[au! BufEnter *.h set filetype=c]])
 
+vim.cmd([[au! BufEnter *.v set filetype=vlang]])
+
 vim.cmd([[
 augroup ImageAutocmdGroup
 au! BufEnter *.png set filetype=png

@@ -20,6 +20,8 @@ plugins=(
     alias-tips
 )
 
+fpath+="${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src"
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -230,6 +232,7 @@ fi
 
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 
+# ----------------------------------------------------------------------------
 # from https://github.com/AustralEpitech/.dotfiles/blob/main/.config/zsh/.zsh_aliases
 alias umnt='sudo umount /mnt -R'
 alias automount='D=$(udisksctl mount -b /dev/sda1 2> /dev/null || udisksctl mount -b /dev/sdb1) && cd ${D/* }'
@@ -242,6 +245,7 @@ alias sudo='sudo '
 alias watch='fnalias watch -c '
 alias xargs='xargs '
 # end from
+# ----------------------------------------------------------------------------
 
 if command -v neofetch &>/dev/null; then
     LOCKFILE="/tmp/neofetchalreadyexecuted"
@@ -261,4 +265,19 @@ fi
 
 if command -v thefuck &>/dev/null; then
     eval $(thefuck --alias f)
+fi
+
+if command -v kubectx &>/dev/null; then
+    function kxn() {
+        1="$(echo "$1" | tr -c '[:alnum:]-_' '[ *]')"
+        local ctx="$(echo - "$1" | awk '{print $1}')"
+        local ns="${2-$(echo - "$1" | awk '{print $2}')}"
+
+        kubectx ${ctx:l}
+        [ -n "$ns" ] && kubens "${ns:l}"
+    }
+fi
+
+if command -v kubectl &>/dev/null; then
+    source <(kubectl completion zsh)
 fi

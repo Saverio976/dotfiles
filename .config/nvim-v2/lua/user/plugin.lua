@@ -210,6 +210,10 @@ lazy.setup({
     --     event = "BufEnter",
     --     config = function() require("user.bionic_reading") end,
     -- },
+    {
+        'cheap-glitch/vim-v',
+        ft = "vlang",
+    },
 
     --------------------------------------------------------------------------
     -- text interraction

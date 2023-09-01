@@ -36,13 +36,13 @@ end
 local names = {
     -- 'marksman',              -- md           -- https://github.com/artempyanykh/marksman
 
-    'clangd',                -- c            -- https://clangd.llvm.org/installation.html
+    -- 'clangd',                -- c            -- https://clangd.llvm.org/installation.html
     -- 'cmake',                 -- cmake        -- https://github.com/regen100/cmake-language-server
 
     'pyright',               -- py           -- https://github.com/microsoft/pyright
     -- 'pylsp',                 -- py           -- https://github.com/python-lsp/python-lsp-server 
 
-    'bashls',                -- bash         -- https://github.com/mads-hartmann/bash-language-server
+    -- 'bashls',                -- bash         -- https://github.com/mads-hartmann/bash-language-server
     -- 'dockerls',              -- docker       -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
 
     'tsserver',              -- js/ts        -- https://github.com/typescript-language-server/typescript-language-server
@@ -57,7 +57,7 @@ local names = {
     -- 'jdtls',                 -- java         -- https://projects.eclipse.org/projects/eclipse.jdt.ls
     -- 'lua_ls',           -- lua          -- https://github.com/sumneko/lua-language-server
     -- 'ansiblels',         -- ansible      -- https://github.com/ansible/ansible-language-server
-    'csharp_ls',      -- dotnet       -- https://github.com/razzmatazz/csharp-language-server
+    -- 'csharp_ls',      -- dotnet       -- https://github.com/razzmatazz/csharp-language-server
 }
 for _, lang in ipairs(names) do
     try_setup_server(lang, lspconfig, on_attach_, cap)
