@@ -214,6 +214,7 @@ assign [class="Chromium|Google-chrome"] → 2
 # games
 assign [class="heroic"] → 8
 assign [class="rocketleague.exe"] → 9
+assign [class="steam_app_0"] → 9
 
 ################# autostart - execute applications at boot time
 
@@ -340,8 +341,5 @@ bindsym Control+Mod1+l exec "$locker"
 # suspend
 bindsym Control+Mod1+Shift+l exec "$locker && systemctl suspend"
 
-# auto lock the screen
-exec --no-startup-id xautolock -detectsleep -time 3 -notify 5 -locker "$locker"
-exec --no-startup-id xautolock -time 20 -locker \"systemctl suspend\"
-bindsym Control+Shift+e exec "xautolock -enable"
-bindsym Control+Shift+d exec "xautolock -disable"
+# power
+bindsym XF86PowerOff exec "{{ env.HOME }}/.local/share/rofi-power-menu/rofi-power-menu"
