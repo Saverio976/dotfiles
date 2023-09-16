@@ -95,11 +95,12 @@ local function replace_command() {
     fi
 }
 
-replace_command "ls"    "exa -la"
-replace_command "cat"   "bat"
-replace_command "htop"  "btm"
-replace_command "kill"  "fkill"
-replace_command "vim"   "nvim"
+replace_command "ls"     "eza -lha"
+replace_command "cat"    "bat"
+replace_command "htop"   "btm"
+replace_command "kill"   "fkill"
+replace_command "vim"    "nvim"
+replace_command "pacman" "paru"
 
 # replace cd command
 if command -v zoxide &> /dev/null
