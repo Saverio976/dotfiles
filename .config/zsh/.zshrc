@@ -197,6 +197,19 @@ function cleanpacman () {
     fi
 }
 
+# clean pacman cache
+function cleanparu () {
+    OLDPKG=$(paru -Qdtq)
+    if [[ "$OLDPKG" != "" ]]; then
+        paru -Rns $OLDPKG
+    fi
+    if [[ "$1" == "y" ]]; then
+        yes | paru -Scc
+    else
+        paru -Scc
+    fi
+}
+
 true_man_intern=$(which man)
 if [[ " ${plugins[*]} " == *" colored-man-pages "* ]]; then
     true_man_intern="colored"
