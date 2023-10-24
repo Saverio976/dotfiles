@@ -41,7 +41,7 @@ set $keyboardmap fr
 set $locker i3lock -c 000000 --show-failed-attempts -i '{{ env.HOME }}/.local/share/wallpaper/Wallpaper13.jpg'
 
 # TouchPad
-set $touchpadprop "ELAN0504:01 04F3:3091 Touchpad"
+set $touchpadprop "VEN_04F3:00 04F3:320F Touchpad"
 
 ################# Single and Dual screen
 
