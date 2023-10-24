@@ -138,4 +138,32 @@ lsscsi
 envycontrol --switch {hybrid,nvidia,integrated}
 
 ## Arch Package
-{pacman,paru,yay} -S - < $HOME/.config/paru/pkglist.txt
+
+- ananicy-cpp
+- gcc
+- fd
+- ripgrep
+- make
+- cmake
+- unzip
+- git
+- neovim
+- kitty
+- i3lock
+- i3status
+- rofi
+- maim
+- paru
+- podman
+- podman-docker
+- proton-ge-custom-bin
+- thermald
+- power-profiles-daemon
+- python
+- python-pip
+- shellcheck-bin
+- wine
+- winetricks
+- profile-sync-daemon
+- anything-sync-daemon
+- heroic-games-launcher-bin
