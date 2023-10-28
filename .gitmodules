@@ -22,8 +22,8 @@
 [submodule ".local/share/git-crypt"]
 	path = .local/share/git-crypt
 	url = https://github.com/AGWA/git-crypt.git
-[submodule "/home/saverio/.config/ohmyzsh-custom/plugins/zsh-completions"]
-	path = /home/saverio/.config/ohmyzsh-custom/plugins/zsh-completions
+[submodule ".config/ohmyzsh-custom/plugins/zsh-completions"]
+	path = .config/ohmyzsh-custom/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
 [submodule ".local/share/rofi-power-menu"]
 	path = .local/share/rofi-power-menu
