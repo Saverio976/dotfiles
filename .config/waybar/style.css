@@ -84,7 +84,6 @@ window#waybar {
     border-bottom: 3px solid black;
 
 }
-
 #workspaces button.urgent {
     background-color: #eb4d4b;
 }

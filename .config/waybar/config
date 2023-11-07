@@ -9,7 +9,7 @@
     "modules-right": ["tray", "network", "battery"],
     // Modules configuration
     "hyprland/workspaces": {
-        "format": "{name}",
+        "format": "{name} {icon}",
         "format-icons": {
             "active": "",
             "default": ""
