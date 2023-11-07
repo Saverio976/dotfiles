@@ -1,0 +1,7 @@
+term=foot
+allow_markup=true
+layer=overlay
+allow_images=true
+gtk_dark=true
+image_size=20
+insensitive=true
