@@ -100,7 +100,6 @@ nvimtree.setup({
     sort_by = "case_sensitive",
     view = {
         adaptive_size = true,
-        hide_root_folder = false,
         side = "right",
     },
     renderer = {

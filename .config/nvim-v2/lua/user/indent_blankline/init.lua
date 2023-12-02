@@ -1,7 +1,3 @@
-local blankline = require("indent_blankline")
+local blankline = require("ibl")
 
-blankline.setup({
-    space_char_blankline = " ",
-    show_current_context = true,
-    show_current_context_start = true,
-})
+blankline.setup()
