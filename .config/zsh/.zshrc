@@ -269,6 +269,13 @@ if command -v neofetch &>/dev/null; then
         neofetch
     fi
 fi
+if command -v pfetch &>/dev/null; then
+    LOCKFILE="/tmp/pfetchalreadyexecuted"
+    if [[ "$NO_NEOFETCH" == "" ]] && [[ ! -f "$LOCKFILE" ]]; then
+        touch "$LOCKFILE"
+        pfetch
+    fi
+fi
 
 # if command -v "change-background.sh" &>/dev/null; then
 #     change-background.sh
