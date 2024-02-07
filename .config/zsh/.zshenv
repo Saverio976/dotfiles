@@ -67,6 +67,7 @@ export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf-conf/asdfrc"
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 # RUST
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 # NODEJS
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
