@@ -124,7 +124,7 @@ then
     }
 fi
 
-if command -v gpg &> /dev/null && command -v git &> /dev/null
+if command -v gpg &> /dev/null && command -v git &>/dev/null && command -v yadm &>/dev/null &> /dev/null
 then
     OLD_YADM=$(which yadm)
     function yadm () {
