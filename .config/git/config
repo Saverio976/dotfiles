@@ -15,5 +15,6 @@
     history = log --cherry --boundary --decorate --color --oneline --graph --all
     pretty = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all
     tree = !git-branch-status
+    quick-stats = !git-quick-stats
 [core]
     editor = nvim
