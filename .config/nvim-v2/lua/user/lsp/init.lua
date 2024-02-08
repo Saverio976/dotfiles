@@ -41,6 +41,7 @@ local names = {
 
     'pyright',               -- py           -- https://github.com/microsoft/pyright
     -- 'pylsp',                 -- py           -- https://github.com/python-lsp/python-lsp-server 
+    -- 'pylyzer',                  -- py           -- https://github.com/mtshiba/pylyzer
 
     -- 'bashls',                -- bash         -- https://github.com/mads-hartmann/bash-language-server
     -- 'dockerls',              -- docker       -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
