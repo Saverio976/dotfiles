@@ -82,7 +82,7 @@ fi
 
 # im in the vim matrix
 alias :q="exit"
-
+alias ip="ip -color=auto"
 alias restartx="sudo systemctl restart lightdm.service"
 
 ##############################################################################
