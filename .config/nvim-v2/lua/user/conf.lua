@@ -87,3 +87,11 @@ vim.opt.relativenumber = true
 vim.opt.fileformat = 'unix'
 
 vim.opt.mouse = "nvi"
+
+-- open file with cursor to where it was
+vim.cmd([[
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   execute "normal! g`\"" |
+    \ endif
+]])
