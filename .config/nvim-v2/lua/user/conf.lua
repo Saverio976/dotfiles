@@ -81,17 +81,21 @@ vim.opt.colorcolumn = '80'
 
 -- line number
 vim.opt.number = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 
 -- \n (no \r\n)
 vim.opt.fileformat = 'unix'
 
 vim.opt.mouse = "nvi"
 
--- open file with cursor to where it was
-vim.cmd([[
-autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   execute "normal! g`\"" |
-    \ endif
-]])
+-- no bell
+vim.g.noerrorbells = true
+vim.g.novisualbell = true
+vim.g.t_vb = ""
+
+-- no defaults plugin
+vim.g.loaded_2html_plugin = 1
+vim.g.loaded_gzip = 1
+vim.g.loaded_spellfile_plugin = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_zipPlugin = 1

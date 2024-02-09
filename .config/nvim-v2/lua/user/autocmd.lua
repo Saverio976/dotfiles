@@ -13,3 +13,12 @@ au! BufEnter *.jpeg set filetype=jpeg
 au! BufEnter *.webp set filetype=webp
 augroup END
 ]])
+
+
+-- open file with cursor to where it was
+vim.cmd([[
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   execute "normal! g`\"" |
+    \ endif
+]])

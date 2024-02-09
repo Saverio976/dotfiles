@@ -78,7 +78,7 @@ lazy.setup({
         "nvim-treesitter/nvim-treesitter",
         event = "BufEnter",
         dependencies = {
-            "p00f/nvim-ts-rainbow",
+            -- "p00f/nvim-ts-rainbow",
             {
                 "m-demare/hlargs.nvim",
                 config = function() require("hlargs").setup() end,
@@ -309,8 +309,8 @@ lazy.setup({
 
     --------------------------------------------------------------------------
     -- discord rich presence
-    {
-        "andweeb/presence.nvim",
-        event = "BufEnter",
-    },
+    -- {
+    --     "andweeb/presence.nvim",
+    --     event = "BufEnter",
+    -- },
 })
