@@ -309,6 +309,6 @@ fi
 [ -s "/home/saverio/.bun/_bun" ] && source "/home/saverio/.bun/_bun"
 
 if command -v atuin &>/dev/null; then
-    eval "$(atuin init zsh)"
+    eval "$(atuin init zsh --disable-up-arrow)"
     source <(atuin gen-completions --shell zsh)
 fi
