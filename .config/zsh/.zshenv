@@ -73,6 +73,8 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
 export NVM_DIR="$HOME/.config/nvm"
+export BUN_INSTALL="$XDG_STATE_HOME/bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 # PYTHON
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export KERAS_HOME="${XDG_STATE_HOME}/keras"
@@ -123,3 +125,8 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 # NUGET
 # ----------------------------------------------------------------------------
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+
+# ----------------------------------------------------------------------------
+# ANSIBLE
+# ----------------------------------------------------------------------------
+export ANSIBLE_HOME="$XDG_DATA_HOME"/ansible
