@@ -298,8 +298,17 @@ if command -v kubectx &>/dev/null; then
         kubectx ${ctx:l}
         [ -n "$ns" ] && kubens "${ns:l}"
     }
+
+    source <(kubectl completion zsh)
 fi
 
 if command -v kubectl &>/dev/null; then
-    source <(kubectl completion zsh)
+fi
+
+# bun completions
+[ -s "/home/saverio/.bun/_bun" ] && source "/home/saverio/.bun/_bun"
+
+if command -v atuin &>/dev/null; then
+    eval "$(atuin init zsh)"
+    source <(atuin gen-completions --shell zsh)
 fi
