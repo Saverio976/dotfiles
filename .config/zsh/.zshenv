@@ -76,7 +76,7 @@ export NVM_DIR="$HOME/.config/nvm"
 export BUN_INSTALL="$XDG_STATE_HOME/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 # PYTHON
-export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export PYTHONSTARTUP="$HOME/python/pythonrc"
 export KERAS_HOME="${XDG_STATE_HOME}/keras"
 # JAVA
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
