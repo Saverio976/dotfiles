@@ -32,10 +32,7 @@ lazy.setup({
         cmd = { "LspInfo", "LspStart", "LspStop" },
         dependencies = {
             "rmagatti/goto-preview",
-            {
-                "j-hui/fidget.nvim",
-                branch = "legacy",
-            },
+            "j-hui/fidget.nvim",
         },
         config = function() require("user.lsp") end,
     },
@@ -52,24 +49,15 @@ lazy.setup({
             "hrsh7th/cmp-path",
             "saadparwaiz1/cmp_luasnip",
             "lukas-reineke/cmp-under-comparator",
-            -- {
-            --     "tzachar/cmp-tabnine",
-            --     build = "./install.sh",
-            -- },
             "L3MON4D3/LuaSnip",
             "windwp/nvim-autopairs",
             "onsails/lspkind-nvim",
+            {
+                "Exafunction/codeium.nvim",
+                config = function() require("user.cmp.codeium") end,
+            }
         },
         config = function() require("user.cmp") end,
-    },
-    -- {
-    --     "folke/which-key.nvim",
-    --     event = { "<leader>", " ", "~" },
-    --     config = function() require("which-key").setup({register = true}) end,
-    -- },
-    {
-        "Exafunction/codeium.vim",
-        lazy = false,
     },
 
     --------------------------------------------------------------------------
