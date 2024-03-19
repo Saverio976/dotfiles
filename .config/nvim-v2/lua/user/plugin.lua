@@ -36,6 +36,14 @@ lazy.setup({
         },
         config = function() require("user.lsp") end,
     },
+    {
+        "zeioth/garbage-day.nvim",
+        dependencies = "neovim/nvim-lspconfig",
+        event = "VeryLazy",
+        opts = {
+            -- your options here
+        }
+    },
 
     --------------------------------------------------------------------------
     -- completions
