@@ -1,26 +1,35 @@
+# Colors (BlulocoDark)
 [colors.bright]
-black = "#666666"
-blue = "#7aa6da"
-cyan = "#70c0b1"
-green = "#b9ca4a"
-magenta = "#c397d8"
-red = "#d54e53"
-white = "#eaeaea"
-yellow = "#e7c547"
+black = '#8f9aae'
+blue = '#10b1fe'
+cyan = '#5fb9bc'
+green = '#3fc56b'
+magenta = '#ff78f8'
+red = '#ff6480'
+white = '#ffffff'
+yellow = '#f9c859'
 
 [colors.normal]
-black = "#1d1f21"
-blue = "#81a2be"
-cyan = "#8abeb7"
-green = "#b5bd68"
-magenta = "#b294bb"
-red = "#cc6666"
-white = "#c5c8c6"
-yellow = "#f0c674"
+black = '#41444d'
+blue = '#3476ff'
+cyan = '#4483aa'
+green = '#25a45c'
+magenta = '#7a82da'
+red = '#fc2f52'
+white = '#cdd4e0'
+yellow = '#ff936a'
 
 [colors.primary]
-background = "#1d1f21"
-foreground = "#c5c8c6"
+background = '#282c34'
+foreground = '#b9c0cb'
+
+[colors.cursor]
+cursor = '#ffcc00'
+text = '#282c34'
+
+[colors.selection]
+background = '#b9c0ca'
+text = '#272b33'
 
 [cursor.style]
 blinking = "Off"
@@ -44,9 +53,9 @@ program = "/bin/zsh"
 [window]
 decorations = "full"
 decorations_theme_variant = "dark"
-dynamic_title = true
-opacity = 0.8
-title = "BEST Term"
+dynamic_title = false
+opacity = 1.0
+title = "glhfggwp"
 
 [window.dimensions]
 columns = 80

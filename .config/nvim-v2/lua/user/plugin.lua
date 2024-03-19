@@ -66,7 +66,6 @@ lazy.setup({
         "nvim-treesitter/nvim-treesitter",
         event = "BufEnter",
         dependencies = {
-            -- "p00f/nvim-ts-rainbow",
             {
                 "m-demare/hlargs.nvim",
                 config = function() require("hlargs").setup() end,
@@ -74,15 +73,6 @@ lazy.setup({
         },
         confif = function() require("user.treesitter") end,
     },
-
-    --------------------------------------------------------------------------
-    -- language integration
-    -- {
-    --     "wookayin/semshi", -- use a maintained fork
-    --     ft = "python",
-    --     build = ":UpdateRemotePlugins",
-    --     init = function() require("user.semshi") end,
-    -- },
 
     --------------------------------------------------------------------------
     -- floating window app
@@ -155,17 +145,12 @@ lazy.setup({
     -- status bar
     {
         "feline-nvim/feline.nvim",
-        event = "WinEnter",
+        event = "VimEnter",
         config = function() require("user.feline") end,
     },
 
     --------------------------------------------------------------------------
     -- buffer enhancer
-    {
-        "norcalli/nvim-colorizer.lua",
-        event = "BufEnter",
-        config = function() require("colorizer").setup() end,
-    },
     {
         "lukas-reineke/indent-blankline.nvim",
         event = "BufEnter",
@@ -179,29 +164,6 @@ lazy.setup({
         },
         config = function() require("gitsigns").setup() end,
     },
-    {
-        "stevearc/dressing.nvim",
-        lazy = false,
-        config = function() require("dressing").setup() end,
-    },
-    {
-        "samodostal/image.nvim",
-        lazy = false,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "m00qek/baleia.nvim",
-        },
-        config = function() require("user.image") end,
-    },
-    -- {
-    --     'FluxxField/bionic-reading.nvim',
-    --     event = "BufEnter",
-    --     config = function() require("user.bionic_reading") end,
-    -- },
-    {
-        'cheap-glitch/vim-v',
-        ft = "vlang",
-    },
 
     --------------------------------------------------------------------------
     -- text interraction
@@ -213,16 +175,16 @@ lazy.setup({
         },
         config = function() require("user.comment") end,
     },
-    {
-        "vim-scripts/DoxygenToolkit.vim",
-        cmd = {
-            "Dox",
-            "DoxAuthor",
-            "DoxBlock",
-            "DoxLic",
-            "DoxUndoc",
-        },
-    },
+    -- {
+    --     "vim-scripts/DoxygenToolkit.vim",
+    --     cmd = {
+    --         "Dox",
+    --         "DoxAuthor",
+    --         "DoxBlock",
+    --         "DoxLic",
+    --         "DoxUndoc",
+    --     },
+    -- },
     {
         "heavenshell/vim-pydocstring",
         lazy = true,
@@ -242,17 +204,12 @@ lazy.setup({
         cmd = { 'Rayso' },
         config = function() require("user.rayso") end,
     },
-    {
-        "tomiis4/hypersonic.nvim",
-        cmd = "Hypersonic",
-        config = function() require("user.hypersonic") end,
-    },
 
     --------------------------------------------------------------------------
     -- auto indent
     {
         "Darazaki/indent-o-matic",
-        event = "BufEnter",
+        event = "VimEnter",
         opts = {
             max_lines = 2048,
             standard_widths = {2, 4, 8},
@@ -262,43 +219,18 @@ lazy.setup({
 
     --------------------------------------------------------------------------
     -- colorschemes
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     lazy = false,
-    --     config = function() require("user.themes.tokyonight") end,
-    -- },
-    -- {
-    --     "Yazeed1s/minimal.nvim",
-    --     lazy = false,
-    --     config = function() require("user.themes.minimal") end,
-    -- },
-    -- {
-    --     "mrjones2014/lighthaus.nvim",
-    --     lazy = false,
-    --     config = function() require("user.themes.lighthaus") end,
-    -- },
-    -- {
-    --     "bluz71/vim-nightfly-colors",
-    --     name = "nightfly",
-    --     lazy = false,
-    --     config = function() require("user.themes.nightflycolors") end,
-    -- -- },
-    -- {
-    --     "kartikp10/noctis.nvim",
-    --     lazy = false,
-    --     config = function() require("user.themes.noctis") end,
-    --     dependencies = { "rktjmp/lush.nvim" },
-    -- },
     {
-        'wadackel/vim-dogrun',
+        'uloco/bluloco.nvim',
         lazy = false,
-        config = function() require("user.themes.dogrun") end,
+        priority = 1000,
+        dependencies = { 'rktjmp/lush.nvim' },
+        config = function() require("user.themes.bluloco") end,
     },
 
     --------------------------------------------------------------------------
-    -- discord rich presence
-    -- {
-    --     "andweeb/presence.nvim",
-    --     event = "BufEnter",
-    -- },
+    -- dotfyle
+    {
+        "creativenull/dotfyle-metadata.nvim",
+        cmd = "DotfyleGenerate",
+    }
 })
