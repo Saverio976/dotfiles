@@ -60,7 +60,7 @@ telescope.setup({
         },
     },
 })
-telescope.load_extension("fzf")
+pcall(telescope.load_extension, "fzf")
 telescope.load_extension("telescope-alternate")
 
 -- " Find files using Telescope command-line sugar.
