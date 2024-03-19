@@ -102,6 +102,10 @@ lazy.setup({
                     return vim.fn.executable 'make' == 1
                 end,
             },
+            {
+                'nvim-tree/nvim-web-devicons',
+                enabled = vim.g.have_nerd_font,
+            },
         },
         config = function() require("user.telescope") end,
     },
