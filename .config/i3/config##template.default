@@ -246,7 +246,7 @@ exec feh --bg-scale --no-fehbg --randomize "{{ env.HOME }}/.local/share/wallpape
 # Terminal
 bindsym $mod+Return exec --no-startup-id $terminal;focus
 # drop down terminal
-exec_always --no-startup-id kitti3
+exec_always --no-startup-id {{ env.HOME }}/.local/bin/kitti3
 bindsym $mod+t nop kitti3
 
 ################# screenshots
