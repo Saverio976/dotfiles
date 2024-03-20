@@ -31,7 +31,7 @@ set $right m
 
 # Apps
 #set $terminal kitty
-set $terminal alacritty
+set $terminal {{ env.HOME }}/.local/bin/terminal-choose.sh
 
 # Keyboard
 set $keyboardmap fr
