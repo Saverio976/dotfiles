@@ -262,18 +262,11 @@ alias xargs='xargs '
 # end from
 # ----------------------------------------------------------------------------
 
-if command -v neofetch &>/dev/null; then
-    LOCKFILE="/tmp/neofetchalreadyexecuted"
+if command -v fastfetch &>/dev/null; then
+    LOCKFILE="/tmp/fastfetchalreadyexecuted"
     if [[ "$NO_NEOFETCH" == "" ]] && [[ ! -f "$LOCKFILE" ]]; then
         touch "$LOCKFILE"
-        neofetch
-    fi
-fi
-if command -v pfetch &>/dev/null; then
-    LOCKFILE="/tmp/pfetchalreadyexecuted"
-    if [[ "$NO_NEOFETCH" == "" ]] && [[ ! -f "$LOCKFILE" ]]; then
-        touch "$LOCKFILE"
-        pfetch
+        fastfetch
     fi
 fi
 

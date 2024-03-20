@@ -30,8 +30,8 @@ set $left j
 set $right m
 
 # Apps
-set $terminal kitty
-#set $terminal alacritty
+#set $terminal kitty
+set $terminal alacritty
 
 # Keyboard
 set $keyboardmap fr

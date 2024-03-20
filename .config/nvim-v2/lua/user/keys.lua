@@ -3,7 +3,7 @@ vim.keymap.set('n', '??', '<CMD>noh<CR>', {silent = true, desc = 'remove highlig
 vim.keymap.set('n', '<A-=>', '<CMD>FloatermToggle<CR>', {desc = 'FloatTermToggle', noremap=true, silent=true})
 vim.keymap.set('t', '<A-=>', '<CMD>FloatermToggle<CR>', {desc = 'FloatTermToggle', noremap=true, silent=true})
 
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]])
 
 local ok, undotree = pcall(require, 'undotree')
 if ok then
