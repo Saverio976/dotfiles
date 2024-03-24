@@ -223,9 +223,6 @@ assign [class="steam_app_0"] → 9
 
 # USER APPLICATIONS TO START AT BOOT
 
-# Autotiling (https://pypi.org/project/autotiling/)
-exec_always --no-startup-id autotiling
-
 # Activate touch on touchpad
 exec --no-startup-id xinput set-prop $touchpadprop "libinput Tapping Enabled" 1
 
@@ -344,7 +341,7 @@ exec --no-startup-id setxkbmap $keyboardmap
 bindsym Mod1+l exec "$locker && xset dpms force off"
 
 # suspend
-bindsym Control+Mod1+l exec "$locker && systemctl suspend"
+bindsym Control+Mod1+l exec "$locker && systemctl suspend-then-hybernate"
 
 # power
 bindsym XF86PowerOff exec "{{ env.HOME }}/.local/share/rofi-power-menu/rofi-power-menu"
