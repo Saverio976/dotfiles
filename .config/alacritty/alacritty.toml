@@ -1,3 +1,6 @@
+live_config_reload = false
+ipc_socket = false
+
 # Colors (BlulocoDark)
 [colors.bright]
 black = '#8f9aae'
