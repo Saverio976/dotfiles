@@ -341,7 +341,7 @@ exec --no-startup-id setxkbmap $keyboardmap
 bindsym Mod1+l exec "$locker && xset dpms force off"
 
 # suspend
-bindsym Control+Mod1+l exec "$locker && systemctl suspend-then-hybernate"
+bindsym Control+Mod1+l exec "$locker && systemctl suspend-then-hibernate"
 
 # power
 bindsym XF86PowerOff exec "{{ env.HOME }}/.local/share/rofi-power-menu/rofi-power-menu"
