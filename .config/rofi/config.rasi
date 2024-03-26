@@ -1,6 +1,6 @@
 configuration {
 	modes: "window,run,drun,combi";
-	font: "Monocraft 16";
+	font: "CaskaydiaMono 16";
 	location: 0;
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
