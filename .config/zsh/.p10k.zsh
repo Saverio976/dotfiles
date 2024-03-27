@@ -55,6 +55,7 @@
     vcs                       # git status
     # command_execution_time  # previous command duration
     # =========================[ Line #2 ]=========================
+    kubecontext               # current kubernetes context
     newline                   # \n
     # virtualenv              # python virtual environment
     prompt_char               # prompt symbol
@@ -65,7 +66,6 @@
     # =========================[ Line #1 ]=========================
     background_jobs           # presence of background jobs
     command_execution_time    # previous command duration
-    kubecontext               # current kubernetes context
     context                   # user@host
     time                      # current time
     battery                   # internal battery
