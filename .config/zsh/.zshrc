@@ -291,11 +291,10 @@ if command -v kubectx &>/dev/null; then
         kubectx ${ctx:l}
         [ -n "$ns" ] && kubens "${ns:l}"
     }
-
-    source <(kubectl completion zsh)
 fi
 
 if command -v kubectl &>/dev/null; then
+    source <(kubectl completion zsh)
 fi
 
 # bun completions
