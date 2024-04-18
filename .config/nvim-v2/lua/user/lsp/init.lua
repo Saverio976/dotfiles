@@ -39,7 +39,8 @@ local names = {
     'clangd',                -- c            -- https://clangd.llvm.org/installation.html
     -- 'cmake',                 -- cmake        -- https://github.com/regen100/cmake-language-server
 
-    'pyright',               -- py           -- https://github.com/microsoft/pyright
+    -- 'pyright',               -- py           -- https://github.com/microsoft/pyright
+    -- 'basedpyright',
     -- 'pylsp',                 -- py           -- https://github.com/python-lsp/python-lsp-server 
     -- 'pylyzer',                  -- py           -- https://github.com/mtshiba/pylyzer
 
@@ -69,54 +70,6 @@ lspkind.init({
     modes = 'symbol_text',
     preset = 'default',
 })
-
--- local null_ls = require('null-ls')
--- -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
--- null_ls.setup({
---     sources = {
---         null_ls.builtins.diagnostics.luacheck,
---     },
--- })
-
--- ---------------------------------------------------
--- -- TROUBLE
--- -- https://github.com/folke/trouble.nvim
--- -- trouble
--- local oktroubl, trouble = pcall(require, 'trouble')
--- if oktroubl then
---     vim.keymap.set('n', 'gt', '<CMD>TroubleToggle<CR>', { desc = 'TroubleToggle', noremap=true, silent=true })
---     trouble.setup({
---         position = "bottom",
---         height = 7,
---         width = 50,
---         icons = true,
---         mode = "workspace_diagnostics",
---         fold_open = "",
---         fold_closed = "",
---         indent_lines = true,
---         auto_open = false,
---         auto_close = true,
---         auto_preview = false,
---         auto_fold = false,
---         signs = {
---             error = "",
---             warning = "",
---             hint = "",
---             information = "",
---             other = "﫠",
---         },
---         use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
---         action_keys = {
---             close = 'q',
---             cancel = '<ESC>',
---             jump = {'<CR>'},
---             open_split = {'<c-x>'},
---             open_vsplit = {'<c-v>'},
---             jump_close = {'<TAB>'},
---             hover = 'K',
---         },
---     })
--- end
 
 local gotopreview = require('goto-preview')
 gotopreview.setup({})
