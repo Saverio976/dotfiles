@@ -5,6 +5,8 @@ local lspkind = require("lspkind")
 local cmpunder = require("cmp-under-comparator")
 local func_cmp_under = cmpunder.under
 
+local cmp_buffer = require("cmp_buffer")
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -29,6 +31,7 @@ cmp.setup({
     },
     sorting = {
         comparators = {
+            function(...) return cmp_buffer:compare_locality(...) end,
             cmp.config.compare.offset,
             cmp.config.compare.exact,
             cmp.config.compare.score,
@@ -54,17 +57,30 @@ cmp.setup({
     sources = {
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },
-        { name = "path" },
         {
-            name = "rg",
+            name = "buffer",
             option = {
-                additional_arguments = "--max-depth 4 --hidden",
-                debounce = 100
+                get_bufnrs = function()
+                    local buf = vim.api.nvim_get_current_buf()
+                    local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
+                    if byte_size > 1024 * 1024 then -- 1 Megabyte max
+                        return {}
+                    end
+                    return { buf }
+                end
             },
-            keyword_length = 2
         },
+        -- { name = "path" },
+        -- {
+        --     name = "rg",
+        --     option = {
+        --         additional_arguments = "--max-depth 4 --hidden",
+        --         debounce = 100
+        --     },
+        --     keyword_length = 2
+        -- },
         { name = "luasnip" },
-        { name = "codeium" },
+        -- { name = "codeium" },
     },
 })
 

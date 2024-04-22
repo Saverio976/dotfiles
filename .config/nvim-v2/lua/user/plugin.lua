@@ -53,17 +53,18 @@ lazy.setup({
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-nvim-lsp-signature-help",
-            "lukas-reineke/cmp-rg",
+            -- "lukas-reineke/cmp-rg",
+            "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "saadparwaiz1/cmp_luasnip",
             "lukas-reineke/cmp-under-comparator",
             "L3MON4D3/LuaSnip",
             "windwp/nvim-autopairs",
             "onsails/lspkind-nvim",
-            {
-                "Exafunction/codeium.nvim",
-                config = function() require("user.cmp.codeium") end,
-            }
+            -- {
+            --     "Exafunction/codeium.nvim",
+            --     config = function() require("user.cmp.codeium") end,
+            -- }
         },
         config = function() require("user.cmp") end,
     },
