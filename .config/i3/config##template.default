@@ -174,16 +174,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym $left resize shrink width 10 px or 10 ppt
+        bindsym $right resize shrink width 10 px or 10 ppt
         bindsym $down resize grow height 10 px or 10 ppt
         bindsym $up resize shrink height 10 px or 10 ppt
-        bindsym $right resize grow width 10 px or 10 ppt
+        bindsym $left resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -197,19 +197,19 @@ bindsym $mod+r mode "resize"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FiraCode Nerd Font Mono 12
+font pango:CaskaydiaMono Nerd Font 15
 #font pango:DejaVu Sans Mono 12
 #font pango:Noto Mono Regular 13
 
 ################# assign applications to workspaces
 
 # social
-assign [class="discord"] → 3
+assign [class="discord"] → 1
 
 # navigators
-assign [instance="Navigator"] → 2
-assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"] → 2
-assign [class="Chromium|Google-chrome"] → 2
+assign [instance="Navigator"] → 1
+assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"] → 1
+assign [class="Chromium|Google-chrome"] → 1
 
 # deskreen
 assign [class="deskreen"] → 10
@@ -231,7 +231,6 @@ exec --no-startup-id xinput set-prop $touchpadprop "libinput Tapping Enabled" 1
 # bluetooth
 # exec --no-startup-id blueberry-tray
 exec --no-startup-id blueman-applet
-exec --no-startup-id bluetooth off
 
 # network
 exec --no-startup-id nm-applet
