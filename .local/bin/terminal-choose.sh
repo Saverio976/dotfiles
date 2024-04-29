@@ -1,4 +1,6 @@
-if command -v alacritty 2>/dev/null; then
+if command -v st 2>/dev/null; then
+    exec st
+elif command -v alacritty 2>/dev/null; then
     exec alacritty
 elif [ -x $HOME/.local/bin/alacritty ]; then
     exec "$HOME/.local/bin/alacritty"
