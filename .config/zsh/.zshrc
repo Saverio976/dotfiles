@@ -262,14 +262,6 @@ alias xargs='xargs '
 # end from
 # ----------------------------------------------------------------------------
 
-if command -v fastfetch &>/dev/null; then
-    LOCKFILE="/tmp/fastfetchalreadyexecuted"
-    if [[ "$NO_NEOFETCH" == "" ]] && [[ ! -f "$LOCKFILE" ]]; then
-        touch "$LOCKFILE"
-        fastfetch
-    fi
-fi
-
 # if command -v "change-background.sh" &>/dev/null; then
 #     change-background.sh
 # fi
@@ -307,4 +299,12 @@ fi
 if command -v atuin &>/dev/null; then
     eval "$(atuin init zsh --disable-up-arrow)"
     source <(atuin gen-completions --shell zsh)
+fi
+
+if command -v fastfetch &>/dev/null; then
+    LOCKFILE="/tmp/fastfetchalreadyexecuted"
+    if [[ "$NO_NEOFETCH" == "" ]] && [[ ! -f "$LOCKFILE" ]]; then
+        touch "$LOCKFILE"
+        fastfetch -c paleofetch.jsonc
+    fi
 fi
