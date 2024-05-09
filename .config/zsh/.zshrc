@@ -289,6 +289,10 @@ if command -v kubectl &>/dev/null; then
     source <(kubectl completion zsh)
 fi
 
+if command -v stern &>/dev/null; then
+    source <(stern --completion zsh)
+fi
+
 # bun completions
 [ -s "/home/saverio/.bun/_bun" ] && source "/home/saverio/.bun/_bun"
 
