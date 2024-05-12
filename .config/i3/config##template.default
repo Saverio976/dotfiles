@@ -46,10 +46,10 @@ set $touchpadprop "VEN_04F3:00 04F3:320F Touchpad"
 ################# Single and Dual screen
 
 # current displays
-exec --no-startup-id xrandr --output DP0 --right-of HDMI-0 --auto
+# exec --no-startup-id xrandr --output DP0 --right-of HDMI-0 --auto
 
 # transparency window
-exec_always picom --vsync
+#exec_always picom --vsync
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -243,8 +243,8 @@ exec feh --bg-scale --no-fehbg --randomize "{{ env.HOME }}/.local/share/wallpape
 # Terminal
 bindsym $mod+Return exec --no-startup-id $terminal;focus
 # drop down terminal
-exec_always --no-startup-id {{ env.HOME }}/.local/bin/kitti3
-bindsym $mod+t nop kitti3
+#exec_always --no-startup-id {{ env.HOME }}/.local/bin/kitti3
+#bindsym $mod+t nop kitti3
 
 ################# screenshots
 # thanks to https://gist.github.com/dianjuar/ee774561a8bc02b077989bc17424a19f
