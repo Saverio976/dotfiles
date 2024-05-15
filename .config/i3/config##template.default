@@ -31,25 +31,22 @@ set $right m
 
 # Apps
 #set $terminal kitty
-set $terminal {{ env.HOME }}/.local/bin/terminal-choose.sh
+set $terminal "{{ env.HOME }}/.local/bin/terminal-choose.sh"
 
 # Keyboard
 set $keyboardmap fr
 #set $keyboardmap us
 
 # Lock
-set $locker i3lock -c 000000 --show-failed-attempts -i '{{ env.HOME }}/.local/share/wallpaper/Wallpaper13.jpg'
+set $locker i3lock -c 000000 --show-failed-attempts -i '{{ env.HOME }}/.local/share/wallpaper/planet_orbit.png'
 
 # TouchPad
 set $touchpadprop "VEN_04F3:00 04F3:320F Touchpad"
 
 ################# Single and Dual screen
 
-# current displays
-exec --no-startup-id xrandr --output DP0 --right-of HDMI-0 --auto
-
 # transparency window
-exec_always picom --vsync
+#exec_always picom --vsync
 
 # switch to workspace
 bindsym $mod+1 workspace 1

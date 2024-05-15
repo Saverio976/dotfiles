@@ -1,12 +1,12 @@
 [submodule ".config/oh-my-zsh"]
 	path = .config/oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule ".config/ohmyzsh-custom/plugins/zsh-syntax-highlighting"]
-	path = .config/ohmyzsh-custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule ".config/ohmyzsh-custom/themes/powerlevel10k"]
 	path = .config/ohmyzsh-custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule ".config/ohmyzsh-custom/plugins/zsh-syntax-highlighting"]
+	path = .config/ohmyzsh-custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule ".config/ohmyzsh-custom/plugins/zsh-autosuggestions"]
 	path = .config/ohmyzsh-custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
@@ -19,12 +19,6 @@
 [submodule ".local/share/yadm-project"]
 	path = .local/share/yadm-project
 	url = https://github.com/TheLocehiliosan/yadm.git
-[submodule ".local/share/git-crypt"]
-	path = .local/share/git-crypt
-	url = https://github.com/AGWA/git-crypt.git
 [submodule ".config/ohmyzsh-custom/plugins/zsh-completions"]
 	path = .config/ohmyzsh-custom/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
-[submodule ".local/share/rofi-power-menu"]
-	path = .local/share/rofi-power-menu
-	url = https://github.com/jluttine/rofi-power-menu.git
