@@ -1,0 +1,14 @@
+assign [class="discord"] → 1
+
+# navigators
+assign [instance="Navigator"] → 1
+assign [class="Firefox|Vivaldi-stable|Vivaldi-snapshot|Opera"] → 1
+assign [class="Chromium|Google-chrome"] → 1
+
+# deskreen
+assign [class="deskreen"] → 10
+
+# games
+assign [class="heroic"] → 8
+assign [class="rocketleague.exe"] → 9
+assign [class="steam_app_0"] → 9

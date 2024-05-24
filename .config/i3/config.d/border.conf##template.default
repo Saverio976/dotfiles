@@ -1,0 +1,6 @@
+for_window [all] title_window_icon padding 2px
+title_align left
+default_border pixel 5
+hide_edge_borders smart
+
+bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle

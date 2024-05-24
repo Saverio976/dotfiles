@@ -1,0 +1,3 @@
+set $touchpadprop "VEN_04F3:00 04F3:320F Touchpad"
+
+exec --no-startup-id xinput set-prop $touchpadprop "libinput Tapping Enabled" 1

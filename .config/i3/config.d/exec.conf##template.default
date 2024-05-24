@@ -1,0 +1,7 @@
+#exec_always picom --vsync
+
+exec --no-startup-id blueman-applet
+
+exec --no-startup-id nm-applet
+
+#exec --no-startup-id xrandr --output DP0 --right-of HDMI-0 --auto

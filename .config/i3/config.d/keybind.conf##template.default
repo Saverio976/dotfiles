@@ -1,0 +1,143 @@
+# $mod = Set below
+# Mod4 = Super key
+# Mod1 = ALT key
+# Control = CTRL key
+# Shift = SHIFT key
+# Escape = ESCAPE key
+# Return = ENTER or RETURN key
+# KP_Enter = Keypad Enter
+# Pause = PAUSE key
+# Print = PRINT key
+# Tab = TAB key
+
+set $screenshots_path "{{ env.HOME }}/Pictures/$(date).png"
+set $terminal "{{ env.HOME }}/.local/bin/terminal-choose.sh"
+
+# Meta
+set $mod Mod4
+
+# refresh the i3status
+set $refresh_i3status killall -SIGUSR1 i3status
+
+# terminal
+bindsym $mod+Return exec --no-startup-id $terminal;focus
+
+# dont switch workspace with mouse
+focus_follows_mouse no
+
+# switch
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+workspace_auto_back_and_forth yes
+
+# move application
+bindsym $mod+Shift+1 move container to workspace 1;
+bindsym $mod+Shift+2 move container to workspace 2;
+bindsym $mod+Shift+3 move container to workspace 3;
+bindsym $mod+Shift+4 move container to workspace 4;
+bindsym $mod+Shift+5 move container to workspace 5;
+bindsym $mod+Shift+6 move container to workspace 6;
+bindsym $mod+Shift+7 move container to workspace 7;
+bindsym $mod+Shift+8 move container to workspace 8;
+bindsym $mod+Shift+9 move container to workspace 9;
+bindsym $mod+Shift+0 move container to workspace 10;
+
+# application launcher
+bindsym $mod+d exec --no-startup-id "rofi -show combi -modes combi -combi-modes 'window,drun,run'"
+
+# i3 reload conf
+bindsym $mod+Shift+c reload
+
+# i3 restart
+bindsym $mod+Shift+r restart
+
+# i3 kill
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# quit application
+bindsym $mod+Shift+q kill
+
+# force quit application
+bindsym --release $mod+Escape exec xkill
+
+# switch application
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move application (in the same workspace)
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split from now on
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+
+# application to fullscreen
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating application
+bindsym $mod+Shift+space floating toggle
+
+# toggle focus between tiling / floating application
+bindsym $mod+space focus mode_toggle
+
+# mouse + $mod to drag/move floating application
+floating_modifier $mod
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym Right resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# screenshot
+bindsym Print exec --no-startup-id maim $screenshots_path
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) $screenshots_path
+bindsym Shift+Print exec --no-startup-id maim --select $screenshots_path
+
+## clipboard screenshots
+bindsym Control+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Control+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Control+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+# audio
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10% && $refresh_i3status
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- && $refresh_i3status
+
+# toggle bar status
+bindsym $mod+b bar mode toggle

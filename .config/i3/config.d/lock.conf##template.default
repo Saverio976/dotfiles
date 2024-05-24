@@ -1,0 +1,4 @@
+set $locker i3lock -c 000000 --show-failed-attempts -i '{{ env.HOME }}/.local/share/wallpaper/planet_orbit.png'
+
+bindsym Mod1+l exec "$locker && xset dpms force off"
+bindsym Control+Mod1+l exec "$locker && systemctl suspend"

@@ -1,0 +1,3 @@
+set $bgs_path "{{ env.HOME }}/.local/share/wallpaper"
+
+exec feh --bg-scale --no-fehbg --randomize $bgs_path
