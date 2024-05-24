@@ -101,3 +101,7 @@ vim.g.loaded_gzip = 1
 vim.g.loaded_spellfile_plugin = 1
 vim.g.loaded_tarPlugin = 1
 vim.g.loaded_zipPlugin = 1
+
+-- case insensitive except when Maj in it
+vim.o.ignorecase = 1
+vim.o.smartcase = 1
