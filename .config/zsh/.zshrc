@@ -7,7 +7,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
     git
-    zsh-syntax-highlighting
+    fast-syntax-highlighting
     zsh-autosuggestions
     zsh-history-substring-search
     zsh-completions
@@ -106,6 +106,9 @@ command -v kubectl &>/dev/null && source <(kubectl completion zsh) || true
 # stern completion
 command -v stern &>/dev/null && source <(stern --completion zsh) || true
 
+# helm completion
+command -v helm &>/dev/null && source <(helm completion zsh) || true
+
 # atuin init
 command -v atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)" || true
 # atuin completion
@@ -159,7 +162,9 @@ alias_if_exists "vim"                   'nvim'
 alias_if_exists "vi"                    'nvim'
 alias_if_exists "ip"                    'ip -color=auto'
 alias_if_exists "kx"                    'kubectx '
+alias_if_exists "kx-"                   'kubectx -'
 alias_if_exists "kn"                    'kubens '
+alias_if_exists "kn-"                   'kubens -'
 
 if command -v kubectx &>/dev/null; then
     function kxn() {
