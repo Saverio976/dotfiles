@@ -1,3 +1,5 @@
+set $mod Mod4
+
 for_window [all] title_window_icon padding 2px
 title_align left
 default_border pixel 5
