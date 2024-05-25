@@ -23,7 +23,7 @@
 # timezone = "local"
 
 ## enable or disable automatic sync
-# auto_sync = true
+auto_sync = true
 
 ## enable or disable automatic update checks
 # update_check = true
@@ -46,7 +46,7 @@ sync_frequency = "10h"
 
 ## With workspace filtering enabled, Atuin will filter for commands executed
 ## in any directory within a git repository tree (default: false)
-# workspaces = false
+workspaces = false
 
 ## which filter mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "filter_mode"
@@ -60,7 +60,7 @@ sync_frequency = "10h"
 
 ## which style to use
 ## possible values: auto, full, compact
-# style = "auto"
+style = "compact"
 
 ## the maximum number of lines the interface should take up
 ## set it to 0 to always go full screen
@@ -71,7 +71,7 @@ sync_frequency = "10h"
 
 ## enable or disable showing a preview of the selected command
 ## useful when the command is longer than the terminal width and is cut off
-# show_preview = false
+show_preview = true
 
 ## what to do when the escape key is pressed when searching
 ## possible values: return-original, return-query
@@ -163,37 +163,40 @@ enter_accept = false
 [stats]
 ## Set commands where we should consider the subcommand for statistics. Eg, kubectl get vs just kubectl
 common_subcommands = [
-#   "apt",
+    "apt",
+    "pacman",
+    "systemctl",
+    "git",
+    "nmcli",
+    "npm",
+    "yarn",
+    "podman",
+    "docker",
+    "kubectl",
+    "k",
+#   "port",
+#   "tmux",
 #   "cargo",
 #   "composer",
 #   "dnf",
-  "docker",
-  "git",
-#   "go",
-#   "ip",
-  "kubectl",
-  "k",
-#   "nix",
-#   "nmcli",
-#   "npm",
 #   "pecl",
 #   "pnpm",
-  "podman",
-#   "port",
-  "systemctl",
-#   "tmux",
-#   "yarn",
+#   "go",
+#   "ip",
+#   "nix",
 ]
 
 ## Set commands that should be totally stripped and ignored from stats
-# common_prefix = ["sudo"]
+common_prefix = ["sudo", "_"]
 
 ## Set commands that will be completely ignored from stats
-# ignored_commands = [
-#   "cd",
-#   "ls",
-#   "vi"
-# ]
+ignored_commands = [
+    "cd",
+    "ls",
+    "vi",
+    "vim",
+    "nvim",
+]
 
 [keys]
 # Defaults to true. If disabled, using the up/down key won't exit the TUI when scrolled past the first/last entry.
