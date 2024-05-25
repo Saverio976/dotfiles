@@ -1,4 +1,4 @@
-#exec_always picom --vsync
+exec_always picom
 
 exec --no-startup-id blueman-applet
 
