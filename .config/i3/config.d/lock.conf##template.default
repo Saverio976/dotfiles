@@ -1,4 +1,7 @@
-set $locker i3lock -c 000000 --show-failed-attempts -i '{{ env.HOME }}/.local/share/wallpaper/planet_orbit.png'
+#          rrggbb
+set $color 000000
+set $image_page {{ env.HOME }}/.local/share/wallpaper/planet_orbit.png
+set $locker {{ env.HOME }}/.config/i3/lock.sh
 
-bindsym Mod1+l exec "$locker && xset dpms force off"
-bindsym Control+Mod1+l exec "$locker && systemctl suspend"
+bindsym Mod1+l exec "$locker $color $image_page --nofork"
+bindsym Control+Mod1+l exec "$locker $color $image_page && systemctl suspend"
