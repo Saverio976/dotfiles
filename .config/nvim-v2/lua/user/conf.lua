@@ -103,5 +103,5 @@ vim.g.loaded_tarPlugin = 1
 vim.g.loaded_zipPlugin = 1
 
 -- case insensitive except when Maj in it
-vim.o.ignorecase = 1
-vim.o.smartcase = 1
+vim.o.ignorecase = true
+vim.o.smartcase = true
