@@ -154,7 +154,7 @@ alias_if_exists "wget"                  'wget --hsts-file="$XDG_DATA_HOME/wget-h
 alias_if_exists "epitest"               'podman run -it --rm -v "$PWD:/code" -w "/code" docker.io/epitechcontent/epitest-docker bash'
 alias_if_exists "epitest"               'docker run -it --rm -v "$PWD:/code" -w "/code" -u "$UID:$GID" docker.io/epitechcontent/epitest-docker bash'
 alias_if_exists "nvim"                  'floaterm '
-alias_if_exists "mirrord"               'sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist'
+alias_if_exists "mirrord"               'sudo reflector --country FR,GB --latest 300 --protocol https --number 30 --sort rate --save /etc/pacman.d/mirrorlist'
 alias_if_exists "ls"                    'eza -lha'
 alias_if_exists "cat"                   'bat'
 alias_if_exists "htop"                  'btop'
