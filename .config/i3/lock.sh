@@ -16,7 +16,6 @@ if [ "$nofork" = "--nofork" ]; then
         --image "$bg_image" \
         --show-failed-attempts \
         --ignore-empty-password \
-        --show-keyboard-layout \
         --tiling \
         $nofork
     revert
@@ -26,7 +25,6 @@ else
         --image "$bg_image" \
         --show-failed-attempts \
         --ignore-empty-password \
-        --show-keyboard-layout \
         --tiling \
         && (systemctl suspend-then-hibernate || systemctl suspend)
 fi
