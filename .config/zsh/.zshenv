@@ -140,9 +140,12 @@ export W3M_DIR="$XDG_STATE_HOME/w3m"
 # DOCKER
 # ----------------------------------------------------------------------------
 export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/docker.sock"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
 # ----------------------------------------------------------------------------
 # kubernetes
 # ----------------------------------------------------------------------------
 export KUBECONFIG="$XDG_CONFIG_HOME/kube"
 export KUBECACHEDIR="$XDG_CACHE_HOME/kube"
+export KREW_ROOT="$XDG_DATA_HOME/krew"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
