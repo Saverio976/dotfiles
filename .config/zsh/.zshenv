@@ -41,7 +41,7 @@ export ZSH_CUSTOM="$XDG_CONFIG_HOME/ohmyzsh-custom"
 # LESS
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 # WGET
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias wget="wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
 
 # ----------------------------------------------------------------------------
 # ANDROID
@@ -67,6 +67,7 @@ export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf-conf/asdfrc"
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 # RUST
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export PATH="$PATH:$CARGO_HOME/env"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 # NODEJS
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
