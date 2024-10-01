@@ -1,5 +1,0 @@
-#!/bin/bash
-
-rofi -show powermenu -modi 'powermenu:{{ env.HOME }}/.local/share/rofi-power-menu/rofi-power-menu'
-
-# vi: ft=bash
