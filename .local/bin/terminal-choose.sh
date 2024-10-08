@@ -1,17 +1,17 @@
 if command -v st 2>/dev/null; then
-    exec st
+    exec st "${@:2}"
 elif command -v alacritty 2>/dev/null; then
-    exec alacritty
+    exec alacritty "${@:2}"
 elif [ -x $HOME/.local/bin/alacritty ]; then
-    exec "$HOME/.local/bin/alacritty"
+    exec "$HOME/.local/bin/alacritty" "${@:2}"
 elif command -v kitty 2>/dev/null; then
-    exec kitty
+    exec kitty "${@:2}"
 elif [ -x $HOME/.local/bin/kitty ]; then
-    exec "$HOME/.local/bin/kitty"
+    exec "$HOME/.local/bin/kitty" "${@:2}"
 elif command -v foot 2>/dev/null; then
-    exec foot
+    exec foot "${@:2}"
 elif [ -x $HOME/.local/bin/foot ]; then
-    exec "$HOME/.local/bin/foot"
+    exec "$HOME/.local/bin/foot" "${@:2}"
 elif command -v xterm 2>/dev/null; then
-    exec xterm
+    exec xterm "${@:2}"
 fi
