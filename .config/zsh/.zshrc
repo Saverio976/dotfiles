@@ -1,4 +1,5 @@
 # vi: ft=bash
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -63,9 +64,9 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -f $XDG_CONFIG_HOME/zsh/.p10k.zsh ]] || source $XDG_CONFIG_HOME/zsh/.p10k.zsh
 
-if command -v nvim &>/dev/null; then
+if [ $commands[nvim] ]; then
     export EDITOR=nvim
-elif command -v vim &>/dev/null; then
+elif [ $commands[vim] ]; then
     export EDITOR=vim
 else
     export EDITOR=nano
@@ -75,44 +76,32 @@ fi
 # INITIALIZE COMMAND
 
 # thefuck init
-command -v thefuck &>/dev/null && eval $(thefuck --alias f) || true
-
-# zoxide init
-command -v zoxide &>/dev/null && eval "$(zoxide init zsh --cmd z)" || true
-
-# fix GPG_TTY not set
-if command -v gpg &> /dev/null && command -v git &> /dev/null
-then
-    OLD_GIT=$(which git)
-    function git () {
-        export GPG_TTY=$(tty)
-        $OLD_GIT $@
-    }
-fi
-
-# fix GPG_TTY not set
-if command -v gpg &> /dev/null && command -v git &>/dev/null && command -v yadm &>/dev/null &> /dev/null
-then
-    OLD_YADM=$(which yadm)
-    function yadm () {
-        export GPG_TTY=$(tty)
-        $OLD_YADM $@
-    }
+if [ $commands[thefuck] ]; then
+    eval $(thefuck --alias f)
 fi
 
 # kubectl completion
-command -v kubectl &>/dev/null && source <(kubectl completion zsh) || true
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
 
 # stern completion
-command -v stern &>/dev/null && source <(stern --completion zsh) || true
+if [ $commands[stern] ]; then
+    source <(stern --completion zsh)
+fi
 
 # helm completion
-command -v helm &>/dev/null && source <(helm completion zsh) || true
+if [ $commands[helm] ]; then
+    source <(helm completion zsh)
+fi
 
-# atuin init
-command -v atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)" || true
-# atuin completion
-command -v atuin &>/dev/null && source <(atuin gen-completions --shell zsh) || true
+# atuin
+if [ $commands[atuin] ]; then
+    # atuin init
+    eval "$(atuin init zsh --disable-up-arrow)"
+    # atuin completion
+    source <(atuin gen-completions --shell zsh)
+fi
 
 # load ghc
 [ -f "$XDG_DATA_HOME/ghcup/env" ] && source "/home/saverio/.local/share/ghcup/env" || true
@@ -126,47 +115,40 @@ command -v atuin &>/dev/null && source <(atuin gen-completions --shell zsh) || t
 ##############################################################################
 # ALIAS
 
-local function alias_if_exists() {
-    command_exists=$(echo $2 | awk '{print $1;}')
-    if [[ "$command_exists" == "sudo" ]] && command -v "$command_exists" &>/dev/null; then
-        command_exists=$(echo $2 | awk '{print $2;}')
-    fi
-    if command -v "$command_exists" &>/dev/null; then
-        alias $1="$2"
-    fi
-}
-
 function fnalias() {
     $1 $(echo "${@:2}" | sed 's/--color=.\+/--color=force/')
 }
 
+alias ip='ip -color=auto'
 alias sudo='sudo '
 alias watch='fnalias watch -c '
 alias xargs='xargs '
-alias_if_exists "mount"                 'udisksctl mount -b '
-alias_if_exists "unmount"               'udisksctl unmount -b '
-alias_if_exists "audio-input-toggle"    'pactl set-source-mute @DEFAULT_SOURCE@ toggle'
-alias_if_exists "audio-output-toggle"   'pactl set-sink-mute @DEFAULT_SINK@ toggle'
-alias_if_exists "scrcpy"                'scrcpy -S -w --power-off-on-close --disable-screensaver '
-alias_if_exists "termtosvg"             'python3 -m termtosvg'
-alias_if_exists "yarn"                  'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config '
-alias_if_exists "wget"                  'wget --hsts-file="$XDG_DATA_HOME/wget-hsts" '
-alias_if_exists "epitest"               'podman run -it --rm -v "$PWD:/code" -w "/code" docker.io/epitechcontent/epitest-docker bash'
-alias_if_exists "epitest"               'docker run -it --rm -v "$PWD:/code" -w "/code" -u "$UID:$GID" docker.io/epitechcontent/epitest-docker bash'
-alias_if_exists "nvim"                  'floaterm '
-alias_if_exists "mirrord"               'sudo reflector --country FR,GB --latest 300 --protocol https --number 30 --sort rate --save /etc/pacman.d/mirrorlist'
-alias_if_exists "ls"                    'eza --long --all --icons=auto --group-directories-first --header'
-alias_if_exists "cat"                   'bat'
-alias_if_exists "htop"                  'btop'
-alias_if_exists "vim"                   'nvim'
-alias_if_exists "vi"                    'nvim'
-alias_if_exists "ip"                    'ip -color=auto'
-alias_if_exists "kx"                    'kubectx '
-alias_if_exists "kx-"                   'kubectx -'
-alias_if_exists "kn"                    'kubens '
-alias_if_exists "kn-"                   'kubens -'
+alias epitest='podman run -it --rm -v "$PWD:/code" -w "/code" docker.io/epitechcontent/epitest-docker bash'
+alias mirrord='sudo reflector --country FR,GB --latest 300 --protocol https --number 30 --sort rate --save /etc/pacman.d/mirrorlist'
 
-if command -v kubectx &>/dev/null; then
+if [ $commands[yarn] ]; then
+    alias yarn'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config '
+fi
+if [ $commands[wget] ]; then
+    alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts" '
+fi
+if [ $command[floaterm] ]; then
+    alias nvim="floaterm"
+fi
+if [ $commands[eza] ]; then
+    alias ls='eza --long --all --icons=auto --group-directories-first --header'
+fi
+
+if [ $commands[bat] ]; then
+    alias cat=bat
+fi
+
+if [ $commands[nvim] ]; then
+    alias vi='nvim'
+fi
+
+if [ $commands[kubectx] ]; then
+    alias kx='kubectx '
     function kxn() {
         1="$(echo "$1" | tr -c '[:alnum:]-_' '[ *]')"
         local ctx="$(echo - "$1" | awk '{print $1}')"
@@ -175,6 +157,9 @@ if command -v kubectx &>/dev/null; then
         kubectx ${ctx:l}
         [ -n "$ns" ] && kubens "${ns:l}"
     }
+fi
+if [ $commands[kubens] ]; then
+    alias kn='kubens '
 fi
 
 ##############################################################################
