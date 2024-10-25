@@ -12,4 +12,3 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 HISTFILE=""
-source "/home/saverio/.local/share/cargo/env"
