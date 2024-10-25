@@ -36,14 +36,6 @@ lazy.setup({
         },
         config = function() require("user.lsp") end,
     },
-    {
-        "zeioth/garbage-day.nvim",
-        dependencies = "neovim/nvim-lspconfig",
-        event = "VeryLazy",
-        opts = {
-            -- your options here
-        }
-    },
 
     --------------------------------------------------------------------------
     -- completions
@@ -236,11 +228,10 @@ lazy.setup({
     --------------------------------------------------------------------------
     -- colorschemes
     {
-        'uloco/bluloco.nvim',
-        lazy = false,
+        "bluz71/vim-nightfly-colors",
+        lasy = false,
         priority = 1000,
-        dependencies = { 'rktjmp/lush.nvim' },
-        config = function() require("user.themes.bluloco") end,
+        config = function() vim.cmd('colorscheme nightfly') end,
     },
 
     --------------------------------------------------------------------------
