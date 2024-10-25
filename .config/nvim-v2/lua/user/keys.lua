@@ -7,8 +7,6 @@ set_km('t', '<A-=>', '<CMD>FloatermToggle<CR>', {desc = 'FloatTermToggle', norem
 
 set_km('t', '<Esc><Esc>', [[<C-\><C-n>]])
 
-set_km('n', '<leader>u', require('undotree').toggle, {desc = 'undotree', noremap=true, silent=true})
-
 set_km('n', '<space>e', vim.diagnostic.open_float, { desc = 'diagnostic.open_float', noremap=true, silent=true })
 set_km('n', '[d', vim.diagnostic.goto_prev, { desc = 'diagnostic.goto_prev', noremap=true, silent=true })
 set_km('n', ']d', vim.diagnostic.goto_next, { desc = 'diagnostic.goto_next', noremap=true, silent=true })

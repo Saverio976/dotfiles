@@ -108,7 +108,7 @@ lazy.setup({
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        config = function() require("undotree").setup() end,
+        config = function() require("user.undotree").setup() end,
     },
     {
         "voldikss/vim-floaterm",
