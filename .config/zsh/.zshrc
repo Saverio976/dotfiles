@@ -1,10 +1,10 @@
 # vi: ft=bash
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME=""
 
 plugins=(
     git
@@ -15,14 +15,19 @@ plugins=(
     kubectl
     docker
     colored-man-pages
-    copypath
     copyfile
-    docker-compose
     gitignore
     alias-tips
+    branch
+    timer
+    kube-ps1
+    battery
 )
 
 fpath+="${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src"
+
+export TIMER_PRECISION=2
+export TIMER_THRESHOLD=1
 
 # The following lines were added by compinstall
 
@@ -62,7 +67,9 @@ setopt EXTENDED_HISTORY
 
 source $ZSH/oh-my-zsh.sh
 
-[[ ! -f $XDG_CONFIG_HOME/zsh/.p10k.zsh ]] || source $XDG_CONFIG_HOME/zsh/.p10k.zsh
+#[[ ! -f $XDG_CONFIG_HOME/zsh/.p10k.zsh ]] || source $XDG_CONFIG_HOME/zsh/.p10k.zsh
+
+source "${ZDOTDIR:-${XDG_CONFIG_HOME/zsh/:$HOME/.config/zsh}}/.prompt.zsh"
 
 if [ $commands[nvim] ]; then
     export EDITOR=nvim
