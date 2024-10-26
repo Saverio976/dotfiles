@@ -29,6 +29,3 @@ fi
 
 # time
 RPROMPT="$RPROMPT"'(%B%F{blue}%t%f%b)'
-
-# battery
-RPROMPT="$RPROMPT"' [$(battery_pct_prompt)]'
