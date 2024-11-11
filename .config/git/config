@@ -5,6 +5,8 @@
 [init]
     defaultBranch = main
     ; templateDir = ~/source/SAMPLE_C_PROJECT
+[push]
+    autoSetupRemote = true
 [pull]
     rebase = false
 [commit]
