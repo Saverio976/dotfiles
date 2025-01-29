@@ -34,11 +34,6 @@ set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 
-" highlight cursor line
-autocmd BufWinEnter * set cursorline
-autocmd InsertLeave,WinEnter * set cursorline
-autocmd InsertEnter,WinLeave * set nocursorline
-
 " fffffast
 set ttyfast
 set lazyredraw
