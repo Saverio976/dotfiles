@@ -8,6 +8,9 @@ assign [class="Chromium|Google-chrome"] → 1
 # deskreen
 assign [class="deskreen"] → 10
 
+# music
+assign [class="Spotube"] → 10
+
 # games
 assign [class="heroic"] → 8
 assign [class="rocketleague.exe"] → 9
