@@ -87,12 +87,11 @@ lazy.setup({
             "tg",
         },
         dependencies = {
-            "otavioschwanck/telescope-alternate",
             {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = "make",
                 cond = function()
-                    return vim.fn.executable 'make' == 1
+                    return vim.fn.executable('make') == 1
                 end,
             },
             {
@@ -100,7 +99,7 @@ lazy.setup({
                 enabled = vim.g.have_nerd_font,
             },
         },
-        config = function() require("user.telescope") end,
+        config = function() require("saverio976.telescope") end,
     },
     {
         "jiaoshijie/undotree",
