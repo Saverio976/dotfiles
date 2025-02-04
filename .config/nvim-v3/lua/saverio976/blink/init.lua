@@ -1,7 +1,7 @@
 local blink = require('blink.cmp')
 
 blink.setup({
-    keymap = { preset = 'default' },
+    keymap = { preset = 'super-tab' },
     completion = {
         menu = { border = 'single' },
         documentation = { window = { border = 'single' } },
