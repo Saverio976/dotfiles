@@ -1,17 +1,19 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
+local g = vim.g
 
-vim.g.have_nerd_font = true
+g.mapleader = ' '
+g.maplocalleader = '\\'
+
+g.have_nerd_font = true
 
 -- no bell
-vim.g.noerrorbells = true
-vim.g.novisualbell = true
+g.noerrorbells = true
+g.novisualbell = true
 
-vim.g.t_vb = ""
+g.t_vb = ''
 
 -- no defaults plugin
-vim.g.loaded_2html_plugin = 1
-vim.g.loaded_gzip = 1
-vim.g.loaded_spellfile_plugin = 1
-vim.g.loaded_tarPlugin = 1
-vim.g.loaded_zipPlugin = 1
+g.loaded_2html_plugin = 1
+g.loaded_gzip = 1
+g.loaded_spellfile_plugin = 1
+g.loaded_tarPlugin = 1
+g.loaded_zipPlugin = 1

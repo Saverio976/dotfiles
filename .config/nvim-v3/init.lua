@@ -1,3 +1,3 @@
-vim.loader.enable()
+vim.loader.enable({ enable=true })
 
-require("saverio976")
+require('saverio976')
