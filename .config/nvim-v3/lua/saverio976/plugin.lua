@@ -56,7 +56,7 @@ lazy.setup({
         'nvim-telescope/telescope.nvim',
         lazy = true,
         cmd = 'Telescope',
-        keys = { 'tf', 'tb', 'tg' },
+        keys = { 'tf', 'tb', 'tg', '<leader>f' },
         dependencies = {
             {
                 'nvim-telescope/telescope-fzf-native.nvim',
@@ -66,6 +66,10 @@ lazy.setup({
             {
                 'nvim-tree/nvim-web-devicons',
                 enabled = vim.g.have_nerd_font,
+            },
+            {
+                'nvim-telescope/telescope-file-browser.nvim',
+                dependencies = { 'nvim-lua/plenary.nvim' }
             },
         },
         config = function() require('saverio976.telescope') end,

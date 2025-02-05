@@ -2,6 +2,8 @@ local telescope = require("telescope")
 
 local actions = require("telescope.actions")
 
+local fb_actions = telescope.extensions.file_browser.actions
+
 local vimgrep_arguments = {
     'grep',
 
@@ -58,6 +60,20 @@ telescope.setup({
             fuzzy = true,
             case_mode = 'smart_case'
         },
+        file_browser = {
+            hijack_netrw = true,
+            mappings = {
+                ['i'] = {
+                    ['<C-a>'] = fb_actions.create,
+                    ['<C-r>'] = fb_actions.rename,
+                    ['<C-c>'] = fb_actions.copy,
+                    ['<C-d>'] = fb_actions.remove,
+                },
+                ['n'] = {
+                    -- your custom normal mode mappings
+                },
+            },
+        },
     },
     pickers = {
         find_files = {
@@ -67,6 +83,7 @@ telescope.setup({
 })
 
 telescope.load_extension('fzf')
+telescope.load_extension('file_browser')
 
 vim.keymap.set('n', 'tf',
     '<cmd>Telescope find_files<cr>',
@@ -82,5 +99,9 @@ vim.keymap.set('n', 'tb',
 )
 vim.keymap.set('n', 'th',
     '<cmd>Telescope help_tags<cr>',
+    { desc = 'Telescope help_tags', noremap = true, silent = true }
+)
+vim.keymap.set('n', '<leader>f',
+    '<cmd>Telescope file_browser<cr>',
     { desc = 'Telescope help_tags', noremap = true, silent = true }
 )
