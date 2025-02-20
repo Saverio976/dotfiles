@@ -21,13 +21,13 @@ PROMPT=""
 PROMPT="$PROMPT${main_color}󱞫"'%(?.. %?)'"${main_reset}"
 
 # directory
-PROMPT="$PROMPT ${main_color}[${main_reset}${color_bold}${color_yellow}${home_dir}${color_reset}${main_color}]${main_reset}"
+PROMPT="$PROMPT ${main_color}󰛂 ${main_reset}${color_bold}${color_yellow}${home_dir}${color_reset}${main_color} 󰛂${main_reset}"
 
 # git branch
 PROMPT="$PROMPT ${color_magenta}${branch_str}${main_reset}${main_color}:[${main_reset}${color_bold}${color_cyan}${branch_info}${color_reset}${main_color}]${main_reset}"
 
 # admin or user
-PROMPT="$PROMPT ${main_color}${main_reset}"
+PROMPT="$PROMPT ${main_color}󱞣${main_reset}"
 
 # end
 PROMPT="$PROMPT""
@@ -43,4 +43,4 @@ if [ $commands[kubectl] ]; then
 fi
 
 # time
-RPROMPT="$RPROMPT""${main_color}(${main_reset}${color_bold}${color_blue}${time_info}${color_reset}${main_color})${color_reset}"
+RPROMPT="$RPROMPT""${main_color}󱞡${main_reset}${color_bold}${color_blue}${time_info}${color_reset}${main_color} 󱞣${color_reset}"
