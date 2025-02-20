@@ -85,23 +85,4 @@ telescope.setup({
 telescope.load_extension('fzf')
 telescope.load_extension('file_browser')
 
-vim.keymap.set('n', 'tf',
-    '<cmd>Telescope find_files<cr>',
-    { desc = 'Telescope find_files', noremap = true, silent = true }
-)
-vim.keymap.set('n', 'tg',
-    '<cmd>Telescope live_grep<cr>',
-    { desc = 'Telescope live_grep', noremap = true, silent = true }
-)
-vim.keymap.set('n', 'tb',
-    '<cmd>Telescope buffers<cr>',
-    { desc = 'Telescope buffers', noremap = true, silent = true }
-)
-vim.keymap.set('n', 'th',
-    '<cmd>Telescope help_tags<cr>',
-    { desc = 'Telescope help_tags', noremap = true, silent = true }
-)
-vim.keymap.set('n', '<leader>f',
-    '<cmd>Telescope file_browser<cr>',
-    { desc = 'Telescope help_tags', noremap = true, silent = true }
-)
+require('saverio976.telescope.keybind')

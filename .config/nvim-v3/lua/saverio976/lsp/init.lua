@@ -88,3 +88,5 @@ end
 
 local gotopreview = require('goto-preview')
 gotopreview.setup({})
+
+require('saverio976.lsp.keybind')

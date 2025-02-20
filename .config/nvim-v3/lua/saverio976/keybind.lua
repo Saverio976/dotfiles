@@ -1,5 +1,4 @@
 require('saverio976.fterm.keybind')
-require('saverio976.lsp.keybind')
 
 local km_set = vim.keymap.set
 
