@@ -37,9 +37,10 @@ telescope.setup({
             '__pycache__/', '__pycache__/*',
             'node_modules/', 'node_modules/*',
             'dist/', 'dist/*', 'build/', 'build/*',
-            '.git/', '.git/*',
-            '.gradle', '.idea/', '.vscode/',
-            '.dll', '.idea/*', '.vscode/*'
+            '\\.git/', '\\.git/*',
+            '\\.gradle', '\\.idea/', '\\.vscode/',
+            '\\.dll', '\\.idea/*', '\\.vscode/*',
+            '*\\.o', '*\\.a', '*\\.lib',
         },
         file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
         grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
