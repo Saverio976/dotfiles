@@ -1,8 +1,5 @@
 # vi: ft=bash
 
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
 export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
 ZSH_THEME=""
 
@@ -17,7 +14,6 @@ plugins=(
     colored-man-pages
     copyfile
     gitignore
-    alias-tips
     branch
     timer
     kube-ps1
@@ -67,8 +63,6 @@ setopt EXTENDED_HISTORY
 
 source $ZSH/oh-my-zsh.sh
 
-#[[ ! -f $XDG_CONFIG_HOME/zsh/.p10k.zsh ]] || source $XDG_CONFIG_HOME/zsh/.p10k.zsh
-
 source "${ZDOTDIR:-${XDG_CONFIG_HOME/zsh/:$HOME/.config/zsh}}/.prompt.zsh"
 
 if [ $commands[nvim] ]; then
@@ -81,11 +75,6 @@ fi
 
 ##############################################################################
 # INITIALIZE COMMAND
-
-# thefuck init
-if [ $commands[thefuck] ]; then
-    eval $(thefuck --alias f)
-fi
 
 # kubectl completion
 if [ $commands[kubectl] ]; then
@@ -100,14 +89,6 @@ fi
 # helm completion
 if [ $commands[helm] ]; then
     source <(helm completion zsh)
-fi
-
-# atuin
-if [ $commands[atuin] ]; then
-    # atuin init
-    eval "$(atuin init zsh --disable-up-arrow)"
-    # atuin completion
-    source <(atuin gen-completions --shell zsh)
 fi
 
 # load ghc
@@ -134,20 +115,13 @@ alias epitest='podman run -it --rm -v "$PWD:/code" -w "/code" docker.io/epitechc
 alias mirrord='sudo reflector --country FR,GB --latest 300 --protocol https --number 30 --sort rate --save /etc/pacman.d/mirrorlist'
 
 if [ $commands[yarn] ]; then
-    alias yarn'yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config '
+    alias yarn='yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config '
 fi
 if [ $commands[wget] ]; then
     alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts" '
 fi
-if [ $command[floaterm] ]; then
-    alias nvim="floaterm"
-fi
 if [ $commands[eza] ]; then
     alias ls='eza --long --all --icons=auto --group-directories-first --header'
-fi
-
-if [ $commands[bat] ]; then
-    alias cat=bat
 fi
 
 if [ $commands[nvim] ]; then
@@ -168,19 +142,3 @@ fi
 if [ $commands[kubens] ]; then
     alias kn='kubens '
 fi
-
-##############################################################################
-# CUSTOM FUNCTION
-
-# clean pacman cache
-function cleanpacman () {
-    OLDPKG=$(pacman -Qdtq)
-    if [[ "$OLDPKG" != "" ]]; then
-        sudo pacman -Rns $OLDPKG
-    fi
-    if [[ "$1" == "y" ]]; then
-        yes | sudo pacman -Scc
-    else
-        sudo pacman -Scc
-    fi
-}
