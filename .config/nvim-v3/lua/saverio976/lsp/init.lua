@@ -68,7 +68,7 @@ local names = {
     -- 'bashls',                -- bash         -- https://github.com/mads-hartmann/bash-language-server
     -- 'dockerls',              -- docker       -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
 
-    -- 'ts_ls',              -- js/ts        -- https://github.com/typescript-language-server/typescript-language-server
+    'ts_ls',              -- js/ts        -- https://github.com/typescript-language-server/typescript-language-server
     -- 'cssls',                 -- css          -- https://github.com/hrsh7th/vscode-langservers-extracted
     -- 'html',                  -- html         -- https://github.com/hrsh7th/vscode-langservers-extracted
     -- 'jsonls',                -- json         -- https://github.com/hrsh7th/vscode-langservers-extracted

@@ -9,6 +9,7 @@ else
 end
 
 opt.termguicolors = true
+opt.background = 'light'
 
 vim.cmd([[syntax enable]])
 

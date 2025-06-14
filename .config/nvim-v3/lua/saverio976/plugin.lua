@@ -96,6 +96,10 @@ lazy.setup({
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function() require('gitsigns').setup() end,
     },
+    {
+        'ollykel/v-vim',
+        event = 'BufEnter',
+    },
 
     --------------------------------------------------------------------------
     -- text interraction
