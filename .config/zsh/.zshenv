@@ -53,12 +53,12 @@ alias wget="wget --hsts-file=\"$XDG_DATA_HOME/wget-hsts\""
 # ----------------------------------------------------------------------------
 # ANDROID SDK
 export ANDROID_HOME="$XDG_STATE_HOME/Android/Sdk"
-if [[ ! -d "$ANDROID_HOME" ]]; then
+if [[ -d "$ANDROID_HOME" ]]; then
     export PATH="$PATH:$ANDROID_HOME/emulator"
     export PATH="$PATH:$ANDROID_HOME/platform-tools"
     export PATH="$PATH:$ANDROID_HOME/tools"
     export PATH="$PATH:$ANDROID_HOME/tools/bin"
-    if [[ ! -d "/opt/android-studio" ]]; then
+    if [[ -d "/opt/android-studio" ]]; then
         export PATH="$PATH:/opt/android-studio/bin"
     fi
 fi
