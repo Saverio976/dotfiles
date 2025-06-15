@@ -49,10 +49,11 @@ end
 local cap = require('blink.cmp').get_lsp_capabilities()
 
 local function try_setup_server(server, lspconf, on_attach, capabilities)
-    lspconf[server].setup({
+    vim.lsp.config(server, {
         on_attach = on_attach,
         capabilities = capabilities,
     })
+    vim.lsp.enable(server)
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
